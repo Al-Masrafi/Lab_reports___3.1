@@ -1,0 +1,26 @@
+\contentsline {section}{\numberline {1}Fundamentals and Error Analysis}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Basic Concepts and Importance}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Error Calculation and Definitions}{2}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Solution of Nonlinear Equations (Root Finding)}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}General Concepts and Method Comparison}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Bisection Method}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}False-Position (Regula-Falsi) Method}{3}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Newton-Raphson Method}{3}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Secant Method}{4}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Fixed-Point Iteration}{4}{subsection.2.6}%
+\contentsline {section}{\numberline {3}Systems of Linear Algebraic Equations}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}General Concepts and Direct Methods (Gauss, LU)}{4}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Iterative Methods (Jacobi, Gauss-Seidel, SOR)}{4}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Curve Fitting and Regression}{5}{section.4}%
+\contentsline {section}{\numberline {5}Interpolation}{5}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Lagrange and Newton's Methods}{5}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Applications of Interpolation}{6}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Numerical Differentiation and Integration}{6}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Numerical Differentiation}{6}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Numerical Integration (Trapezoidal, Simpson's, Romberg)}{6}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Gauss Quadrature}{7}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Applications}{7}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Solution of Ordinary Differential Equations (ODEs)}{7}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Initial Value Problems (Euler, Runge-Kutta)}{7}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Boundary Value Problems}{7}{subsection.7.2}%
+\contentsline {section}{\numberline {8}Solution of Partial Differential Equations (PDEs)}{8}{section.8}%

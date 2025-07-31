@@ -1,0 +1,221 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\geometry{
+	a4paper,
+	left=2cm,
+	right=2cm,
+	top=2.5cm,
+	bottom=2.5cm
+}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+}
+
+\begin{document}
+	
+	\begin{center}
+		\large\textbf{Rajshahi University of Engineering \& Technology} \\
+		\textbf{Department of Electrical \& Electronic Engineering} \\
+		\textbf{Course: Computational Methods in Electrical Engineering (EEE 3109 and equivalent)} \\
+		\hrule
+		\vspace{0.5cm}
+		\huge\textbf{Topic-wise Sorted Questions (2000-2022)}
+		\vspace{0.5cm}
+		\hrule
+	\end{center}
+	
+	\tableofcontents
+	\newpage
+	
+	\section{Fundamentals and Error Analysis}
+	
+	\subsection{Basic Concepts and Importance}
+	\begin{enumerate}
+		\item Why do we need to use numerical methods to solve engineering problems? Briefly explain. (2022)
+		\item What is input error? Classify this error and give suitable example(s) for each class. (2020)
+		\item Discuss the effect of step size on two main errors of numerical analysis showing the trade-off point. (2020)
+		\item Why is numerical method called computational method? What are the possible errors in computational methods? (2018)
+		\item Explain computational analysis using a mathematical model of a physical system. (2018)
+		\item Write down the relative advantages and disadvantages of iterative \& direct numerical methods. (2017)
+		\item Why numerical methods are important? Draw the diagram of engineering problem solving process. (2016)
+	\end{enumerate}
+	
+	\subsection{Error Calculation and Definitions}
+	\begin{enumerate}
+		\item Briefly discuss about truncation, rounding-off and algorithmic errors that may come into the computations of engineering problems. (2022)
+		\item Define (i) absolute error, (ii) relative error, and (iii) percentage error in result of a numerical calculation. (2022)
+		\item Define true error and relative error. What is the shortcoming of the definition of true error? An engineer has measured the height of a 10 floor building as 2950 cm and working height of each beam as 35 cm, while the true values are 2945 cm and 30 cm, respectively. Calculate their true and relative errors. (2020)
+		\item What are meant by absolute and relative errors? An approximate value of $\pi$ is given by $X_t = 3.1428571$ and its true value is $X = 3.1415926$. Find the absolute and relative errors. (2018)
+		\item 10 $\Omega$ and 100 $\Omega$ resistances are measured by an ohmmeter as 9 $\Omega$ and 90 $\Omega$ respectively. Discuss the process to find the appropriate error strength and identify which case is more erroneous. (2017)
+		\item Use 4\textsuperscript{th} order Taylor's series expression to approximate the function $f(x) = x^4 + \cos x$ from $x=0$ and predict the function value at $h = \frac{\pi}{8}$. Also, calculate the percentage error in the predicted value. (2022)
+	\end{enumerate}
+	
+	
+	\section{Solution of Nonlinear Equations (Root Finding)}
+	
+	\subsection{General Concepts and Method Comparison}
+	\begin{enumerate}
+		\item Discuss at least three difficulties for many numerical methods to find a root of a nonlinear function which contains multiple roots. Hint: A multiple root corresponds to a point where a function is tangent to the x-axis. (2020)
+		\item Compare the iterative methods and hence write the steps of a good practical way to solve nonlinear equation. (2018)
+	\end{enumerate}
+	
+	\subsection{Bisection Method}
+	\begin{enumerate}
+		\item For Bisection method, if $|b-a| \le 1$ and $\epsilon \le 0.001$, then show that $n > 10$, where symbols have their usual meanings. (2017)
+		\item Why do we use bisection method? Is it iterative? Discuss the answer. (2016)
+	\end{enumerate}
+	
+	\subsection{False-Position (Regula-Falsi) Method}
+	\begin{enumerate}
+		\item Consider the following equation: $f(x) = 3x + \sin x - e^x = 0$. Find the root of the above equation using False-position method with initial guesses of 0 and 1. Perform 4 iterations. (2022)
+		\item For 10k $\Omega$ Betatherm thermistor, the relationship between the resistor R and temperature T is given by $\frac{1}{T} = 1.12924 \times 10^{-3} + 2.341077 \times 10^{-4} \ln(R) + 8.775468 \times 10^{-8} [\ln(R)]^3$. Use False-position method to find the resistance R at 18.99$^{\circ}$C. Conduct three iterations. (2017)
+	\end{enumerate}
+	
+	\subsection{Newton-Raphson Method}
+	\begin{enumerate}
+		\item Derive the expression for the next approximation of a root of the non-linear equation $f(x)=0$ at a particular iteration stage by Newton-Raphson method. Briefly describe the limitations of this method to find the root. (2022)
+		\item Prove that Newton-Raphson method has a quadratic convergence. (2017)
+		\item For Newton-Raphson method, prove that $x_{i+1} = x_i - \frac{f(x_i)}{f'(x_i)}$, where symbols have their usual meaning. (2020, formula slightly different in image)
+		\item A total charge Q is uniformly distributed around a ring shaped conductor with radius 'a'. The force on a charge q at distance 'x' is $F = \frac{qQx}{4\pi\epsilon_0(x^2+a^2)^{3/2}}$. Find 'x' where the force is 1N if q and Q are $2 \times 10^{-5}$ C, radius a=0.9m, $\epsilon_0=8.854 \times 10^{-12}$. Use Newton-Raphson method. (2018)
+		\item Solve the following systems of nonlinear equations using Newton-Raphson (NR) iterative method, with initial estimate (0, 1, 1). Perform 3 iterations. 
+		$xy - \cos x + z^2 = 3.6$ \\
+		$x^2 - 2y^2 + z = 2.8$ \\
+		$3x + y \sin z = 2.8$ (2022)
+	\end{enumerate}
+	
+	\subsection{Secant Method}
+	\begin{enumerate}
+		\item For a separately excited dc generator, the transfer function is $T(s) = \frac{V_t(s)}{E_f(s)} = \frac{K_g}{(1+s\tau_f)(1+s\tau_a)}$. Find the root of the characteristic equation by using Secant method and comment on stability. Let, $k=3, g=2, \tau_f=2, \tau_a=0.5$. [Circuit provided] (2020)
+		\item Write down the computational algorithm of secant method to solve a nonlinear transcendental equation. (2018)
+		\item A unity feedback control system is given with $G(s) = \frac{1}{s^2(s+1)(s+3)}$. Find a root of the characteristics equation by using Secant method. (2017)
+	\end{enumerate}
+	
+	\subsection{Fixed-Point Iteration}
+	\begin{enumerate}
+		\item Show that fixed point iteration method is linearly convergent. From the analysis, comment on the condition of convergence and divergence using a graphical illustration. (2022)
+	\end{enumerate}
+	
+	
+	\section{Systems of Linear Algebraic Equations}
+	
+	\subsection{General Concepts and Direct Methods (Gauss, LU)}
+	\begin{enumerate}
+		\item Explain LU decomposition technique to solve linear systems of equations. (2022)
+		\item Discuss the difference in calculations of the four methods to solve a system of linear algebraic equations. (2018)
+		\item Suppose the following simultaneous equations are obtained from an electrical network:
+		$5i_1 + 15(i_1-i_3) = 220V$ \\
+		$R(i_2-i_3) + 5i_2 + 10i_2 = 0$ \\
+		$20i_3 + R(i_3-i_2) + 15(i_3-i_1) = 0$ \\
+		Compute the three loop currents $i_1, i_2, i_3$ using Gauss elimination method for R=10$\Omega$. (2018)
+		\item What is partial pivoting and complete pivoting? Why is complete pivoting is rarely used? (2017)
+	\end{enumerate}
+	
+	\subsection{Iterative Methods (Jacobi, Gauss-Seidel, SOR)}
+	\begin{enumerate}
+		\item Show how the diagonal dominance of a system assures convergence of Jacobi and Gauss-Seidel method. (2022)
+		\item Explain why Gauss-Seidel method converges faster than the Jacobi method? (2020)
+		\item Write the computational algorithm of Gauss-Seidel method to solve a system of linear algebraic equations. (2018)
+		\item Obtain the node voltage equations from the following circuit and solve them by using Gauss-Seidel method. [Circuit Diagram Included] (2022)
+		\item Solve for $i_1, i_2$ and $i_3$ by using Gauss-Seidel method for the given circuit. [Circuit Diagram Included] (2020)
+		\item Find $i_1, i_2, i_3$ for the following circuit by using Gauss-Seidel method. [Circuit Diagram Included] (2017)
+		\item Determine the currents for the circuit using iterative method. [Circuit Diagram Included] (2016)
+	\end{enumerate}
+	
+	\section{Curve Fitting and Regression}
+	\begin{enumerate}
+		\item Name four Lab experiments that you have done in previous EEE courses where curve fitting would be really helpful. Also explain those experiments with synthetic data to explain the effectiveness of curve fitting. (2022)
+		\item The data below represents the bacterial growth in a liquid culture. Find a best-fit equation to the data trend (linear, parabolic, exponential). Also predict the amount of bacteria after 40 days. [Data Table Provided] (2022)
+		\item Discuss least square curve fitting technique. Why this technique is the best for curve fitting? (2017)
+		\item What are the approaches for fitting a curve to a given set of data points? Give a short description about them. (2016)
+		\item What are the approaches used for fitting a non-linear curve to a given set of data points? Briefly explain at least one approach. (2018)
+		\item What is B-Splines curve fitting? Write a computational algorithm of linear regression technique. (2018)
+		\item An experiment is performed to determine the percentage (\%) elongation of electrical conducting material as function of temperature. Predict the \% elongation for a temperature of 400$^\circ$C (Use Linear Regression). [Data Table Provided] (Year Unclear, circa 2012-2015)
+	\end{enumerate}
+	
+	
+	\section{Interpolation}
+	
+	\subsection{Lagrange and Newton's Methods}
+	\begin{enumerate}
+		\item If $y(1)=3, y(3)=9, y(4)=30$ and $y(6)=32$, find the four point Lagrange interpolation polynomial that takes the same values as the function of y at those given points. (2022)
+		\item Prove that, the error in polynomial interpolation is $y(x) - \phi_n(x) = \frac{\pi_{n+1}(x)}{(n+1)!} y^{(n+1)}(\xi)$, where $x_0 < \xi < x_n$. (2020)
+		\item Prove that, Lagrange's interpolation formula for $n^{th}$ order is $L_n(x) = \sum_{i=0}^n \frac{\pi_n(x)}{(x-x_i)\pi_n'(x_i)} y_i$. (2020)
+		\item Discuss about double interpolation. (2022)
+		\item The following set of data is obtained for a R-C circuit. Estimate the voltage at t=1.22s using Newton's backward formula. [Data Table Provided] (2022)
+		\item Write down the algorithm of Lagrange's interpolation formula for unevenly spaced data points. (2018)
+		\item The upward velocity of a rocket is given. Find the velocity at t=1.6s using Newton divided difference method for linear interpolation. [Data Table Provided] (2018)
+		\item Derive the Newton-Gregory Forward difference interpolation formula. (2017, 2016)
+	\end{enumerate}
+	
+	\subsection{Applications of Interpolation}
+	\begin{enumerate}
+		\item Consider a RL circuit. Determine the voltage across the inductor when t=1.75s using any numerical interpolation technique. [Data Table Provided] (2020)
+		\item What are the difference tables used in interpolation? Briefly discuss the choosing criteria of using them. (2018, 2016)
+		\item A voltage is measured as in the table. Obtain the voltage at $\omega t = 0.24$ using a Newton-Gregory interpolation formula. [Data Table Provided] (2016)
+	\end{enumerate}
+	
+	
+	\section{Numerical Differentiation and Integration}
+	\subsection{Numerical Differentiation}
+	\begin{enumerate}
+		\item How does the numerical differentiation obtain from interpolation formula? Explain. (2018)
+	\end{enumerate}
+	
+	\subsection{Numerical Integration (Trapezoidal, Simpson's, Romberg)}
+	\begin{enumerate}
+		\item For Romberg integration, show that $I(h, \frac{h}{2}) = \frac{1}{3}[4I(\frac{h}{2}) - I(h)]$; where symbols have their usual meaning. (2022)
+		\item Why is Simpson's 1/3 rule more accurate than trapezoidal rule? Explain graphically. (2022)
+		\item The finite sheet $0 \le x \le 1, 0 \le y \le 1$ on the $z=0$ plane has a charge density $\rho_s = xy(x^2 + y^2 + 25)^{3/2}$ nC/m$^2$. Find the total charge using both trapezoidal and Simpson's methods. (2022)
+		\item Why are numerical differentiation and integration used? Write the algorithm of trapezoidal rule. (2020)
+		\item Why is numerical integration important for electrical engineers? Discuss the trapezoidal rule for integration. (2018)
+		\item Deduce Weddle's rule $\int_{x_0}^{x_6} y dx = \frac{3h}{10}(y_0+5y_1+y_2+6y_3+y_4+5y_5+y_6)$ and use it to obtain an approximate value of $\pi$ from $\frac{\pi}{4} = \int_0^1 \frac{dx}{1+x^2}$ with $h=\frac{1}{6}$. (2018)
+		\item What is the basis of Romberg integration? Why is this integration technique used? (2020, 2016)
+		\item The velocities of a car at intervals of 2 minutes are given. Apply Simpson's 3/8th rule to find the distance covered. [Data Table Provided] (2018)
+	\end{enumerate}
+	
+	\subsection{Gauss Quadrature}
+	\begin{enumerate}
+		\item Integrate $\int_0^{\pi/4} \cos x \,dx$ using Gauss quadrature method. (2018)
+		\item Derive the 2-point Gauss-Quadrature formula for numerical integration. Hence obtain the average value of the given waveform using the formula. [Waveform image provided] (2016)
+	\end{enumerate}
+	
+	\subsection{Applications}
+	\begin{enumerate}
+		\item After closing a switch in an R-C circuit, recorded voltages are tabulated. Find the source voltage at t=10 sec. $V_s = V_c(t) + iR$, where $i = C \frac{dV_c}{dt}$. [Circuit and Data Table Provided] (2022)
+		\item Current $i_L$ through an inductor is tabulated. Find the voltage across the 1mH inductor using numerical Simpson's 1/3 technique. ($V_L = L \frac{di_L}{dt}$) [Data Table Provided] (2020)
+	\end{enumerate}
+	
+	
+	\section{Solution of Ordinary Differential Equations (ODEs)}
+	\subsection{Initial Value Problems (Euler, Runge-Kutta)}
+	\begin{enumerate}
+		\item Find the value of y at x=0.2 using Runge-Kutta fourth-order formula for $\frac{dy}{dx} = y - x$, y(0)=2; Use a step size of 0.10. (2022)
+		\item When is Euler method said to be stable to solve a differential equation? (2020)
+		\item For a colony of bacteria, the growth model is the logistic equation, $\frac{dP}{dt} = kP(1-\frac{P}{P_{max}})$. Let $P_{max}=1000000$, k=2.5, $P_0=35646$. Find the population at t=7 minutes numerically using Euler's modified method and fourth order Runge-Kutta method. (2020)
+		\item When the switch in a circuit is closed at t=0, there is no current through the inductor. Determine the current as a function of time using 2\textsuperscript{nd} order Range-Kutta method. [Circuit provided] (2018)
+		\item When a switch in the following circuit is closed at t=0, there is no current through the inductor. Determine the current flowing as a function of time using 2nd order Range-Kutta method. [Circuit diagram with R, XL, V values provided] (Unclear Year)
+		\item Show that, in 2\textsuperscript{nd} order Runge-Kutta formula the error is of order $h^3$. (2017)
+	\end{enumerate}
+	
+	\subsection{Boundary Value Problems}
+	\begin{enumerate}
+		\item A boundary-value problem is defined by $\frac{d^2i}{dt^2} + \frac{1}{RC}\frac{di}{dt} + \frac{i}{LC} = \frac{I_s}{LC}$ for $0 < t \le 2$ sec with $i(0)=0$A and $i(2)=5$A. Given L=1H, C=1F, R=1$\Omega$, and $I_s=10$A. With h=0.5, use the finite-difference method to determine the value of $i(t)$ at $t=1.5$sec. (2022)
+	\end{enumerate}
+	
+	\section{Solution of Partial Differential Equations (PDEs)}
+	\begin{enumerate}
+		\item Use Liebmann's method to solve the 2D Laplace equation $\nabla^2 T = \frac{\partial^2 T}{\partial x^2} + \frac{\partial^2 T}{\partial y^2} = 0$. Consider the given geometry, mesh grid and boundary values. Use over-relaxation with $\lambda=1.5$. Perform two iterations. [Figure with grid and boundary values provided] (2022)
+		\item Use Liebmann's method to find the potential distribution of the interior grid points for the given figure. [Figure with grid and boundary values provided] (Unclear Year)
+		\item Solve the differential equation $u_{xx} + u_{yy} = 0$ in the domain of the figure below using finite difference (FD) method. [Figure with grid and boundary values provided] (2018)
+	\end{enumerate}
+	
+\end{document}

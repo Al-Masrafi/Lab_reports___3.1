@@ -1,0 +1,354 @@
+\documentclass{article}
+\usepackage{enumitem}
+\usepackage{circuitikz}
+\usepackage{graphicx}
+
+\begin{document}
+	
+	\section*{PCB Design Fundamentals \& Tools Quiz}
+	
+	\subsection*{Core Concepts}
+	
+	\begin{enumerate}
+		\item What is the primary purpose of a schematic diagram in PCB design?
+		\begin{enumerate}
+			\item To show physical component placement
+			\item To illustrate copper trace routing
+			\item \textbf{To represent electrical connections abstractly}
+			\item To generate manufacturing files
+		\end{enumerate}
+		\textbf{Explanation:} Schematics show logical connections without physical layout details.
+		
+		\item Which layer type is NOT typically found in a standard PCB stackup?
+		\begin{enumerate}
+			\item Copper layer
+			\item Solder mask layer
+			\item Silkscreen layer
+			\item \textbf{Conductive ink layer}
+		\end{enumerate}
+		\textbf{Explanation:} Standard PCBs use copper conductors, not conductive ink.
+		
+		\item What is the purpose of solder mask on a PCB?
+		\begin{enumerate}
+			\item To increase conductivity
+			\item \textbf{To prevent solder bridges and protect copper}
+			\item To label components
+			\item To improve thermal dissipation
+		\end{enumerate}
+		\textbf{Explanation:} Solder mask insulates copper traces and prevents accidental connections.
+		
+		\item What does "DRC" stand for in PCB design tools?
+		\begin{enumerate}
+			\item Digital Resistance Calculator
+			\item \textbf{Design Rule Check}
+			\item Diagrammatic Routing Configuration
+			\item Designated Routing Channel
+		\end{enumerate}
+		\textbf{Explanation:} DRC verifies design against manufacturing constraints.
+		
+		\item Which via type connects only specific layers in a multilayer PCB?
+		\begin{enumerate}
+			\item Through-hole via
+			\item \textbf{Blind via}
+			\item Microvia
+			\item Buried via
+		\end{enumerate}
+		\textbf{Explanation:} Blind vias connect surface layers to internal layers without going through the entire board.
+		
+		\item What is the purpose of keep-out zones in PCB layout?
+		\begin{enumerate}
+			\item To mark component-free areas for cooling
+			\item To designate high-voltage isolation areas
+			\item To reserve space for mechanical constraints
+			\item \textbf{All of the above}
+		\end{enumerate}
+		\textbf{Explanation:} Keep-out zones restrict placement/routing for various design constraints.
+		
+		\item Which factor is MOST critical when determining trace width?
+		\begin{enumerate}
+			\item Color scheme
+			\item \textbf{Current carrying capacity}
+			\item Signal frequency
+			\item Component density
+		\end{enumerate}
+		\textbf{Explanation:} Trace width primarily determines current handling capability before overheating.
+		
+		\item What is the purpose of a thermal relief in a PCB pad?
+		\begin{enumerate}
+			\item To increase current capacity
+			\item \textbf{To ease soldering by reducing heat dissipation}
+			\item To improve RF performance
+			\item To enhance mechanical strength
+		\end{enumerate}
+		\textbf{Explanation:} Thermal reliefs reduce heat transfer during soldering while maintaining electrical connection.
+	\end{enumerate}
+	
+	\subsection*{Design Tools \& Workflow}
+	
+	\begin{enumerate}[resume]
+		\item Which file format is the industry standard for PCB manufacturing data?
+		\begin{enumerate}
+			\item .PDF
+			\item .DXF
+			\item \textbf{.GERBER}
+			\item .STEP
+		\end{enumerate}
+		\textbf{Explanation:} Gerber files (RS-274X) contain layer-by-layer fabrication data.
+		
+		\item What is the purpose of a Bill of Materials (BOM) in PCB design?
+		\begin{enumerate}
+			\item To show component placement
+			\item \textbf{To list all components with specifications}
+			\item To document routing topology
+			\item To specify test points
+		\end{enumerate}
+		\textbf{Explanation:} BOM provides comprehensive component list for procurement and assembly.
+		
+		\item In PCB design software, what is "forward annotation"?
+		\begin{enumerate}
+			\item Adding comments to schematics
+			\item \textbf{Pushing schematic changes to PCB layout}
+			\item Generating 3D models
+			\item Creating assembly drawings
+		\end{enumerate}
+		\textbf{Explanation:} Forward annotation propagates schematic changes to the PCB editor.
+		
+		\item Which tool is essential for verifying net connectivity between schematic and PCB?
+		\begin{enumerate}
+			\item DRC Checker
+			\item \textbf{ERC (Electrical Rule Check)}
+			\item LVS (Layout vs. Schematic)
+			\item Signal Integrity Analyzer
+		\end{enumerate}
+		\textbf{Explanation:} LVS tools verify layout matches schematic connectivity.
+		
+		\item What does "SMT" stand for in PCB assembly?
+		\begin{enumerate}
+			\item Standardized Mounting Technology
+			\item \textbf{Surface Mount Technology}
+			\item System Module Termination
+			\item Soldering Matrix Technique
+		\end{enumerate}
+		\textbf{Explanation:} SMT refers to surface-mount components soldered directly to PCB pads.
+		
+		\item Which design element helps mitigate electromagnetic interference (EMI)?
+		\begin{enumerate}
+			\item Decorative silkscreen patterns
+			\item \textbf{Proper ground planes and shielding}
+			\item Increased trace spacing
+			\item Thermal vias under components
+		\end{enumerate}
+		\textbf{Explanation:} Continuous ground planes and shields contain electromagnetic fields.
+		
+		\item What is the purpose of a fiducial marker on a PCB?
+		\begin{enumerate}
+			\item Decorative branding
+			\item \textbf{Automated optical alignment for assembly}
+			\item Electrical test point
+			\item Heat dissipation point
+		\end{enumerate}
+		\textbf{Explanation:} Fiducials provide reference points for pick-and-place machines.
+		
+		\item Which feature allows high-density component placement in modern designs?
+		\begin{enumerate}
+			\item Through-hole components
+			\item \textbf{BGA (Ball Grid Array) packages}
+			\item DIP sockets
+			\item Wire-wrapping
+		\end{enumerate}
+		\textbf{Explanation:} BGAs allow hundreds of connections under the package.
+	\end{enumerate}
+	
+	\subsection*{Design Rules \& Manufacturing}
+	
+	\begin{enumerate}[resume]
+		\item What is the typical copper thickness for standard PCBs?
+		\begin{enumerate}
+			\item 0.1mm
+			\item \textbf{$1oz/ft^2$ (35  micro meter)}
+			\item 0.5mm
+			\item 2mm
+		\end{enumerate}
+		\textbf{Explanation:} 1oz/ft² is the standard baseline copper weight.
+		
+		\item What clearance is typically required between traces for 120V operation?
+		\begin{enumerate}
+			\item 0.1mm
+			\item 0.2mm
+			\item \textbf{0.5mm}
+			\item 1mm
+		\end{enumerate}
+		\textbf{Explanation:} IPC-2221 requires 0.5mm minimum for 120V signals.
+		
+		\item Which manufacturing defect is caused by insufficient solder paste?
+		\begin{enumerate}
+			\item Tombstoning
+			\item \textbf{Solder starvation}
+			\item Solder bridging
+			\item Cold joint
+		\end{enumerate}
+		\textbf{Explanation:} Insufficient paste leads to poor solder joints.
+		
+		\item What does "HASL" stand for in PCB finishing?
+		\begin{enumerate}
+			\item Heat Activated Solder Layer
+			\item \textbf{Hot Air Solder Leveling}
+			\item High Accuracy Surface Layer
+			\item Hybrid Assembly Solder Lead
+		\end{enumerate}
+		\textbf{Explanation:} HASL is a common surface finish where molten solder is applied and leveled.
+		
+		\item Which design consideration is CRITICAL for high-frequency signals?
+		\begin{enumerate}
+			\item Component color coding
+			\item \textbf{Controlled impedance routing}
+			\item Silkscreen legibility
+			\item Through-hole pad sizes
+		\end{enumerate}
+		\textbf{Explanation:} Impedance control prevents signal reflections in high-speed circuits.
+		
+		\item What is the purpose of a mouse bite in PCB panelization?
+		\begin{enumerate}
+			\item To reduce EMI
+			\item \textbf{To facilitate board separation}
+			\item To improve heat dissipation
+			\item To increase rigidity
+		\end{enumerate}
+		\textbf{Explanation:} Mouse bites are perforations allowing easy depanelization.
+		
+		\item Which software is NOT a professional PCB design tool?
+		\begin{enumerate}
+			\item Altium Designer
+			\item KiCad
+			\item Cadence Allegro
+			\item \textbf{AutoCAD LT}
+		\end{enumerate}
+		\textbf{Explanation:} AutoCAD LT is general CAD, not specialized for PCB design.
+		
+		\item What does "IPC" stand for in PCB standards?
+		\begin{enumerate}
+			\item International Processing Council
+			\item \textbf{Institute for Printed Circuits}
+			\item Integrated Production Criteria
+			\item Interconnected Package Components
+		\end{enumerate}
+		\textbf{Explanation:} IPC develops standards for PCB design and manufacturing.
+		
+		\item Which layer contains component outlines and reference designators?
+		\begin{enumerate}
+			\item Copper layer
+			\item Solder mask layer
+			\item \textbf{Silkscreen layer}
+			\item Paste mask layer
+		\end{enumerate}
+		\textbf{Explanation:} Silkscreen provides component identification and outlines.
+		
+		\item What is the purpose of a via tenting?
+		\begin{enumerate}
+			\item To increase current capacity
+			\item \textbf{To cover vias with solder mask}
+			\item To connect multiple layers
+			\item To improve thermal conduction
+		\end{enumerate}
+		\textbf{Explanation:} Via tenting prevents solder wicking and contamination.
+	\end{enumerate}
+	
+	\subsection*{Tool-Specific Features}
+	
+	\begin{enumerate}[resume]
+		\item In KiCad, what is the purpose of the "CvPCB" tool?
+		\begin{enumerate}
+			\item Circuit simulation
+			\item \textbf{Component footprint assignment}
+			\ copper pour creation
+			\item 3D model generation
+		\end{enumerate}
+		\textbf{Explanation:} CvPCB links schematic symbols to physical footprints.
+		
+		\item What is the primary function of a "room" in Altium Designer?
+		\begin{enumerate}
+			\item 3D visualization space
+			\item \textbf{Grouping components for placement}
+			\item Defining keep-out areas
+			\item Creating power planes
+		\end{enumerate}
+		\textbf{Explanation:} Rooms allow collective component placement and replication.
+		
+		\item Which Eagle CAD feature allows parametric design?
+		\begin{enumerate}
+			\item BRD files
+			\item \textbf{User Language Programs (ULPs)}
+			\item Layer sets
+			\item Design blocks
+		\end{enumerate}
+		\textbf{Explanation:} ULPs enable scripting and parametric operations.
+		
+		\item What is the purpose of "differential pair routing" in high-speed design tools?
+		\begin{enumerate}
+			\item To reduce component count
+			\item \textbf{To maintain constant impedance for matched-length traces}
+			\item To increase current capacity
+			\item To simplify schematics
+		\end{enumerate}
+		\textbf{Explanation:} Differential pairs require precise length matching for signal integrity.
+		
+		\item Which Altium feature automates component placement based on schematics?
+		\begin{enumerate}
+			\item ActiveRoute
+			\item \textbf{Component placement panel}
+			\item Draftsman
+			\item Output job files
+		\end{enumerate}
+		\textbf{Explanation:} Placement tools suggest optimal component arrangements.
+	\end{enumerate}
+	
+	\subsection*{Advanced Considerations}
+	
+	\begin{enumerate}[resume]
+		\item What is the purpose of a stitching via in PCB design?
+		\begin{enumerate}
+			\item To increase mechanical strength
+			\item \textbf{To connect ground planes across layers}
+			\item To enhance thermal dissipation
+			\item To reduce EMI emission
+		\end{enumerate}
+		\textbf{Explanation:} Stitching vias maintain low-impedance ground connections.
+		
+		\item Which design technique reduces crosstalk in dense layouts?
+		\begin{enumerate}
+			\item Increasing trace thickness
+			\item \textbf{Guard traces with ground vias}
+			\item Using right-angle traces
+			\item Maximizing parallel routing
+		\end{enumerate}
+		\textbf{Explanation:} Guard traces isolate sensitive signals from interference.
+		
+		\item What does "HDI" stand for in modern PCB technology?
+		\begin{enumerate}
+			\item High-Density Integration
+			\item \textbf{High-Density Interconnect}
+			\item Hybrid Digital Interface
+			\item High Definition Interposer
+		\end{enumerate}
+		\textbf{Explanation:} HDI PCBs use microvias and thin materials for dense routing.
+		
+		\item Which simulation is ESSENTIAL for power delivery networks?
+		\begin{enumerate}
+			\item Thermal stress analysis
+			\item \textbf{DC voltage drop analysis}
+			\item RF radiation pattern
+			\item Acoustic resonance
+		\end{enumerate}
+		\textbf{Explanation:} Voltage drop analysis ensures adequate power to all components.
+		
+		\item What is the primary benefit of embedded components in PCBs?
+		\begin{enumerate}
+			\item Reduced cost
+			\item \textbf{Improved signal integrity and miniaturization}
+			\item Easier rework
+			\item Simplified manufacturing
+		\end{enumerate}
+		\textbf{Explanation:} Embedded components save space and reduce parasitic effects.
+	\end{enumerate}
+	
+\end{document}

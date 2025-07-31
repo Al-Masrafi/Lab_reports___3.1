@@ -1,0 +1,241 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{setspace}
+\geometry{margin=1in}
+\title{\textbf{Machine Viva and Lab Questions with Answers}}
+\author{}
+\date{}
+
+\begin{document}
+	
+	\maketitle
+	\onehalfspacing
+	
+	\section*{Answers}
+	
+	\begin{enumerate}
+		\item \textbf{Which condition cannot be checked using the 3-lamp method?} \\
+		\textbf{Answer:} Exact phase angle difference. The method only shows approximate synchronization (all lamps dark = synchronized), but cannot quantify the exact phase difference.
+		
+		\item \textbf{How can we know that the phase sequence is the same?} \\
+		\textbf{Answer:} Lamps brighten sequentially in one direction. For ABC sequence, brightness rotates clockwise. If reversed, rotation is counterclockwise.
+		
+		\item \textbf{Why is the OCC characteristic curved?} \\
+		\textbf{Answer:} Magnetic saturation in iron core. Initially linear ($E \propto I_f$), then saturates:
+		\[
+		E = \frac{kI_f}{1 + \alpha I_f} \quad (\alpha = \text{saturation factor})
+		\]
+		
+		\item \textbf{Why is rated voltage used in the locked rotor test?} \\
+		\textbf{Answer:} To maintain normal flux density while limiting current. Voltage reduced to:
+		\[
+		V_{LR} = V_{\text{rated}} \times \frac{I_{\text{rated}}}{I_{\text{sc}}}
+		\]
+		
+		\item \textbf{What are the shortcomings of the 3-lamp method?} \\
+		\textbf{Answer:} 
+		\begin{itemize}
+			\item Cannot measure exact phase angle
+			\item No voltage magnitude check
+			\item Subjective brightness interpretation
+			\item Frequency differences not detected
+		\end{itemize}
+		
+		\item \textbf{Why is the capacitor curve upward in synchronous generator load characteristics?} \\
+		\textbf{Answer:} Capacitors supply reactive power, increasing terminal voltage:
+		\[
+		V_t = \sqrt{(E_a - I_aX_s\sin\theta)^2 + (I_aX_s\cos\theta)^2}
+		\]
+		Leading power factor reduces voltage drop.
+		
+		\item \textbf{What do Rc and Xm represent in equivalent circuit?} \\
+		\textbf{Answer:} 
+		\begin{itemize}
+			\item $R_c$: Core loss resistance ($P_c = V^2/R_c$)
+			\item $X_m$: Magnetizing reactance (main flux path)
+		\end{itemize}
+		
+		\item \textbf{Why does OCC saturate during Xs determination?} \\
+		\textbf{Answer:} Iron core saturates at high field current:
+		\[
+		X_s = \frac{V_{\text{OC}}}{I_{\text{SC}}} \quad \text{(unsaturated value from air-gap line)}
+		\]
+		
+		\item \textbf{What type of load does a synchronous motor take?} \\
+		\textbf{Answer:} Can operate at any power factor: lagging (inductive), leading (capacitive), or unity.
+		
+		\item \textbf{How to operate synchronous motor as capacitive load?} \\
+		\textbf{Answer:} Over-excite field current ($I_f > I_{f,\text{rated}}$):
+		\[
+		Q = \frac{3V_tE_f}{X_s}\cos\delta - \frac{3V_t^2}{X_s} > 0
+		\]
+		
+		\item \textbf{What is the significance of -Q in power systems?} \\
+		\textbf{Answer:} $-Q$ denotes reactive power absorption (inductive loads). Essential for voltage control and stability.
+		
+		\item \textbf{In no-load test, which value is rated and why?} \\
+		\textbf{Answer:} Rated voltage. Core losses depend on voltage:
+		\[
+		P_{\text{core}} \propto V^2
+		\]
+		
+		\item \textbf{In locked rotor test, which value is rated?} \\
+		\textbf{Answer:} Rated current. Used to find copper losses at full load:
+		\[
+		P_{\text{cu}} \propto I^2
+		\]
+		
+		\item \textbf{What does Rc represent?} \\
+		\textbf{Answer:} Core loss resistance: $R_c = V^2 / P_{\text{core}}$
+		
+		\item \textbf{What does Xm represent?} \\
+		\textbf{Answer:} Magnetizing reactance: $X_m = V / I_m$
+		
+		\item \textbf{Why does terminal voltage increase with capacitor load?} \\
+		\textbf{Answer:} Capacitors supply reactive power, reducing voltage drop:
+		\[
+		\Delta V = I_qX_s \downarrow
+		\]
+		
+		\item \textbf{Which criteria cannot be fully fulfilled in 3-lamp method?} \\
+		\textbf{Answer:} Exact phase angle synchronization. Lamps darken over a range (=±10°), not at exact zero.
+		
+		\item \textbf{Which parameters cannot be detected?} \\
+		\textbf{Answer:} Voltage magnitude difference and exact frequency mismatch.
+		
+		\item \textbf{How to increase active power?} \\
+		\textbf{Answer:} Increase mechanical input:
+		\[
+		P = \frac{VE_f}{X_s}\sin\delta \quad \uparrow \text{ by } \uparrow \delta
+		\]
+		
+		\item \textbf{How to increase reactive power?} \\
+		\textbf{Answer:} Increase excitation:
+		\[
+		Q = \frac{VE_f}{X_s}\cos\delta - \frac{V^2}{X_s} \quad \uparrow \text{ by } \uparrow E_f
+		\]
+		
+		\item \textbf{No-load current in induction motor?} \\
+		\textbf{Answer:} 30-60\% of rated current. Primarily magnetizing current.
+		
+		\item \textbf{Which torque-speed characteristics can be obtained?} \\
+		\textbf{Answer:} Linear region near synchronous speed (slip < 5\%) as full curve requires destructive testing.
+		
+		\item \textbf{Why core saturates in OC but not SC test?} \\
+		\textbf{Answer:} 
+		\begin{itemize}
+			\item OC: Full flux $\phi = kV$
+			\item SC: $\phi_{\text{net}} \approx 0$ (armature reaction opposes field flux)
+		\end{itemize}
+		
+		\item \textbf{Does reactance decrease with field current?} \\
+		\textbf{Answer:} No. Synchronous reactance ($X_s$) is constant, but \textit{saturated reactance} decreases at high $I_f$.
+		
+		\item \textbf{How to increase power sharing on infinite bus?} \\
+		\textbf{Answer:} 
+		\begin{itemize}
+			\item Active: $\uparrow$ mechanical input
+			\item Reactive: $\uparrow$ field excitation
+		\end{itemize}
+		
+		\item \textbf{How to know phase angles equal in 3-lamp method?} \\
+		\textbf{Answer:} When all lamps are equally dark (minimum brightness).
+		
+		\item \textbf{When synchronous machine at PF=1?} \\
+		\textbf{Answer:} When field current is adjusted for unity PF:
+		\[
+		E_f \cos\delta = V
+		\]
+		
+		\item \textbf{What cannot be measured?} \\
+		\textbf{Answer:} Voltage magnitude difference and frequency difference.
+		
+		\item \textbf{How to change power sharing?} \\
+		\textbf{Answer:} Adjust governor (active power) or exciter (reactive power).
+		
+		\item \textbf{In DC test, which value rated?} \\
+		\textbf{Answer:} Rated current. Measures armature resistance at operating temperature.
+		
+		\item \textbf{Core losses from which test?} \\
+		\textbf{Answer:} No-load test. Sums core losses + friction + windage.
+		
+		\item \textbf{Why OC curve nonlinear but SC linear?} \\
+		\textbf{Answer:} OC saturates (iron core), SC remains linear (air-core equivalent).
+		
+		\item \textbf{Torque vs load in induction motor?} \\
+		\textbf{Answer:} Torque proportional to slip near sync speed:
+		\[
+		T \propto s \quad (s < s_{\text{max}})
+		\]
+		
+		\item \textbf{Reactive power when active increases?} \\
+		\textbf{Answer:} For induction motors, $Q$ increases with load due to leakage reactance:
+		\[
+		Q \approx I^2X_{\text{leak}}
+		\]
+		
+		\item \textbf{Speed when load changes?} \\
+		\textbf{Answer:} Induction motor: speed decreases ($\uparrow$ slip). Synchronous motor: constant speed.
+		
+		\item \textbf{Why current increases with load?} \\
+		\textbf{Answer:} To deliver more power:
+		\[
+		P = VI\cos\phi \quad \Rightarrow \quad I \uparrow \text{ as } P \uparrow
+		\]
+		
+		\item \textbf{Why use linear part of torque-speed curve?} \\
+		\textbf{Answer:} Stable operation region where $T \propto s$ (predictable control).
+		
+		\item \textbf{Active/reactive power vs load?} \\
+		\textbf{Answer:} 
+		\begin{itemize}
+			\item Active power $\uparrow$ with load
+			\item Reactive power $\uparrow$ (induction) or adjustable (synchronous)
+		\end{itemize}
+		
+		\item \textbf{Why no core loss in induction motor equivalent circuit?} \\
+		\textbf{Answer:} Core loss is included in shunt branch ($R_c$). Common misconception - it \textit{is} present.
+		
+		\item \textbf{Active/reactive power when load increases?} \\
+		\textbf{Answer:} Both increase:
+		\[
+		P = 3VI\cos\phi, \quad Q = 3VI\sin\phi
+		\]
+		$\phi$ constant in syn motor, increases in ind motor.
+		
+		\item \textbf{Meaning of -Q and +Q?} \\
+		\textbf{Answer:} 
+		\begin{align*}
+			+Q &: \text{Capacitive (supplied)} \\
+			-Q &: \text{Inductive (absorbed)}
+		\end{align*}
+		
+		\item \textbf{How to apply load to synchronous motor?} \\
+		\textbf{Answer:} Mechanically: Increase shaft torque. Electrically: Increase field current for reactive load.
+		
+		\item \textbf{Which parameter not perfectly achieved in paralleling?} \\
+		\textbf{Answer:} Exact phase angle synchronization (practical tolerance = ±5°).
+		
+		\item \textbf{Ensure phase sequences aligned?} \\
+		\textbf{Answer:} Use phase sequence indicator or check lamp rotation direction.
+		
+		\item \textbf{Why load current increases?} \\
+		\textbf{Answer:} To supply increased power demand:
+		\[
+		I = \frac{P}{\sqrt{3}V\cos\phi}
+		\]
+		
+		\item \textbf{Reactive power sign change in induction motor?} \\
+		\textbf{Answer:} 
+		\begin{itemize}
+			\item Light load: Large $-Q$ (magnetizing)
+			\item Full load: Smaller $-Q$ (better PF)
+			\item Never positive (always inductive)
+		\end{itemize}
+		Implies poor light-load power factor.
+	\end{enumerate}
+	
+\end{document}

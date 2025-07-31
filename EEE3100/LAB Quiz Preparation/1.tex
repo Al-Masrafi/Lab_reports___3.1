@@ -1,0 +1,335 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{circuitikz}
+\usepackage{enumitem}
+
+\begin{document}
+	
+	\section*{Comprehensive Electronics \& Arduino Quiz}
+	
+	\begin{enumerate}
+		\item What is the primary function of a capacitor in a DC circuit?
+		\begin{enumerate}
+			\item To amplify current
+			\item To store electrical charge
+			\item To generate voltage
+			\item To measure resistance
+		\end{enumerate}
+		\textbf{Answer: b) To store electrical charge} \\
+		\textbf{Explanation:} Capacitors store and release electrical energy, smoothing voltage fluctuations in DC circuits.
+		
+		\item The relationship between voltage (V), current (I), and resistance (R) is described by:
+		\begin{enumerate}
+			\item $P = IV$
+			\item $V = \frac{I}{R}$
+			\item $V = IR$
+			\item $R = \frac{V}{I^2}$
+		\end{enumerate}
+		\textbf{Answer: c) $V = IR$} \\
+		\textbf{Explanation:} Ohm's Law states voltage equals current multiplied by resistance ($V = IR$).
+		
+		\item What does PWM stand for in Arduino context?
+		\begin{enumerate}
+			\item Pulse Width Modulation
+			\item Power Wave Management
+			\item Programmable Wave Model
+			\item Pulse Wave Measurement
+		\end{enumerate}
+		\textbf{Answer: a) Pulse Width Modulation} \\
+		\textbf{Explanation:} PWM controls power by rapidly switching between HIGH and LOW states.
+		
+		\item The typical operating voltage for most Arduino boards is:
+		\begin{enumerate}
+			\item 12V
+			\item 9V
+			\item 3.3V
+			\item 5V
+		\end{enumerate}
+		\textbf{Answer: d) 5V} \\
+		\textbf{Explanation:} Most Arduino I/O pins operate at 5V, though some boards have 3.3V logic.
+		
+		\item In PCB design, what is the purpose of a via?
+		\begin{enumerate}
+			\item To connect traces on different layers
+			\item To mount surface-mount components
+			\item To create ground planes
+			\item To insulate copper traces
+		\end{enumerate}
+		\textbf{Answer: a) To connect traces on different layers} \\
+		\textbf{Explanation:} Vias are conductive holes that connect copper layers in multilayer PCBs.
+		
+		\item What will this Arduino code output to the serial monitor?
+		\begin{verbatim}
+			void setup() {
+				Serial.begin(9600);
+				Serial.println(3 + 2 * 4);
+			}
+			void loop() {}
+		\end{verbatim}
+		\begin{enumerate}
+			\item 20
+			\item 11
+			\item 14
+			\item Error
+		\end{enumerate}
+		\textbf{Answer: b) 11} \\
+		\textbf{Explanation:} Multiplication has higher precedence than addition (2*4=8, 3+8=11).
+		
+		\item The purpose of a pull-up resistor is to:
+		\begin{enumerate}
+			\item Limit current to an LED
+			\item Ensure defined voltage when switch is open
+			\item Amplify sensor signals
+			\item Convert analog to digital signals
+		\end{enumerate}
+		\textbf{Answer: b) Ensure defined voltage when switch is open} \\
+		\textbf{Explanation:} Pull-up resistors prevent floating inputs by providing default HIGH state.
+		
+		\item What does the "D" in "DIP" package stand for?
+		\begin{enumerate}
+			\item Digital
+			\item Dual
+			\item Direct
+			\\item Discrete
+		\end{enumerate}
+		\textbf{Answer: b) Dual} \\
+		\textbf{Explanation:} DIP = Dual In-line Package with two parallel rows of pins.
+		
+		\item Which component is used for overvoltage protection?
+		\begin{enumerate}
+			\item Capacitor
+			\item Varistor
+			\item Thermistor
+			\item Potentiometer
+		\end{enumerate}
+		\textbf{Answer: b) Varistor} \\
+		\textbf{Explanation:} Varistors (MOVs) clamp voltage spikes by changing resistance.
+		
+		\item What is the primary function of a voltage regulator?
+		\begin{enumerate}
+			\item To store electrical energy
+			\item To maintain constant output voltage
+			\item To amplify current
+			\item To generate clock signals
+		\end{enumerate}
+		\textbf{Answer: b) To maintain constant output voltage} \\
+		\textbf{Explanation:} Regulators maintain stable voltage despite input variations or load changes.
+		
+		\item In Arduino, how many analog input pins are on a standard Uno board?
+		\begin{enumerate}
+			\item 4
+			\item 6
+			\item 8
+			\item 10
+		\end{enumerate}
+		\textbf{Answer: b) 6} \\
+		\textbf{Explanation:} Arduino Uno has analog inputs A0-A5 (6 channels).
+		
+		\item What is the standard trace width for signal traces in hobbyist PCBs?
+		\begin{enumerate}
+			\item 0.1mm
+			\item 0.3mm
+			\item 0.8mm
+			\item 1.5mm
+		\end{enumerate}
+		\textbf{Answer: b) 0.3mm} \\
+		\textbf{Explanation:} 0.3mm (12mil) is common for signal traces carrying <500mA.
+		
+		\item Which function initializes a digital pin as output?
+		\begin{enumerate}
+			\item pinMode(pin, OUTPUT)
+			\item digitalWrite(pin, HIGH)
+			\item setPin(pin, OUT)
+			\item analogWrite(pin, 255)
+		\end{enumerate}
+		\textbf{Answer: a) pinMode(pin, OUTPUT)} \\
+		\textbf{Explanation:} pinMode() configures pin direction before use.
+		
+		\item What is solder mask's primary purpose on PCBs?
+		\begin{enumerate}
+			\item Increase conductivity
+			\item Prevent oxidation
+			\item Provide component labels
+			\item Insulate copper traces
+		\end{enumerate}
+		\textbf{Answer: d) Insulate copper traces} \\
+		\textbf{Explanation:} Solder mask prevents accidental shorts and protects copper.
+		
+		\item What does this Arduino code do?
+		\begin{verbatim}
+			void setup() {
+				DDRD = 0xFF;
+			}
+			void loop() {
+				PORTD = 0xAA;
+			}
+		\end{verbatim}
+		\begin{enumerate}
+			\item Reads analog inputs
+			\item Sets all digital pins 0-7 as outputs with alternating HIGH/LOW
+			\item Activates PWM on pin 9
+			\item Measures temperature
+		\end{enumerate}
+		\textbf{Answer: b) Sets all digital pins 0-7 as outputs with alternating HIGH/LOW} \\
+		\textbf{Explanation:} DDRD configures PORTD as output, 0xAA (10101010 binary) sets alternating states.
+		
+		\item Which material forms the substrate of most PCBs?
+		\begin{enumerate}
+			\item Aluminum
+			\item FR-4
+			\item Polycarbonate
+			\item Copper
+		\end{enumerate}
+		\textbf{Answer: b) FR-4} \\
+		\textbf{Explanation:} FR-4 glass-reinforced epoxy is the standard PCB base material.
+		
+		\item What is the primary purpose of decoupling capacitors?
+		\begin{enumerate}
+			\item Store energy for power outages
+			\item Filter high-frequency noise
+			\item Increase voltage gain
+			\item Limit inrush current
+		\end{enumerate}
+		\textbf{Answer: b) Filter high-frequency noise} \\
+		\textbf{Explanation:} Decoupling capacitors suppress voltage spikes from digital IC switching.
+		
+		\item Which tool is essential for identifying PCB trace connectivity?
+		\begin{enumerate}
+			\item Oscilloscope
+			\item Multimeter in continuity mode
+			\item Logic analyzer
+			\item Spectrum analyzer
+		\end{enumerate}
+		\textbf{Answer: b) Multimeter in continuity mode} \\
+		\textbf{Explanation:} Continuity testing verifies electrical connections between points.
+		
+		\item What does this circuit symbol represent?
+		\begin{center}
+			\begin{circuitikz}
+				\draw (0,0) to[R, l=$R_1$] (2,0);
+			\end{circuitikz}
+		\end{center}
+		\begin{enumerate}
+			\item Capacitor
+			\item Diode
+			\item Resistor
+			\item Transistor
+		\end{enumerate}
+		\textbf{Answer: c) Resistor} \\
+		\textbf{Explanation:} Zigzag line is the standard IEEE resistor symbol.
+		
+		\item How much current can a standard Arduino Uno pin safely source?
+		\begin{enumerate}
+			\item 10mA
+			\item 20mA
+			\item 40mA
+			\item 100mA
+		\end{enumerate}
+		\textbf{Answer: b) 20mA} \\
+		\textbf{Explanation:} 20mA per pin (40mA absolute max) to prevent damage to microcontroller.
+		
+		\item Which file format is used for PCB manufacturing files?
+		\begin{enumerate}
+			\item .INO
+			\item .TXT
+			\item .GERBER
+			\item .JPEG
+		\end{enumerate}
+		\textbf{Answer: c) .GERBER} \\
+		\textbf{Explanation:} Gerber files contain manufacturing data for PCB fabrication.
+		
+		\item What is the purpose of the Arduino bootloader?
+		\begin{enumerate}
+			\item To compile sketches
+			\item To initialize hardware on startup
+			\item To enable programming via USB
+			\item To debug code
+		\end{enumerate}
+		\textbf{Answer: c) To enable programming via USB} \\
+		\textbf{Explanation:} Bootloader allows programming without external hardware.
+		
+		\item Which component protects circuits from reverse polarity?
+		\begin{enumerate}
+			\item Capacitor
+			\item Diode
+			\item Resistor
+			\item Inductor
+		\end{enumerate}
+		\textbf{Answer: b) Diode} \\
+		\textbf{Explanation:} Diodes allow current flow in only one direction.
+		
+		\item What does "I2C" stand for?
+		\begin{enumerate}
+			\item Inter-integrated Circuit
+			\item Input/Output Interface Controller
+			\item Integrated Internal Communication
+			\item Intelligent Interface Chip
+		\end{enumerate}
+		\textbf{Answer: a) Inter-integrated Circuit} \\
+		\textbf{Explanation:} I2C is a serial communication protocol using SDA/SCL lines.
+		
+		\item The main advantage of surface-mount technology (SMT) over through-hole is:
+		\begin{enumerate}
+			\item Higher power handling
+			\item Easier manual assembly
+			\item Smaller component size
+			\item Lower cost per component
+		\end{enumerate}
+		\textbf{Answer: c) Smaller component size} \\
+		\textbf{Explanation:} SMT allows higher component density and smaller PCBs.
+		
+		\item What does this Arduino code snippet do?
+		\begin{verbatim}
+			analogWrite(9, 128);
+		\end{verbatim}
+		\begin{enumerate}
+			\item Sets pin 9 to 5V output
+			\item Reads analog value from pin 9
+			\item Generates 50\% duty cycle PWM
+			\item Configures pin 9 as input
+		\end{enumerate}
+		\textbf{Answer: c) Generates 50\% duty cycle PWM} \\
+	\textbf{	Explanation:} $128/255 = 50 $ duty cycle (mid-range value).
+		
+		\item What is the purpose of a ground plane in PCB design?
+		\begin{enumerate}
+			\item Increase component density
+			\item Provide shielding and reduce noise
+			\item Improve thermal conductivity
+			\item Enhance signal speed
+		\end{enumerate}
+		\textbf{Answer: b) Provide shielding and reduce noise} \\
+		\textbf{Explanation:} Ground planes create low-impedance return paths and reduce EMI.
+		
+		\item Which tool is used to remove solder from PCB joints?
+		\begin{enumerate}
+			\item Soldering iron
+			\item Desoldering wick
+			\item Flux pen
+			\item Multimeter
+		\end{enumerate}
+		\textbf{Answer: b) Desoldering wick} \\
+		\textbf{Explanation:} Solder wick (braid) absorbs molten solder for component removal.
+		
+		\item What is the typical resolution of Arduino Uno's ADC?
+		\begin{enumerate}
+			\item 8-bit (0-255)
+			\item 10-bit (0-1023)
+			\item 12-bit (0-4095)
+			\item 16-bit (0-65535)
+		\end{enumerate}
+		\textbf{Answer: b) 10-bit (0-1023)} \\
+		\textbf{Explanation:} ATmega328P has 10-bit analog-to-digital converters.
+		
+		\item What is the purpose of the Arduino `millis()` function?
+		\begin{enumerate}
+			\item Measure resistance
+			\item Generate random numbers
+			\item Get elapsed time since power-up
+			\item with I2C devices
+		\end{enumerate}
+		\textbf{Answer: c) Get elapsed time since power-up} \\
+		\textbf{Explanation:} `millis()` returns milliseconds since program start for timing operations.
+	\end{enumerate}
+	
+\end{document}

@@ -1,0 +1,178 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{subcaption}
+% -----------------------
+% Package Imports
+% -----------------------
+
+% Set page margins
+\usepackage[a4paper, top=1in, bottom=0.8in, left=1.1in, right=0.8in]{geometry}
+
+% Use Times New Roman font
+\usepackage{times}
+
+% Add page numbering
+\pagestyle{plain}
+\usepackage{multirow}
+% Enable graphics inclusion
+\usepackage{graphicx}
+\usepackage{float}
+% Enable code listings
+\usepackage{listings}
+\usepackage{xcolor} % For customizing code colors
+
+% Define MATLAB style for listings
+\lstdefinestyle{vscode-light}{
+	language=Matlab,
+	basicstyle=\ttfamily\footnotesize,
+	keywordstyle=\color{blue},
+	commentstyle=\color{gray},
+	stringstyle=\color{red},
+	numberstyle=\tiny\color{black},
+	numbersep=5pt,
+	frame=single,
+	backgroundcolor=\color{white!10},
+	breaklines=true,
+	captionpos=b,
+	tabsize=4,
+	showstringspaces=false,
+	numbers=left,  % Enable line numbering on the left
+	stepnumber=1,  % Line numbers increment by 1
+	numberfirstline=true, % Number the first line
+}
+\setlength{\parindent}{0pt}
+\begin{document}
+	\section{Experiment No. 3}
+	
+	\section{Experiment Title }
+Solving Nonlinear Equations by the False Position Method Using MATLAB
+	\section{Objective}
+	
+	The objectives of this lab are:
+	\begin{itemize}
+		\item To determine two approximations between which the root of the equation exists.
+		\item To display the approximations, root and error for each iteration by the false position method in a
+		tabular form.
+		
+	\end{itemize}
+	\section{Theory}
+	
+	
+	The False Position Method, also known as the Regula Falsi Method, is a numerical method used to find the root of a nonlinear equation of the form $f(x) = 0$. It is a bracketing method that combines aspects of the Bisection Method and the Secant Method. Like the Bisection Method, it starts with two initial guesses, $b$ and $c$, such that $f(b)$ and $f(c)$ have opposite signs (i.e., $f(b) \cdot f(c) < 0$), ensuring that a root lies between them. Unlike the Bisection Method, the False Position Method uses a weighted average to estimate the root more accurately by considering the function values at the interval endpoints.
+	
+	The method proceeds by calculating a new approximation $m$ using the formula:
+	\[
+	m = \frac{b \cdot f(c) - c \cdot f(b)}{f(c) - f(b)}
+	\]
+	If $f(b) \cdot f(m) < 0$, the root lies in the interval $[b, m]$; otherwise, it lies in $[m, c]$. This process repeats until the function value at $m$ becomes sufficiently close to zero or until a predefined tolerance level for the error is reached.
+
+	
+	\subsection{Algorithm:}
+	The False Position Method follows these steps:
+	\begin{enumerate}
+		\item Define the function $f(x)$.
+		\item Choose two initial points $b$ and $c$ such that $f(b) \cdot f(c) < 0$.
+		\item Compute the new approximation:
+		\[
+		m = \frac{b \cdot f(c) - c \cdot f(b)}{f(c) - f(b)}
+		\]
+		\item Check the sign of $f(m)$:
+		\begin{enumerate}
+			\item If $f(b) \cdot f(m) < 0$, set $c = m$.
+			\item Else, set $b = m$.
+		\end{enumerate}
+		\item Repeat steps 3 and 4 until $|f(m)| < \text{tolerance}$ or maximum iterations are reached.
+	\end{enumerate}
+	
+	
+
+
+	
+	
+	
+	\subsection{Solving Non-linear Equation Using False Position Method }
+	Here $f(x) = x^3 - 2x - 5$, 
+	error is assumed to be 0.001 
+	
+	
+	
+	\subsubsection{MATLAB Code;}
+	\begin{lstlisting}[style=vscode-light, caption={Solving Non-linear Equation Using  False Position Method in MATLAB.} ]
+		
+% False Position Method
+clc;
+clear;
+
+f = @(x) x^3 - 2*x - 5; 
+error = 0.001;   
+N = 500;         
+
+for i = -1000:1000
+if f(i) * f(i+1) < 0
+b = i;
+c = i + 1;
+break;
+end
+end
+
+for k = 1:N
+m = (b*f(c) - c*f(b)) / (f(c) - f(b)); 
+er = abs(c - b);  
+fprintf('Iteration %d: b = %.6f, c = %.6f, m = %.6f, f(m) = %.6f, error = %.6f\n', k, b, c, m, f(m), er);
+
+if f(b) * f(m) < 0
+c = m;  
+else
+b = m;  
+end
+
+
+if abs(f(m)) < error || er <= error
+fprintf('The root of the equation is %.6f\n', m);
+break;
+end
+end
+
+		
+	\end{lstlisting}
+	
+	
+	
+	\newpage
+	\subsubsection{Result Shown in Command Window}
+	
+	\begin{lstlisting}[style=vscode-light, caption={Command Window for False Position Method } ]
+Iteration 1: b = 2.000000, c = 3.000000, m = 2.058824,f(m) = -0.390800, error = 1.000000
+Iteration 2: b = 2.058824, c = 3.000000, m = 2.081264,f(m) = -0.147204, error = 0.941176
+Iteration 3: b = 2.081264, c = 3.000000, m = 2.089639,f(m) = -0.054677, error = 0.918736
+Iteration 4: b = 2.089639, c = 3.000000, m = 2.092740,f(m) = -0.020203, error = 0.910361
+Iteration 5: b = 2.092740, c = 3.000000, m = 2.093884,f(m) = -0.007451, error = 0.907260
+Iteration 6: b = 2.093884, c = 3.000000, m = 2.094305,f(m) = -0.002746, error = 0.906116
+Iteration 7: b = 2.094305, c = 3.000000, m = 2.094461,f(m) = -0.001012, error = 0.905695
+Iteration 8: b = 2.094461, c = 3.000000, m = 2.094518,f(m) = -0.000373, error = 0.905539
+The root of the equation is 2.094518
+		
+	\end{lstlisting}
+	
+	
+	
+	
+	\section{Discussion}
+	
+	In this session, the False Position Method was implemented in MATLAB to solve a non-linear equation of the form $f(x) = x^3 - 2x - 5$. The method begins with two initial guesses between which the root lies and iteratively updates the interval using a formula based on the values of the function at the endpoints. 
+	In this experiment, the program automatically determined an appropriate interval and proceeded with the iteration until the error was below the tolerance level of 0.001. The root was found to be approximately 2.094518 after 8 iterations, indicating efficient convergence. The command window displayed all iterations along with intermediate values of the approximations, root estimates, and error.
+	
+	This lab effectively demonstrated the application of the False Position Method in MATLAB.
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+\end{document}

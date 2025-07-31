@@ -1,0 +1,37 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{subcaption}
+% Use Times New Roman font
+\usepackage{times}
+\usepackage[a4paper, top=1in, bottom=0.8in, left=1.1in, right=0.8in]{geometry}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{xcolor} % For customizing code colors
+\setlength{\parindent}{0pt}
+\usepackage{titlesec} % Add this to your preamble
+\titleformat{\section}
+{\normalfont\large\bfseries}{\thesection}{1em}{}
+% Set spacing for sections
+\titlespacing*{\section}
+{0pt}  % Left spacing
+{0ex} % Space before (adjust this value)
+{0cm}  % Space after (adjust this value)
+\begin{document}
+		\section*{Block diagram:}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{"Images/1"}
+		\caption{Block diagram of a DC Generator in Simulink }
+		\label{fig:screenshot-2025-04-26-063416}
+	\end{figure}
+	\newpage
+	\section*{Output waveshape:}
+		\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{"Images/sim"}
+		\caption{Simulation result in Simulink}
+		\label{fig:screenshot-2025-04-26-063416}
+	\end{figure}
+\end{document}

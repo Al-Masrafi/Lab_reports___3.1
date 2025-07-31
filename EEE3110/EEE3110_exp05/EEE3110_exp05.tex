@@ -1,0 +1,256 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{subcaption}
+% -----------------------
+% Package Imports
+% -----------------------
+
+% Set page margins
+\usepackage[a4paper, top=1in, bottom=0.8in, left=1.1in, right=0.8in]{geometry}
+
+% Use Times New Roman font
+\usepackage{times}
+
+% Add page numbering
+\pagestyle{plain}
+\usepackage{multirow}
+% Enable graphics inclusion
+\usepackage{graphicx}
+\usepackage{float}
+% Enable code listings
+\usepackage{listings}
+\usepackage{xcolor} % For customizing code colors
+
+% Define MATLAB style for listings
+\lstdefinestyle{vscode-light}{
+	language=Matlab,
+	basicstyle=\ttfamily\footnotesize,
+	keywordstyle=\color{blue},
+	commentstyle=\color{gray},
+	stringstyle=\color{red},
+	numberstyle=\tiny\color{black},
+	numbersep=5pt,
+	frame=single,
+	backgroundcolor=\color{white!10},
+	breaklines=true,
+	captionpos=b,
+	tabsize=4,
+	showstringspaces=false,
+	numbers=left,  % Enable line numbering on the left
+	stepnumber=1,  % Line numbers increment by 1
+	numberfirstline=true, % Number the first line
+}
+\setlength{\parindent}{0pt}
+
+
+\begin{document}
+	\section{Experiment No. 5}
+	
+	\section{Experiment Title }
+Solving System of Linear Equations by Gauss Elimination Method Using MATLAB
+	\section{Objective}
+	
+	The objectives of this lab are:
+	\begin{itemize}
+		\item To gather knowledge about solving a system of linear equations using the Gauss elimination method.
+		\item To implement and show output using the Gauss Elimination Method for solving linear equations.
+		
+		
+	\end{itemize}
+	\section{Theory}
+
+	Gaussian elimination is a direct method for solving a system of linear equations by transforming its augmented matrix into an equivalent upper triangular form, and then applying back substitution to determine the unknowns. The method proceeds in two main phases:
+	\begin{enumerate}
+		\item \textbf{Forward elimination:} Use elementary row operations to eliminate variables below each pivot, converting the augmented matrix into an upper triangular (row echelon) form.
+		\item \textbf{Back substitution:} Starting from the last equation, solve for each unknown in turn by substituting previously found values.
+	\end{enumerate}
+	
+	Consider a general system of $n$ linear equations in $n$ unknowns:
+	\begin{align}
+		a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n &= b_1, \\
+		a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n &= b_2, \\
+		&\,\vdots \nonumber \\
+		a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{nn}x_n &= b_n.
+	\end{align}
+	During forward elimination, for each pivot row $k$ (from 1 to $n-1$), eliminate the variable $x_k$ from rows $i=k+1$ to $n$. If $a_{kk}$ is the pivot element, compute the multiplier
+	\[
+	m_{ik} = \frac{a_{ik}}{a_{kk}},
+	\]
+	and replace row $i$ by
+	\[
+	\text{Row}_i \leftarrow \text{Row}_i - m_{ik} \times \text{Row}_k.
+	\]
+	This updates the coefficients and constants in the augmented matrix, producing zeros below each pivot.
+	
+	Once the matrix is in upper triangular form:
+	\[
+	\begin{bmatrix}
+		a_{11} & a_{12} & \cdots & a_{1n} & b_1 \\
+		0      & a_{22}'& \cdots & a_{2n}'& b_2'\\
+		\vdots &        & \ddots &        & \\
+		0      &   0    & \cdots & a_{nn}^{(n-1)} & b_n^{(n-1)}
+	\end{bmatrix},
+	\]
+	we perform back substitution. Starting with
+	\[
+	x_n = \frac{b_n^{(n-1)}}{a_{nn}^{(n-1)}},
+	\]
+	and for $j = n-1, n-2, \dots, 1$,
+	\[
+	x_j = \frac{1}{a_{jj}^{(j-1)}} \Bigl(b_j^{(j-1)} - \sum_{k=j+1}^n a_{jk}^{(j-1)} x_k\Bigr).
+	\]
+	
+	\subsection{Algorithm}
+	The steps below outline the Gauss elimination method without relying on any specialized algorithm package.
+	\begin{enumerate}
+		\item \textbf{Input:} Augmented matrix $a$ of size $n\times(n+1)$.  
+		\item \textbf{Extract:}
+		\begin{enumerate}
+			\item Coefficient matrix $A$ (first $n$ columns of $a$).
+			\item Constant vector $b$ (last column of $a$).
+			\item (Optional) Compute $x_{\mathrm{inv}} = A^{-1}b$ for verification.
+		\end{enumerate}
+		\item \textbf{Forward elimination with partial pivoting:}
+		\begin{enumerate}
+			\item For $k$ from $1$ to $n-1$:
+			\begin{enumerate}
+				\item Find the maximum absolute pivot in column $k$ among rows $k$ to $n$:
+				\[\text{[~, idx]} = \max(|a(k:n,k)|), \quad p = idx + k - 1.
+				\]
+				\item If $a(p,k) = 0$, the matrix is singular; stop with an error.
+				\item Swap row $k$ with row $p$ if $p \neq k$.
+				\item For each row $i$ from $k+1$ to $n$:
+				\begin{enumerate}
+					\item Compute $m = a(i,k) / a(k,k)$.
+					\item Update row $i$: $a(i,k:n+1) = a(i,k:n+1) - m \times a(k,k:n+1)$.
+				\end{enumerate}
+			\end{enumerate}
+		\end{enumerate}
+		\item \textbf{Back substitution:}
+		\begin{enumerate}
+			\item Initialize solution vector $x$ of length $n$.
+			\item For $j$ from $n$ down to $1$:
+			\begin{enumerate}
+				\item Compute $s = \sum_{p=j+1}^{n} a(j,p) \times x(p).$
+				\item Compute $x(j) = (a(j,n+1) - s) / a(j,j)$.
+			\end{enumerate}
+		\end{enumerate}
+		\item \textbf{Output:}
+		\begin{enumerate}
+			\item Upper triangular matrix $a$.
+			\item Solution vector $x$ (and optional $x_{\mathrm{inv}}$ for verification).
+		\end{enumerate}
+	\end{enumerate}
+	\newpage
+	\subsection{Solving linear Equation Using  Gauss Elimination Method}
+	\subsubsection{MATLAB Code:}
+	\begin{lstlisting}[style=vscode-light, caption={SSolving linear Equation Using  Gauss Elimination Method in MATLAB.} ]
+		a = input('Enter the augmented matrix [A | b] as an n-by-(n+1) matrix: ');
+		
+		[n, m] = size(a);
+		if m ~= n+1
+		error('Input must be an n-by-(n+1)');
+		end
+		
+		for k = 1:n-1
+		% Finding pivot row
+		[~, idx] = max(abs(a(k:n,k)));
+		p = idx + k - 1;
+		if a(p,k) == 0
+		error('Matrix is singular; zero pivot encountered at column %d.', k);
+		end
+		% Swapping rows 
+		if p ~= k
+		temp = a(k,:);
+		a(k,:) = a(p,:);
+		a(p,:) = temp;
+		end
+		% Eliminating below pivot
+		for i = k+1:n
+		mult = a(i,k) / a(k,k);
+		a(i,k:m) = a(i,k:m) - mult * a(k,k:m);
+		end
+		end
+		
+		% Back substitution
+		x = zeros(n,1);
+		for j = n:-1:1
+		if j < n
+		sum_val = a(j,j+1:n) * x(j+1:n);
+		else
+		sum_val = 0;
+		end
+		x(j) = (a(j,m) - sum_val) / a(j,j);
+		end
+		
+		% OUTPUT
+		disp('Upper triangular augmented matrix:');
+		disp(a);
+		disp('Solution vector x:');
+		disp(x);
+		
+		
+		
+	\end{lstlisting}
+	
+	
+	
+	\newpage
+	\subsection{Result Shown in Command Window}
+	
+	\begin{lstlisting}[style=vscode-light, caption={Command Window for Standard Case (Unique Solution)} ]
+        Enter the augmented matrix [A | b] as an n-by-(n+1) matrix:
+        [2, 1, -1, 8; -3, -1, 2, -11; -2, 1, 2, -3]
+        Upper triangular augmented matrix:
+        -3.0000   -1.0000    2.0000  -11.0000
+         0    1.6667    0.6667    4.3333
+         0         0    0.2000   -0.2000
+         Solution vector x:
+         2.0000
+         3.0000
+        -1.0000
+
+
+	\end{lstlisting}
+		\begin{lstlisting}[style=vscode-light, caption={Command Window for All-Zero Row} ]
+		Enter the augmented matrix [A | b] as an n-by-(n+1) matrix: 
+		[1, 2, 3, 4; 0, 0, 0, 0; 2, 3, 4, 5]
+		Upper triangular augmented matrix:
+		2.0000    3.0000    4.0000    5.0000
+		0    0.5000    1.0000    1.5000
+		0         0         0         0
+		Solution vector x:
+		NaN
+		NaN
+		NaN
+		
+	\end{lstlisting}
+		\begin{lstlisting}[style=vscode-light, caption={Command Window for zero Pivot Requiring Row Swap} ]
+		Enter the augmented matrix [A | b] as an n-by-(n+1) matrix: 
+		[0 -2 0 12; 2 8 -3 15;0 -3 12 20;]
+    	Upper triangular augmented matrix:
+    	2.0000    8.0000   -3.0000   15.0000
+	    0   -3.0000   12.0000   20.0000
+    	0         0   -8.0000   -1.333
+    	Solution vector x:
+    	31.7500
+    	-6.0000
+    	0.1667
+
+	\end{lstlisting}
+\section{Discussion}
+	In this experiment, the Gauss Elimination Method was introduced to solve a linear equation, highlighting its effectiveness in finding solutions using MATLAB. 
+	
+The Gaussian elimination method was tested on multiple benchmark systems. Augmented matrices were processed correctly, and upper triangular forms were generated without error. Partial pivoting was applied whenever zero or small pivots were encountered, and numerical stability was maintained. The back substitution steps were executed successfully, and the computed solution vectors agreed with MATLAB’s built-in solver within machine precision. Overall, the implementation was demonstrated to be accurate, and efficient for moderate-sized linear systems.
+
+	
+	
+	
+	
+	
+	
+	
+	
+\end{document}

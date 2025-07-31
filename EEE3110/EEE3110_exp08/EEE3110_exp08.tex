@@ -1,0 +1,192 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{subcaption}
+% -----------------------
+% Package Imports
+% -----------------------
+
+% Set page margins
+\usepackage[a4paper, top=1in, bottom=0.8in, left=1.1in, right=0.8in]{geometry}
+
+% Use Times New Roman font
+\usepackage{times}
+
+% Add page numbering
+\pagestyle{plain}
+\usepackage{multirow}
+% Enable graphics inclusion
+\usepackage{graphicx}
+\usepackage{float}
+% Enable code listings
+\usepackage{listings}
+\usepackage{xcolor} % For customizing code colors
+% -----------------------
+% Section Font Customization
+% -----------------------
+\usepackage{titlesec} % To customize section font size
+\titleformat{\section}
+{\normalfont\fontsize{14}{16}\bfseries}{\thesection}{1em}{}
+
+\titleformat{\subsection}
+{\normalfont\fontsize{14}{16}\bfseries}{\thesubsection}{1em}{}
+
+
+% Define MATLAB style for listings
+\lstdefinestyle{vscode-light}{
+	language=Matlab,
+	basicstyle=\ttfamily\footnotesize,
+	keywordstyle=\color{black},
+	commentstyle=\color{gray},
+	stringstyle=\color{red},
+	numberstyle=\tiny\color{black},
+	numbersep=5pt,
+	frame=single,
+	backgroundcolor=\color{white!10},
+	breaklines=true,
+	captionpos=b,
+	tabsize=4,
+	showstringspaces=false,
+	numbers=left,  % Enable line numbering on the left
+	stepnumber=1,  % Line numbers increment by 1
+	numberfirstline=true, % Number the first line
+}
+\setlength{\parindent}{0pt}
+
+
+\begin{document}
+	\section{Experiment No. 8}
+	
+	\section{Experiment Title }
+Finding intermediate points using Lagrange Interpolating Polynomial.
+	\section{Objective}
+	
+	The objectives of this lab are:
+	\begin{itemize}
+		\item To know how to fit an $n^{th}$ order Lagrange interpolating polynomial through (n+1) data points..
+		\item To find intermediate values in between tabulated data points using Lagrange interpolating polynomial through MATLAB programming.
+		
+	\end{itemize}
+	
+	\section{Lagrange Interpolation}
+	
+	Lagrange interpolation is a polynomial interpolation technique used to estimate intermediate data points within the range of a discrete set of known data points. The theory behind the Lagrange interpolation method is based on constructing a polynomial that passes through a given set of points $(x_i, y_i)$. This is especially useful in numerical analysis for interpolation.
+	
+	\subsection{ Definition}
+	
+	Given $n+1$ data points $(x_0, y_0), (x_1, y_1), \ldots, (x_n, y_n)$, the Lagrange interpolating polynomial $P(x)$ is expressed as:
+	
+	\begin{equation}
+		P(x) = \sum_{i=0}^{n} y_i L_i(x)
+		\label{eq:lagrange_poly}
+	\end{equation}
+	
+	where $L_i(x)$ are the Lagrange basis polynomials defined as:
+	
+	\begin{equation}
+		L_i(x) = \prod_{\substack{j=0 \\ j \ne i}}^{n} \frac{x - x_j}{x_i - x_j}
+		\label{eq:lagrange_basis}
+	\end{equation}
+	
+	\subsection{Example}
+	
+	Suppose three data points are given: $(x_0, y_0) = (1, 2)$, $(x_1, y_1) = (3, 4)$, and $(x_2, y_2) = (4, 3)$.
+	
+	\begin{enumerate}
+		\item Compute the basis polynomials $L_0(x)$, $L_1(x)$, and $L_2(x)$:
+		
+		\begin{align*}
+			L_0(x) &= \frac{(x - x_1)(x - x_2)}{(x_0 - x_1)(x_0 - x_2)} = \frac{(x - 3)(x - 4)}{(1 - 3)(1 - 4)} = \frac{(x - 3)(x - 4)}{6} \\
+			L_1(x) &= \frac{(x - x_0)(x - x_2)}{(x_1 - x_0)(x_1 - x_2)} = \frac{(x - 1)(x - 4)}{(3 - 1)(3 - 4)} = -\frac{(x - 1)(x - 4)}{2} \\
+			L_2(x) &= \frac{(x - x_0)(x - x_1)}{(x_2 - x_0)(x_2 - x_1)} = \frac{(x - 1)(x - 3)}{(4 - 1)(4 - 3)} = \frac{(x - 1)(x - 3)}{3}
+		\end{align*}
+		
+		\item Form $P(x)$:
+		
+		\begin{equation}
+			P(x) = y_0 L_0(x) + y_1 L_1(x) + y_2 L_2(x)
+		\end{equation}
+		
+		\item Simplify $P(x)$ to get the final polynomial if required.
+	\end{enumerate}
+	
+	\subsection{Algorithm}
+	
+	\noindent \textbf{Input:} Data points $x = [x_0, x_1, ..., x_n]$ and $y = [y_0, y_1, ..., y_n]$ \\
+	\textbf{Output:} Simplified Lagrange interpolating polynomial $P(X)$ and its value at a given $X\_value$
+	
+	\begin{enumerate}
+		\item Initialize polynomial $P \leftarrow 0$
+		\item Define symbolic variable $X$
+		\item Let $n \leftarrow$ length($x$)
+		\item \textbf{For} $i = 1$ to $n$ \textbf{do}:
+		\begin{enumerate}
+			\item Initialize Lagrange basis polynomial $L_i \leftarrow 1$
+			\item \textbf{For} $j = 1$ to $n$ \textbf{do}:
+			\begin{itemize}
+				\item \textbf{If} $i \ne j$ \textbf{then} \\
+				Update $L_i \leftarrow L_i \times \frac{X - x[j]}{x[i] - x[j]}$
+			\end{itemize}
+			\item Update polynomial $P \leftarrow P + y[i] \times L_i$
+		\end{enumerate}
+		\item Simplify the polynomial: $P \leftarrow \text{simplify}(P)$
+		\item Display \texttt{"Lagrange Interpolating Polynomial:"}, $P$
+		\item \textbf{Input:} $X\_value$ (specific value to evaluate $P$)
+		\item Compute $P\_value \leftarrow \text{double(substitute } P \text{ with } X = X\_value)$
+	\end{enumerate}
+	
+	\newpage
+	\subsection{Finding intermediate points using Lagrange Interpolating Polynomial}
+	
+	\subsubsection{MATLAB Code:}
+	\begin{lstlisting}[style=vscode-light, caption={Lagrange Interpolating Polynomial in MATLAB.} ]
+	x = [1, 4, 6];
+	y = [0, log(4), log(6)];
+	v = 2;
+	n = 3;       
+	L = zeros(1, n);     
+	for i = 1:n
+	Li = 1;         
+	for j = 1:n
+	if i ~= j
+	Li = Li * ((v - x(j)) / (x(i) - x(j)));
+	end
+	end
+	L(i) = Li;       
+	end
+	f = y(1) * L(1) + y(2) * L(2) + y(3) * L(3)  
+	
+	
+	
+	
+	
+	
+
+	\end{lstlisting}
+	
+	
+	
+	
+	\subsection{Result Shown in Command Window}
+	
+	\begin{lstlisting}[style=vscode-light, caption={Command Window for Finding intermediate points using Lagrange Interpolating Polynomial} ]
+f = 0.5658
+	\end{lstlisting}
+	
+	
+	
+\section{Discussion}
+In this experiment, we successfully applied the Lagrange Interpolating Polynomial to estimate intermediate values between known data points. The Lagrange method constructs a polynomial that passes through all given data points, and it is particularly useful when only a few data points are available and an estimation is needed at a point not explicitly listed.
+
+We selected three known points and used MATLAB to implement the Lagrange interpolation formula. The program correctly calculated the Lagrange basis polynomials and combined them to evaluate the function value at a specific point, $x = 2$. The result obtained was approximately $f = 0.5658$ for $\ln(2)$ and expected natural for $\ln(2) \approx 0.6931$ which aligns with the expected natural logarithmic value between $\ln(1) = 0$ and $\ln(4) \approx 1.3863$.
+
+
+
+	
+	
+	
+	
+	
+	
+\end{document}

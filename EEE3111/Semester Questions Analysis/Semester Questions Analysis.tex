@@ -1,0 +1,368 @@
+\documentclass[12pt, a4paper]{article}
+
+%---PACKAGES---
+\usepackage[left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	pdftitle={Power Systems Questions},
+}
+
+%---DOCUMENT---
+\title{Power System I \& II - Collected Exam Questions}
+\author{Sorted by Topic and Year}
+\date{\today}
+
+\begin{document}
+	\maketitle
+	\tableofcontents
+	\newpage
+	
+	%=====================================================
+	% PART I: POWER SYSTEM I (EEE 3211)
+	%=====================================================
+	\part{Power System I (EEE 3211)}
+	
+	\section{Per-Unit System \& Impedance Diagrams}
+	\subsection{Year 2021}
+	\begin{enumerate}[label=\textbf{Q1(c).}, wide, labelindent=0pt]
+		\item Draw an impedance diagram for the following network showing in per-unit on a 100MVA base. Choose 20kV as the voltage base for generator. Three phase power and line-line ratings are given.
+		\begin{figure}[h!]
+			\centering
+			% NOTE: Replace with the diagram from EEE 3211, 2021, Page 1.
+	%		\includegraphics[width=\textwidth]{path/to/2021_eee3211_q1c.png}
+			\caption{Network for 2021, Q.1(c).}
+		\end{figure}
+	\end{enumerate}
+	
+	\subsection{Year 2019}
+	\begin{enumerate}[label=\textbf{Q1(b).}, wide, labelindent=0pt]
+		\item \textbf{(Also asked in: 2021, 2016)} Show that the per-unit equivalent impedance of a two winding transformer is the same whether the calculation is made from the high voltage side or the low voltage side.
+	\end{enumerate}
+	\begin{enumerate}[label=\textbf{Q1(d).}, wide, labelindent=0pt]
+		\item Draw the impedance diagram for the power system, which is shown in following figure. The ratings of the generators, motors, and transformers are given as:
+		\begin{itemize}[noitemsep]
+			\item Generator 1: 20 MVA, 18 kV, $X_d^{''} = 20\%$
+			\item Generator 2: 20 MVA, 18 kV, $X_d^{''} = 20\%$
+			\item Synchronous motor 3: 30 MVA, 13.8 kV, $X_d^{''} = 20\%$
+			\item Three phase Y-Y transformers: 20 MVA, 138 Y/20 Y kV, $X = 10\%$
+			\item Three phase Y-$\Delta$ transformers: 15 MVA, 138 Y/13.8 kV, $X = 10\%$
+		\end{itemize}
+		\begin{figure}[h!]
+			\centering
+			% NOTE: Replace with the diagram from EEE 3211, 2019, Page 1.
+	%		\includegraphics[width=\textwidth]{path/to/2019_eee3211_q1d.png}
+			\caption{Network for 2019, Q.1(d).}
+		\end{figure}
+	\end{enumerate}
+	\begin{enumerate}[label=\textbf{Q3(c).}, wide, labelindent=0pt]
+		\item Draw the impedance diagram and find the power consumption by the load for the electric power system as shown in the following figure. All impedances in per unit on a 100 MVA base. Select 20 kV base voltage for generator, the three phase power and line ratings are given.
+		\begin{figure}[h!]
+			\centering
+			% NOTE: Replace with the diagram from EEE 3211, 2019, Page 1.
+	%		\includegraphics[width=\textwidth]{path/to/2019_eee3211_q3c.png}
+			\caption{Network for 2019, Q.3(c).}
+		\end{figure}
+	\end{enumerate}
+	
+	\subsection{Year 2017}
+	\begin{enumerate}[label=\textbf{Q2(a).}, wide, labelindent=0pt]
+		\item Prove that the relationship between the old and the new per unit values is: 
+		$Z_{pu}^{new} = Z_{pu}^{old} \frac{S_B^{new}}{S_B^{old}} \left( \frac{V_B^{old}}{V_B^{new}} \right)^2$
+	\end{enumerate}
+	
+	
+	\subsection{Year 2016}
+	\begin{enumerate}[label=\textbf{Q2(c).}, wide, labelindent=0pt]
+		\item A power system is represented by the one line diagram below: 
+		(i) using base values of 30 kVA and 240V in the generation side (section-1), determine the per unit impedances of the transformers, transmission line and load, and per unit source voltage. Draw the single phase impedance diagram and calculate the load current. (ii) repeat (i) assuming base values of 20 kVA and 115V in section 3.
+		\begin{figure}[h!]
+			\centering
+			% NOTE: Replace with the diagram from EEE 3211, 2016, Page 1.
+	%		\includegraphics[width=\textwidth]{path/to/2016_eee3211_q2c.png}
+			\caption{Network for 2016, Q.2(c).}
+		\end{figure}
+	\end{enumerate}
+	
+	\section{Transmission Line Parameters \& Performance}
+	
+	\subsection{Year 2021}
+	\begin{enumerate}[label=\textbf{Q2(c).}, wide, labelindent=0pt]
+		\item Prove that, the inductance per loop meter of a single-phase two wire line is $L = 4 \times 10^{-7} \ln \frac{D}{r'} \; H/m$, where the symbols have their usual meanings.
+	\end{enumerate}
+	\begin{enumerate}[label=\textbf{Q3(a).}, wide, labelindent=0pt]
+		\item Calculate the capacitance of a three phase line with unsymmetrical spacing which is shown in fig. 3a.
+		\begin{figure}[h!]
+			\centering
+			% NOTE: Replace with image from EEE 3211, 2021, Page 2.
+	%		\includegraphics[width=0.4\textwidth]{path/to/2021_eee3211_q3a.png}
+			\caption{Line configuration for 2021, Q.3(a).}
+		\end{figure}
+	\end{enumerate}
+	
+	\subsection{Year 2020}
+	\begin{enumerate}[label=\textbf{Q2(c).}, wide, labelindent=0pt]
+		\item One circuit of a 1-$\phi$ transmission line is composed of three solid 0.30 cm radius wires. The return circuit is composed of two 0.60 cm radius wires. The arrangement is shown in the following figure. Find the inductance due to the current in each side of the line and the inductance of the complete line by H/m.
+		\begin{figure}[h!]
+			\centering
+			% NOTE: Replace with image from EEE 3211, 2020, Page 1.
+	%		\includegraphics[width=0.8\textwidth]{path/to/2020_eee3211_q2c.png}
+			\caption{Line configuration for 2020, Q.2(c).}
+		\end{figure}
+	\end{enumerate}
+	
+	\subsection{Year 2017}
+	\begin{enumerate}[label=\textbf{Q4(c).}, wide, labelindent=0pt]
+		\item A single circuit three-phase transposed transmission line is composed of four ACSR, 1,272,000 cmil conductor per phase with horizontal configuration as shown below.
+		\begin{figure}[h!]
+			\centering
+			% NOTE: Replace with image from EEE 3211, 2017, Page 2.
+	%		\includegraphics[width=\textwidth]{path/to/2017_eee3211_q4c.png}
+			\caption{Line configuration for 2017, Q.4(c).}
+		\end{figure}
+	\end{enumerate}
+	
+	\section{Load Flow Analysis}
+	\subsection{Year 2021}
+	\begin{enumerate}[label=\textbf{Q2(b).}, wide, labelindent=0pt]
+		\item A sample power system network is shown in fig 2b. Construct the bus admittance matrix. The per-unit reactances are presented on the same base.
+		\begin{figure}[h!]
+			\centering
+			% NOTE: Replace with image from EEE 3211, 2021, Page 1.
+	%		\includegraphics[width=0.8\textwidth]{path/to/2021_eee3211_q2b.png}
+			\caption{Network for 2021, Q.2(b).}
+		\end{figure}
+	\end{enumerate}
+	\begin{enumerate}[label=\textbf{Q4(c).}, wide, labelindent=0pt]
+		\item For the following power system network, bus 1 is a slack bus with $V_1 = 1\angle 0^\circ$ pu and bus 2 is a load bus with $S_2 = 280\text{MW} + j60\text{MVAR}$. The line impedance on a base of 100MVA is $0.02 + j0.04$ pu.
+		(i) Using Gauss-Seidal method, determine $V_2$ after two iterations.
+		(ii) If after several iterations voltage at bus 2 converges to $V_2 = 0.90 - j0.10$, determine $S_1$ and real and reactive power losses in line.
+		\begin{figure}[h!]
+			\centering
+			% NOTE: Replace with image from EEE 3211, 2021, Page 2.
+	%		\includegraphics[width=0.7\textwidth]{path/to/2021_eee3211_q4c.png}
+			\caption{Network for 2021, Q.4(c).}
+		\end{figure}
+	\end{enumerate}
+	
+	\subsection{Year 2020}
+	\begin{enumerate}[label=\textbf{Q3(c).}, wide, labelindent=0pt]
+		\item The one-line diagram of a simple three-bus power system is shown in the following figure with generation at buses 1 and 3. Line reactance are marked in a p.u.. (i) compute the bus voltages using Newton-Raphson method with initial estimates of $V_2^{(0)} = 1\angle 0^\circ$ and $V_3 = 1.03\angle 0^\circ$, and (ii) compute the slack bus real and reactive power. Use base MVA 100 and perform one iteration.
+		\begin{figure}[h!]
+			\centering
+			% NOTE: Replace with image from EEE 3211, 2020, Page 1.
+	%		\includegraphics[width=0.8\textwidth]{path/to/2020_eee3211_q3c.png}
+			\caption{Network for 2020, Q.3(c).}
+		\end{figure}
+	\end{enumerate}
+	
+	\subsection{Year 2019}
+	\begin{enumerate}[label=\textbf{Q2(c).}, wide, labelindent=0pt]
+		\item Construct the bus impedance matrix for the power system network as shown in following figure. Using impedance algorithm technique.
+		\begin{figure}[h!]
+			\centering
+			% NOTE: Replace with image from EEE 3211, 2019, Page 1.
+	%		\includegraphics[width=0.8\textwidth]{path/to/2019_eee3211_q2c.png}
+			\caption{Network for 2019, Q.2(c).}
+		\end{figure}
+	\end{enumerate}
+	
+	\section{Symmetrical \& Asymmetrical Faults}
+	\subsection{Year 2021}
+	\begin{enumerate}[label=\textbf{Q5(c).}, wide, labelindent=0pt]
+		\item For the network shown in fig. 5c, using "step-by-step $Z_{bus}$ building algorithm", determine the bus impedance matrix. Assume a 3-phase fault occurs at bus 2, find (i) Fault current and (ii) The bus voltages during the fault. The reactances of the lines are given in pu. Assume the pre-fault voltages at each bus in 1.0 pu.
+		\begin{figure}[h!]
+			\centering
+			% NOTE: Replace with image from EEE 3211, 2021, Page 3.
+	%		\includegraphics[width=0.6\textwidth]{path/to/2021_eee3211_q5c.png}
+			\caption{Network for 2021, Q.5(c).}
+		\end{figure}
+	\end{enumerate}
+	
+	\subsection{Year 2020}
+	\begin{enumerate}[label=\textbf{Q5(b).}, wide, labelindent=0pt]
+		\item Draw the positive-, negative-, and zero-sequence network of the following power system.
+		\begin{figure}[h!]
+			\centering
+			% NOTE: Replace with image from EEE 3211, 2020, Page 2.
+	%		\includegraphics[width=0.8\textwidth]{path/to/2020_eee3211_q5b.png}
+			\caption{Network for 2020, Q.5(b).}
+		\end{figure}
+	\end{enumerate}
+	\begin{enumerate}[label=\textbf{Q6(c).}, wide, labelindent=0pt]
+		\item A salient pole generator without dampers is rated 20 MVA, 13.8 kV and has a direct-axis sub-transient reactance of 0.25 p.u. The negative and zero-sequence reactances are respectively 0.35 p.u. and 0.10 p.u. The neutral of the generator is solidly grounded. With the generator operating unloaded at rated voltage with $E_g = 1\angle 0^\circ$ p.u., a single line to ground fault occurs at the machine terminals... Compute the sub-transient current in the generator and the line-to-line voltages for sub-transient conditions due to the fault.
+	\end{enumerate}
+	
+	
+	\subsection{Year 2018}
+	\begin{enumerate}[label=\textbf{Q7(c).}, wide, labelindent=0pt]
+		\item Draw the zero sequence equivalent circuits for the following three phase transformer banks: (i), (ii), (iii), (iv).
+		\begin{figure}[h!]
+			\centering
+			% NOTE: Replace with image from EEE 3211, 2018, Page 2.
+	%		\includegraphics[width=\textwidth]{path/to/2018_eee3211_q7c.png}
+			\caption{Transformer configurations for 2018, Q.7(c).}
+		\end{figure}
+	\end{enumerate}
+	
+	\subsection{Year 2016}
+	\begin{enumerate}[label=\textbf{Q4(c).}, wide, labelindent=0pt]
+		\item Draw the negative and zero sequence network for the following system:
+		\begin{figure}[h!]
+			\centering
+			% NOTE: Replace with image from EEE 3211, 2016, Page 1.
+	%		\includegraphics[width=0.8\textwidth]{path/to/2016_eee3211_q4c.png}
+			\caption{Network for 2016, Q.4(c).}
+		\end{figure}
+	\end{enumerate}
+	\begin{enumerate}[label=\textbf{Q5(c).}, wide, labelindent=0pt]
+		\item The one line diagram of a simple four-bus power system is shown in following network. All impedances are expressed in per-unit on a common MVA base. A bolted three-phase fault occurs at bus 4. Using Thevenin's theorem obtain the impedances to the point of fault and the fault current in per-unit.
+		\begin{figure}[h!]
+			\centering
+			% NOTE: Replace with image from EEE 3211, 2016, Page 2.
+	%		\includegraphics[width=0.7\textwidth]{path/to/2016_eee3211_q5c.png}
+			\caption{Network for 2016, Q.5(c).}
+		\end{figure}
+	\end{enumerate}
+	
+	\newpage
+	%=====================================================
+	% PART II: POWER SYSTEM II (EEE 4141)
+	%=====================================================
+	
+	\part{Power System II (EEE 4141)}
+	
+	\section{Power System Stability}
+	\subsection{Year 2021}
+	\begin{enumerate}[label=\textbf{Q2(b).}, wide, labelindent=0pt]
+		\item \textbf{(Also asked in: 2018)} Demonstrate the equal area criteria of synchronous stability and use the criteria to solve for the critical clearing angle.
+	\end{enumerate}
+	\begin{enumerate}[label=\textbf{Q2(c).}, wide, labelindent=0pt]
+		\item \textbf{(Also asked in: 2020, 2019, 2017)} A power system is shown below having both terminal voltage and infinite bus voltage of 1 per unit. The delivered power is 0.8 per unit. If a three phase fault occurs... Determine (i) the power angle equation and (ii) the swing equation during fault.
+		\begin{figure}[h!]
+			\centering
+			% NOTE: Replace with the diagram from EEE 4141, 2021, Page 1.
+	%		\includegraphics[width=0.7\textwidth]{path/to/2021_eee4141_q2c.png}
+			\caption{Diagram for 2021, Q.2(c).}
+		\end{figure}
+	\end{enumerate}
+	
+	\subsection{Year 2020}
+	\begin{enumerate}[label=\textbf{Q2(b).}, wide, labelindent=0pt]
+		\item What assumptions need to be made during transient stability studies? What are the drawbacks of an equal-area criterion method for stability studies in power system?
+	\end{enumerate}
+	
+	\subsection{Year 2018}
+	\begin{enumerate}[label=\textbf{Q6(a).}, wide, labelindent=0pt]
+		\item What do you mean by coherent machines? For any pair of non-coherent machine in a power system derive the swing equation.
+	\end{enumerate}
+	\begin{enumerate}[label=\textbf{Q7(c).}, wide, labelindent=0pt]
+		\item A 50 Hz synchronous generator having inertia constant H=5 MJ/MVA...is connected to an infinite bus through a purely reactive circuit as shown in the following figure... Determine the critical clearing angle and the critical fault clearing time.
+		\begin{figure}[h!]
+			\centering
+			% NOTE: Replace with diagram from EEE 4141, 2018, Page 2.
+	%		\includegraphics[width=0.7\textwidth]{path/to/2018_eee4141_q7c.png}
+			\caption{Diagram for 2018, Q.7(c).}
+		\end{figure}
+	\end{enumerate}
+	
+	\section{Overhead Transmission Lines (Insulators, Sag, Corona)}
+	
+	\subsection{Year 2021}
+	\begin{enumerate}[label=\textbf{Q5(c).}, wide, labelindent=0pt]
+		\item \textbf{(Also asked in: 2016)} An overhead transmission line at a river crossing is supported from two towers at heights of 40 m and 90 m above water level, the horizontal distance between the towers being 400 m. If the maximum allowable tension is 2000 kg, calculate the clearance between the conductor and water at a point mid-way between the towers. Weight of conductor is 1 kg/m.
+	\end{enumerate}
+	
+	\subsection{Year 2019}
+	\begin{enumerate}[label=\textbf{Q1(a).}, wide, labelindent=0pt]
+		\item "String efficiency for a DC system is 100\%" - prove this statement. Is it also true for an AC system?
+	\end{enumerate}
+	\begin{enumerate}[label=\textbf{Q1(b).}, wide, labelindent=0pt]
+		\item A string of 4 insulators has a self-capacitance equal to ten times the pin to earth capacitance. Find (i) the voltage distribution across various units expressed as a percentage of total voltage across the string, and (ii) string efficiency.
+	\end{enumerate}
+	
+	\subsection{Year 2018}
+	\begin{enumerate}[label=\textbf{Q1(b).}, wide, labelindent=0pt]
+		\item Show that in a string of suspension insulators, the disc nearest to the conductor has the highest voltage across it.
+	\end{enumerate}
+	
+	\subsection{Year 2017}
+	\begin{enumerate}[label=\textbf{Q3(c).}, wide, labelindent=0pt]
+		\item Find the inductance per phase per km of double circuit 3-phase line shown in Figure-3 (c). The conductors are transposed and are of radius 0.75 cm each. The phase sequence is ABC.
+		\begin{figure}[h!]
+			\centering
+			% NOTE: Replace with diagram from EEE 4141, 2017, Page 1.
+	%		\includegraphics[width=0.6\textwidth]{path/to/2017_eee4141_q3c.png}
+			\caption{Diagram for 2017, Q.3(c).}
+		\end{figure}
+	\end{enumerate}
+	
+	
+	\section{Underground Cables}
+	\subsection{Year 2021}
+	\begin{enumerate}[label=\textbf{Q6(b).}, wide, labelindent=0pt]
+		\item \textbf{(Also asked in: 2018)} "The most economical conductor diameter is, d = D/2.718" - Show the justification of this statement and explain the ways of achieving this without excessive copper usage.
+	\end{enumerate}
+	\begin{enumerate}[label=\textbf{Q6(c).}, wide, labelindent=0pt]
+		\item Define capacitance grading. A single core cable for use on 11 kV, 50 Hz system has conductor area of 0.063 m$^2$ and the internal sheath diameter is 0.24 m. The permittivity of the dielectric used in the cable is 3.5. Calculate the (i) maximum and minimum electrostatic stress in the cable and (ii) capacitance of the cable per meter length.
+	\end{enumerate}
+	
+	\subsection{Year 2020}
+	\begin{enumerate}[label=\textbf{Q7(b).}, wide, labelindent=0pt]
+		\item Prove that dielectric stress is maximum at the conductor surface of the underground cable.
+	\end{enumerate}
+	
+	
+	\section{Distribution Systems (AC \& DC)}
+	\subsection{Year 2021}
+	\begin{enumerate}[label=\textbf{Q7(b).}, wide, labelindent=0pt]
+		\item A d.c. 2-wire distributor AB is 500 m long and is fed at both ends at 240 V. The distributor is loaded as shown in given figure. The resistance of the distributor (go and return) is 0.01 $\Omega$ per meter. Calculate (i) the point of minimum voltage and (ii) the value of this voltage.
+		\begin{figure}[h!]
+			\centering
+			% NOTE: Replace with diagram from EEE 4141, 2021, Page 2.
+	%		\includegraphics[width=0.8\textwidth]{path/to/2021_eee4141_q7b.png}
+			\caption{Diagram for 2021, Q.7(b).}
+		\end{figure}
+	\end{enumerate}
+	
+	\subsection{Year 2019}
+	\begin{enumerate}[label=\textbf{Q4(c).}, wide, labelindent=0pt]
+		\item A 2-wire DC distributor AB is 300 m long. It is fed at point A. The various loads and their positions are given below: If the maximum permissible voltage drop is not to exceed 10 V, find the cross sectional area of the distributor. Take $\rho = 1.78\times 10^{-8} \Omega m$.
+		\begin{figure}[h!]
+			\centering
+			% NOTE: Replace with image of the table from EEE 4141, 2019, Page 2.
+	%		\includegraphics[width=0.8\textwidth]{path/to/2019_eee4141_q4c_table.png}
+			\caption{Table for 2019, Q.4(c).}
+		\end{figure}
+	\end{enumerate}
+	
+	\subsection{Year 2017}
+	\begin{enumerate}[label=\textbf{Q5(c).}, wide, labelindent=0pt]
+		\item A 2-wire dc distributor AB is fed from both ends. At feeding point A, the voltage is maintained at 230V and at B 235 V. The total length of the distributor is 200 m and loads are tapped of as under: 25 A at 50 m from A; 30 A at 100 m from A; 50 A at 75 m from A; 40 A at 50 m from B. The resistance/Km of one conductor is 0.40 ohm. Calculate: (i) Currents in various sections of the distributor. (ii) Minimum voltage and the point at which it occurs.
+	\end{enumerate}
+	
+	\section{FACTS \& HVDC}
+	
+	\subsection{Year 2021}
+	\begin{enumerate}[label=\textbf{Q8(a).}, wide, labelindent=0pt]
+		\item Define HVDC systems. Mention the technical features of the first HVDC sub-station in Bangladesh.
+	\end{enumerate}
+	
+	\subsection{Year 2019}
+	\begin{enumerate}[label=\textbf{Q8(c).}, wide, labelindent=0pt]
+		\item Draw the schematic diagram of a typical HVDC converter station. What are the functions of smoothing reactors and Harmonic filters in HVDC station?
+	\end{enumerate}
+	
+	\subsection{Year 2018}
+	\begin{enumerate}[label=\textbf{Q8(a).}, wide, labelindent=0pt]
+		\item Draw a schematic diagram of a typical HVDC-converter station. Why Snubber circuits are used in a HVDC converter station?
+	\end{enumerate}
+\end{document}

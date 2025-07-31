@@ -1,0 +1,235 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{subcaption}
+
+% -----------------------
+% Package Imports
+% -----------------------
+
+% Set page margins
+\usepackage[a4paper, top=1in, bottom=0.8in, left=1.1in, right=0.8in]{geometry}
+
+% Use Times New Roman font
+\usepackage{times}
+
+% Add page numbering
+\pagestyle{plain}
+\usepackage{multirow}
+\usepackage{float}
+
+% Enable code listings
+\usepackage{listings}
+\usepackage{xcolor} % For customizing code colors
+
+% Use Courier New for code (requires 'courier' package)
+\usepackage{courier}
+
+% Define style for code listings using Courier New and 10pt, no line numbers
+\lstdefinestyle{courier10}{
+	language=Matlab,
+	basicstyle=\fontfamily{pcr}\selectfont\fontsize{10}{12}\selectfont,
+	keywordstyle=\color{blue},
+	commentstyle=\color{gray},
+	stringstyle=\color{red},
+	frame=single,
+	backgroundcolor=\color{white!10},
+	breaklines=true,
+	captionpos=b,
+	tabsize=4,
+	showstringspaces=false,
+	numbers=none  % No line numbers
+}
+
+\setlength{\parindent}{0pt}
+\usepackage{sectsty}
+\sectionfont{\fontsize{12}{15}\selectfont}
+
+\begin{document}
+	
+	\textbf{Experiment No: 3} \\
+	\textbf{Name of the Experiment:} Hands-On Projects with Arduino Microcontroller \\
+	{\fontsize{14pt}{16pt}\selectfont\textbf{Name of the Experiment:}} Hands-On Projects with Arduino Microcontroller \\
+	
+	\textbf{Objective:}
+	
+	
+	\begin{itemize}
+		\item To learn how to interface basic hardware with the Arduino microcontroller.
+		\item To develop simple code for hardware control using Arduino IDE.
+	\end{itemize}
+	
+	
+	
+	{\fontsize{14pt}{0pt}\selectfont\textbf{Project No.: 01}}  
+	
+	\textbf{Project Name:}
+    \section*{Overview:}
+    \section*{Required Apparatus:}
+	\section*{Circuit Diagram:}
+	\section*{Experimental Setup:}
+	\newpage
+	\vspace{0.5cm}
+	\textbf{Code:}
+	
+	\begin{lstlisting}[style=courier10, caption={Blink LED Code}]
+		// Motor A connections
+		int enA = 9;
+		int in1 = 8;
+		int in2 = 7;
+		// Motor B connections
+		int enB = 3;
+		int in3 = 5;
+		int in4 = 4;
+		bool a = true;
+		void setup() {
+			// Set all the motor control pins to outputs
+			pinMode(enA, OUTPUT);
+			pinMode(enB, OUTPUT);
+			pinMode(in1, OUTPUT);
+			pinMode(in2, OUTPUT);
+			pinMode(in3, OUTPUT);
+			pinMode(in4, OUTPUT);
+			pinMode(12, INPUT);
+			// Turn off motors - Initial state
+			digitalWrite(in1, LOW);
+			digitalWrite(in2, LOW);
+			digitalWrite(in3, LOW);
+			digitalWrite(in4, LOW);
+		}
+		
+		void loop() {
+			if (a == true) {
+				analogWrite(enA, 255);
+				digitalWrite(in1, HIGH);
+				digitalWrite(in2, LOW);
+				delay(5000);
+				
+				a = false;
+				digitalWrite(in1, LOW);
+				digitalWrite(in2, LOW);
+			}
+			
+			if (digitalRead(12) == HIGH) {
+				analogWrite(enB, 255);
+				// Motor 2 run 5 sec
+				digitalWrite(in3, HIGH);
+				digitalWrite(in4, LOW);
+				delay(5000);
+				digitalWrite(in3, LOW);
+				digitalWrite(in4, LOW);
+				delay(1000);
+				// Now run both motors for 10 seconds
+				analogWrite(enA, 255);
+				analogWrite(enB, 255);
+				
+				digitalWrite(in1, HIGH);
+				digitalWrite(in2, LOW);
+				digitalWrite(in3, HIGH);
+				digitalWrite(in4, LOW);
+					\end{lstlisting}
+					\newpage
+					\begin{lstlisting}[style=courier10, caption={Blink LED Code}]
+				delay(10000);
+				digitalWrite(in1, LOW);
+				digitalWrite(in2, LOW);
+				digitalWrite(in3, LOW);
+				digitalWrite(in4, LOW);
+				delay(1000);
+				a = true;
+			}
+		}
+		// This function lets you control spinning direction of motors
+		void directionControl() {
+			// Set motors to maximum speed
+			// For PWM maximum possible values are 0 to 255
+			analogWrite(enA, 255);
+			analogWrite(enB, 255);
+			
+			// Turn on motor A & B
+			digitalWrite(in1, HIGH);
+			digitalWrite(in2, LOW);
+			digitalWrite(in3, HIGH);
+			digitalWrite(in4, LOW);
+			delay(2000);
+			
+			// Now change motor directions
+			digitalWrite(in1, LOW);
+			digitalWrite(in2, HIGH);
+			digitalWrite(in3, LOW);
+			digitalWrite(in4, HIGH);
+			delay(2000);
+			
+			// Turn off motors
+			digitalWrite(in1, LOW);
+			digitalWrite(in2, LOW);
+			digitalWrite(in3, LOW);
+			digitalWrite(in4, LOW);
+		}
+		// This function lets you control speed of the motors
+		void speedControl() {
+			// Turn on motors
+			digitalWrite(in1, LOW);
+			digitalWrite(in2, HIGH);
+			digitalWrite(in3, LOW);
+			digitalWrite(in4, HIGH);
+			
+			// Accelerate from zero to maximum speed
+			for (int i = 0; i < 256; i++) {
+				analogWrite(enA, i);
+				analogWrite(enB, i);
+				delay(20);
+			}
+			
+			// Decelerate from maximum speed to zero
+			for (int i = 255; i >= 0; --i) {
+				analogWrite(enA, i);
+				analogWrite(enB, i);
+				delay(20);
+			}
+				\end{lstlisting}
+				
+				
+					\begin{lstlisting}[style=courier10, caption={Blink LED Code}]
+			// Now turn off motors
+			digitalWrite(in1, LOW);
+			digitalWrite(in2, LOW);
+			digitalWrite(in3, LOW);
+			digitalWrite(in4, LOW);
+		}
+		
+		void maruf() {
+			analogWrite(enA, 255);
+			analogWrite(enB, 255);
+			for (int i = 1; i < 10; i++) {
+				digitalWrite(in1, HIGH);
+				digitalWrite(in2, LOW);
+				digitalWrite(in3, HIGH);
+				digitalWrite(in4, LOW);
+				delay(200);
+				
+				digitalWrite(in1, LOW);
+				digitalWrite(in2, HIGH);
+				digitalWrite(in3, LOW);
+				digitalWrite(in4, HIGH);
+				delay(200);
+			}
+		}
+		
+	\end{lstlisting}
+	
+	\section*{Discussions:}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+\end{document}

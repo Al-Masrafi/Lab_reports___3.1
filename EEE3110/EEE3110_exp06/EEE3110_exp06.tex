@@ -1,0 +1,420 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{subcaption}
+% -----------------------
+% Package Imports
+% -----------------------
+
+% Set page margins
+\usepackage[a4paper, top=1in, bottom=0.8in, left=1.1in, right=0.8in]{geometry}
+
+% Use Times New Roman font
+\usepackage{times}
+
+% Add page numbering
+\pagestyle{plain}
+\usepackage{multirow}
+% Enable graphics inclusion
+\usepackage{graphicx}
+\usepackage{float}
+% Enable code listings
+\usepackage{listings}
+\usepackage{xcolor} % For customizing code colors
+
+% Define MATLAB style for listings
+\lstdefinestyle{vscode-light}{
+	language=Matlab,
+	basicstyle=\ttfamily\footnotesize,
+	keywordstyle=\color{blue},
+	commentstyle=\color{gray},
+	stringstyle=\color{red},
+	numberstyle=\tiny\color{black},
+	numbersep=5pt,
+	frame=single,
+	backgroundcolor=\color{white!10},
+	breaklines=true,
+	captionpos=b,
+	tabsize=4,
+	showstringspaces=false,
+	numbers=left,  % Enable line numbering on the left
+	stepnumber=1,  % Line numbers increment by 1
+	numberfirstline=true, % Number the first line
+}
+\setlength{\parindent}{0pt}
+
+
+\begin{document}
+	\section{Experiment No. 6}
+	
+	\section{Experiment Title }
+	Solving system of linear equations by Jacobi and Gauss-Seidel method using MATLAB
+	\section{Objective}
+	
+	The objectives of this lab are:
+	\begin{itemize}
+		\item To gather knowledge about solving a system of linear equations using the Jacobi and Gauss-Seidel Method.
+	\item To implement and show output using the  Jacobi and Gauss-Seidel Method for solving linear equations.
+	
+	\end{itemize}
+
+\section{Theory}
+
+\subsection{Jacobi Method}
+
+The Jacobi method is an iterative technique for solving systems of linear equations. Named after Carl Gustav Jacob Jacobi (1804–1851), this method is based on two key assumptions:
+
+\begin{itemize}
+	\item The system has a unique solution.
+	\item The coefficient matrix $A$ has no zero entries on its main diagonal. If any diagonal element is zero, rows or columns must be interchanged to ensure all diagonal entries are nonzero.
+\end{itemize}
+
+Consider a general system of $n$ linear equations:
+
+$$
+a_{11}x_1 + a_{12}x_2 + a_{13}x_3 + \cdots + a_{1n}x_n = b_1 \quad \text{(6.1.1)}
+$$
+
+$$
+a_{21}x_1 + a_{22}x_2 + a_{23}x_3 + \cdots + a_{2n}x_n = b_2 \quad \text{(6.1.2)}
+$$
+
+$$
+\vdots
+$$
+
+$$
+a_{n1}x_1 + a_{n2}x_2 + a_{n3}x_3 + \cdots + a_{nn}x_n = b_n \quad \text{(6.1.n)}
+$$
+
+To apply the Jacobi method, solve each equation for its respective variable:
+
+$$
+x_1 = \frac{b_1}{a_{11}} - \frac{a_{12}}{a_{11}}x_2 - \frac{a_{13}}{a_{11}}x_3 - \cdots - \frac{a_{1n}}{a_{11}}x_n \quad \text{(6.2.1)}
+$$
+
+$$
+x_2 = \frac{b_2}{a_{22}} - \frac{a_{21}}{a_{22}}x_1 - \frac{a_{23}}{a_{22}}x_3 - \cdots - \frac{a_{2n}}{a_{22}}x_n \quad \text{(6.2.2)}
+$$
+
+$$
+\vdots
+$$
+
+$$
+x_n = \frac{b_n}{a_{nn}} - \frac{a_{n1}}{a_{nn}}x_1 - \frac{a_{n2}}{a_{nn}}x_2 - \cdots - \frac{a_{n(n-1)}}{a_{nn}}x_{n-1} \quad \text{(6.2.n)}
+$$
+
+Start with an initial guess:
+
+$$
+\mathbf{x}^{(0)} = \left( x_1^{(0)}, x_2^{(0)}, x_3^{(0)}, \ldots, x_n^{(0)} \right)
+$$
+
+Use these values in the reformulated equations to obtain the first approximation:
+
+$$
+\mathbf{x}^{(1)} = \left( x_1^{(1)}, x_2^{(1)}, x_3^{(1)}, \ldots, x_n^{(1)} \right)
+$$
+
+Repeat this process to obtain the second approximation:
+
+$$
+\mathbf{x}^{(2)} = \left( x_1^{(2)}, x_2^{(2)}, x_3^{(2)}, \ldots, x_n^{(2)} \right)
+$$
+
+By continuing this process, a sequence of approximations is formed:
+
+$$
+\mathbf{x}^{(m)} = \left( x_1^{(m)}, x_2^{(m)}, x_3^{(m)}, \ldots, x_n^{(m)} \right)
+$$
+
+which eventually converges to the true solution of the system.
+
+\subsection{Gauss-Seidel Method}
+
+The Gauss-Seidel method, developed by Carl Friedrich Gauss (1777–1855) and Philipp L. Seidel (1821–1896), is an improvement over the Jacobi method. It uses the most recently calculated values during the iteration process.
+
+Unlike the Jacobi method, which waits to update all values simultaneously, the Gauss-Seidel method updates each variable as soon as it is computed. For instance, once $x_1$ is computed from the first equation, it is immediately used to compute $x_2$ from the second equation. Similarly, updated values of $x_1$ and $x_2$ are used to compute $x_3$, and so on.
+
+This strategy of immediate substitution often leads to faster convergence, particularly in systems with diagonally dominant coefficient matrices.
+
+\section{Algorithm}
+
+\subsection{Jacobi Method}
+
+\textbf{Algorithm: Jacobi Method for Solving System of Linear Equations}
+
+\textbf{Input:} Augmented matrix $a$ of size $n \times (n+1)$, where $A$ is the coefficient matrix and $b$ is the constant vector.  
+\textbf{Output:} Solution vector $x$ such that $Ax = b$.
+
+\begin{enumerate}
+	\item \textbf{Initialize and Define Inputs:}
+	\begin{enumerate}
+		\item Define matrix $a$ to represent the augmented matrix of the system of linear equations.
+		\item Extract coefficient matrix $A$ (all columns of $a$ except the last).
+		\item Extract constant vector $b$ (last column of $a$).
+	\end{enumerate}
+	
+	\item \textbf{Verification Using Matrix Inversion:}
+	\begin{enumerate}
+		\item Compute $$ X = A^{-1}b $$ for future verification.
+	\end{enumerate}
+	
+	\item \textbf{Initialize Guess Vectors:}
+	\begin{enumerate}
+		\item Set the initial guess for the solution vector $x$ as a zero vector of size $n$.
+		\item Set the initial guess for the intermediate solution vector $x_0$ as a zero vector of size $n$.
+	\end{enumerate}
+	
+	\item \textbf{Print Header for Iteration Output:}
+	\begin{enumerate}
+		\item Display the column headers for the iteration number and solution variables.
+	\end{enumerate}
+	
+	\item \textbf{Jacobi Iteration Loop:}
+	\begin{enumerate}
+		\item For each iteration $k$ from $1$ to $I_{\text{max}}$:
+		\begin{enumerate}
+			\item \textit{Row-wise Solution Update:}
+			\begin{enumerate}
+				\item For each row $i$ from $1$ to $n$:
+				\begin{itemize}
+					\item Initialize $\text{sum} = 0$.
+					\item For each column $j$ from $1$ to $n$:
+					\begin{itemize}
+						\item If $i \ne j$ (exclude diagonal elements):
+						\item Add the term $\left( \frac{a[i,j]}{a[i,i]} \right) x[j]$ to $\text{sum}$.
+					\end{itemize}
+					\item Compute the $i^{th}$ element of the intermediate solution:
+					$$
+					x_0(i) = \frac{a[i,n+1]}{a[i,i]} - \text{sum}
+					$$
+				\end{itemize}
+			\end{enumerate}
+			
+			\item \textit{Update Solution Vector:}
+			\begin{enumerate}
+				\item Set $x = x_0$
+			\end{enumerate}
+			
+			\item \textit{Print Current Iteration Results:}
+			\begin{enumerate}
+				\item Display the current iteration number $k$ and the values of the solution vector $x$.
+			\end{enumerate}
+		\end{enumerate}
+	\end{enumerate}
+	
+	\item \textbf{End Iteration Loop.}
+\end{enumerate}
+
+\subsection{Gauss-Seidel Method}
+
+\textbf{Algorithm: Gauss-Seidel Method for Solving System of Linear Equations}
+
+\textbf{Input:} Augmented matrix $a$ of size $n \times (n+1)$, where $A$ is the coefficient matrix and $b$ is the constant vector.  
+\textbf{Output:} Solution vector $x$ such that $Ax = b$.
+
+\begin{enumerate}
+	\item \textbf{Initialize and Define Inputs:}
+	\begin{enumerate}
+		\item Define matrix $a$ to represent the augmented matrix of the system of linear equations.
+		\item Extract coefficient matrix $A$ (all columns of $a$ except the last).
+		\item Extract constant vector $b$ (last column of $a$).
+	\end{enumerate}
+	
+	\item \textbf{Verification Using Matrix Inversion:}
+	\begin{enumerate}
+		\item Compute $$ X = A^{-1}b $$ for future verification.
+	\end{enumerate}
+	
+	\item \textbf{Initialize Guess Vectors:}
+	\begin{enumerate}
+		\item Set the initial guess for the solution vector $x$ as a zero vector of size $n$.
+		\item Set the initial guess for the intermediate solution vector $x_0$ as a zero vector of size $n$.
+	\end{enumerate}
+	
+	\item \textbf{Print Header for Iteration Output:}
+	\begin{enumerate}
+		\item Display the column headers for the iteration number and solution variables.
+	\end{enumerate}
+	
+	\item \textbf{Gauss-Seidel Iteration Loop:}
+	\begin{enumerate}
+		\item For each iteration $k$ from $1$ to $I_{\text{max}}$:
+		\begin{enumerate}
+			\item \textit{Row-wise Solution Update:}
+			\begin{enumerate}
+				\item For each row $i$ from $1$ to $n$:
+				\begin{itemize}
+					\item Initialize $\text{sum} = 0$.
+					\item For each column $j$ from $1$ to $n$:
+					\begin{itemize}
+						\item If $i \ne j$ (exclude diagonal elements):
+						\item Add the term $\left( \frac{a[i,j]}{a[i,i]} \right) x[j]$ to $\text{sum}$.
+					\end{itemize}
+					\item Compute the $i^{th}$ element of the solution:
+					$$
+					x(i) = \frac{a[i,n+1]}{a[i,i]} - \text{sum}
+					$$
+				\end{itemize}
+			\end{enumerate}
+			
+			\item \textit{Print Current Iteration Results:}
+			\begin{enumerate}
+				\item Display the current iteration number $k$ and the values of the solution vector $x$.
+			\end{enumerate}
+		\end{enumerate}
+	\end{enumerate}
+	
+	\item \textbf{End Iteration Loop.}
+\end{enumerate}
+
+	
+	\newpage
+	\subsection{Solving Non-linear Equation Using Jacobi Method}
+
+	\subsubsection{MATLAB Code:}
+	\begin{lstlisting}[style=vscode-light, caption={Solving Non-linear Equation Using Jacobi Method in MATLAB.} ]
+	a = [3 -0.1 -0.2 7.85;
+	0.1 7 -0.3 -19.3;
+	0.3 -0.2 10 71.4];    
+	tol = 0.000001;
+	n = size(a, 1);              
+	A = a(:, 1:n);              
+	b = a(:, end);              
+	X_actual = inv(A) * b;
+	
+	x = zeros(n, 1);             
+	x0 = zeros(n, 1);            
+	Imax = 100;                  
+	
+	fprintf('\n%-10s', 'Iter');
+	for i = 1:n
+	fprintf('x(%d)        ', i);
+	end
+	fprintf('\n');
+	
+	% Step 5: Jacobi Iteration Loop
+	for k = 1:Imax
+	for i = 1:n
+	s = 0;
+	for j = 1:n
+	if i ~= j
+	s = s + (A(i, j) / A(i, i)) * x(j);
+	end
+	end
+	x0(i) = (b(i) / A(i, i)) - s ;
+	end
+	x = x0;
+	
+	fprintf('%-10d', k);
+	fprintf('%-12.6f', x);
+	fprintf('\n');
+	
+	if abs(x - X_actual) < tol
+	fprintf('Converged to actual solution at iteration %d\n', k);
+	break;
+	end
+	end
+	disp(X_actual);
+	
+	
+		
+		
+	\end{lstlisting}
+	
+	
+	
+	\newpage
+	\subsection{Result Shown in Command Window}
+	
+	\begin{lstlisting}[style=vscode-light, caption={Command Window for Jacobi Method} ]
+	>> jacobi
+	Iter      x(1)        x(2)        x(3)        
+	1         2.616667    -2.757143   7.140000    
+	2         3.000762    -2.488524   7.006357    
+	3         3.000806    -2.499738   7.000207    
+	4         3.000022    -2.500003   6.999981    
+	5         2.999999    -2.500001   6.999999    
+	6         3.000000    -2.500000   7.000000    
+	Converged to actual solution at iteration 6
+	3.0000
+	-2.5000
+	\end{lstlisting}
+	
+	\subsection{Solving Non-linear Equation Using Gauss-Seidel Method}
+
+	\subsubsection{MATLAB Code:}
+	\begin{lstlisting}[style=vscode-light, caption={Solving Non-linear Equation Using  Gauss-Seidel Method in MATLAB.} ]
+		
+		a = [3 -0.1 -0.2 7.85;
+		0.1 7 -0.3 -19.3;
+		0.3 -0.2 10 71.4];  
+		
+		tol = 0.000001;
+		n = size(a, 1);              
+		A = a(:, 1:n);              
+		b = a(:, end);              
+		X_actual = inv(A) * b;
+		x = zeros(n, 1);            
+		
+		for k = 1:100
+		for i = 1:n
+		s = 0;
+		for j = 1:n
+		if i ~= j
+		s = s + (A(i,j) / A(i,i)) * x(j);
+		end
+		end
+		x(i) = (b(i) / A(i,i)) - s;
+		end
+		
+		fprintf('%-10d', k);
+		fprintf('%-12.6f', x);
+		fprintf('\n');
+		
+		if abs(x - X_actual) < tol
+		fprintf('Converged to actual solution at iteration %d\n', k);
+		break;
+		end
+		end
+		disp(X_actual);
+	\end{lstlisting}
+	
+	
+	
+	\newpage
+	\subsection{Result Shown in Command Window}
+	
+	\begin{lstlisting}[style=vscode-light, caption={Command Window for Gauss-Seidel Method} ]
+	>> gaussseidel
+	1         2.616667    -2.794524   7.005610    
+	2         2.990557    -2.499625   7.000291    
+	3         3.000032    -2.499988   6.999999    
+	4         3.000000    -2.500000   7.000000    
+	Converged to actual solution at iteration 4
+	3.0000
+	-2.5000
+	7.0000
+		
+	\end{lstlisting}
+	
+	
+	
+	
+	
+\section{Discussion}
+In this experiment, the Jacobi and Gauss-Seidel methods were used to solve systems of linear equations. Both methods were implemented in MATLAB and tested on standard systems. Initial guesses were assumed, and iterative updates were performed.
+
+The Jacobi method was observed to converge more slowly which was iterated about 6 times, while the Gauss-Seidel method showed faster convergence due to immediate value updates which was about 4 iterations. The results from both methods were verified with MATLAB’s built-in solver and used tolerance level was 0.000001 that found to be accurate.
+
+
+
+	
+	
+	
+	
+	
+\end{document}

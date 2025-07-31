@@ -1,0 +1,294 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{subcaption}
+% -----------------------
+% Package Imports
+% -----------------------
+
+% Set page margins
+\usepackage[a4paper, top=1in, bottom=0.8in, left=1.1in, right=0.8in]{geometry}
+
+% Use Times New Roman font
+\usepackage{times}
+
+% Add page numbering
+\pagestyle{plain}
+\usepackage{multirow}
+% Enable graphics inclusion
+\usepackage{graphicx}
+\usepackage{float}
+% Enable code listings
+\usepackage{listings}
+\usepackage{xcolor} % For customizing code colors
+
+% Define MATLAB style for listings
+\lstdefinestyle{vscode-light}{
+	language=Matlab,
+	basicstyle=\ttfamily\footnotesize,
+	keywordstyle=\color{blue},
+	commentstyle=\color{gray},
+	stringstyle=\color{red},
+	numberstyle=\tiny\color{black},
+	numbersep=5pt,
+	frame=single,
+	backgroundcolor=\color{white!10},
+	breaklines=true,
+	captionpos=b,
+	tabsize=4,
+	showstringspaces=false,
+	numbers=left,  % Enable line numbering on the left
+	stepnumber=1,  % Line numbers increment by 1
+	numberfirstline=true, % Number the first line
+}
+\setlength{\parindent}{0pt}
+\begin{document}
+	
+
+		
+		\section*{Quiz Solutions}
+		
+		\begin{enumerate}
+			\item Bend the leads of components at \textbf{45} degree angle with PCB.
+			\begin{enumerate}
+				\item 40
+				\item 50
+				\item 35
+				\item \textbf{45}
+			\end{enumerate}
+			
+			\item What measurements can you make using a oscilloscope?
+			\begin{enumerate}
+				\item Current, Voltage and resistance
+				\item \textbf{Voltage, period and frequency}
+				\item Time, frequency and resistance
+				\item Power, distance and frequency
+			\end{enumerate}
+			
+			\item What will be the power dissipation across a silicon diode carrying a current of 50 mA.
+			\begin{enumerate}
+				\item 25 mW
+				\item 50 mW
+				\item \textbf{35 mW} (Assuming a typical forward voltage drop of 0.7V for a silicon diode, Power = Voltage $\times$ Current = 0.7V $\times$ 50mA = 35mW)
+				\item 100 mW
+			\end{enumerate}
+			
+			\item Which among the below mentioned approaches belongs to the category of In-circuit Testing?
+			\begin{enumerate}
+				\item Impedance Testing
+				\item Component Testing
+				\item Apply Signal and check output
+				\item \textbf{All of the above}
+			\end{enumerate}
+			
+			\item What language is a typical Arduino code based on?
+			\begin{enumerate}
+				\item Assembly Code
+				\item Python
+				\item Java
+				\item \textbf{C/C++}
+			\end{enumerate}
+			
+			\item Arduino Codes are referred to as \textbf{sketches} in the Arduino IDE.
+			\begin{enumerate}
+				\item \textbf{sketches}
+				\item drawings
+				\item links
+				\item notes
+			\end{enumerate}
+			
+			\item What is the use of the Vin pin present on some Arduino Boards?
+			\begin{enumerate}
+				\item To ground the Arduino Board
+				\item \textbf{To power the Arduino Board}
+				\item To provide a 5V output
+				\item Is used for plugging in 3V supply
+			\end{enumerate}
+			
+			\item What will be the output of the following Arduino code?
+			\begin{verbatim}
+				#define X 10;
+				void setup(){
+					X=0;
+					Serial.begin(9600);
+					Serial.print(X);
+				}
+				void loop(){
+					//Do nothing...
+				}
+			\end{verbatim}
+			\begin{enumerate}
+				\item 0xAB
+				\item 0xa
+				\item 0
+				\item \textbf{Error} (The $`\# define X 10;`$ creates a preprocessor macro. The subsequent `X=0;` attempts to assign a value to a macro, which is not allowed. This would result in a compilation error.)
+			\end{enumerate}
+	
+	
+		
+		\begin{enumerate}
+			\item[9.] What describes the circuit connections in the diagram of PCB design?
+			\begin{enumerate}
+				\item Schematic Capture
+				\item PCB Layout
+				\item Equipment's
+				\item a \& b
+			\end{enumerate}
+			\textbf{Answer: d) a \& b}
+		\end{enumerate}
+		
+			\item	\textbf{Question:} What is the output of "pin1" if "pin2" is sent "1011" where 1 is 5V and 0 is 0V?
+		\begin{verbatim}
+			int pin1 = 12;
+			int pin2 = 11;
+			void setup(){
+				pinMode(pin1, OUTPUT);
+				pinMode(pin2, INPUT);
+			}
+			void loop() {
+				if(digitalRead(pin2)==1) {
+					digitalWrite(pin1,LOW);
+				}
+				else if(digitalRead(pin2)==0) {
+					digitalWrite(pin1,HIGH);
+				}
+			}
+		\end{verbatim}
+		The options are:
+		a) 1110
+		b) 0100
+		c) 1111
+		d) 1011
+		
+		\textbf{Solution:}
+		The Arduino code sets pin1 as an output and pin2 as an input.
+		The loop() function implements a simple inverter logic:
+		\begin{itemize}
+			\item If pin2 reads HIGH (1 or 5V), pin1 is set to LOW (0V).
+			\item If pin2 reads LOW (0 or 0V), pin1 is set to HIGH (5V).
+		\end{itemize}
+		This means the output on pin1 will always be the inverse of the input on pin2.
+		
+		Given that pin2 is sent "1011":
+		\begin{itemize}
+			\item For the first bit '1' (HIGH), pin1 outputs LOW ('0').
+			\item For the second bit '0' (LOW), pin1 outputs HIGH ('1').
+			\item For the third bit '1' (HIGH), pin1 outputs LOW ('0').
+			\item For the fourth bit '1' (HIGH), pin1 outputs LOW ('0').
+		\end{itemize}
+		Therefore, the output on pin1 will be "0100".
+		
+		\textbf{Answer: b) 0100}
+		
+		\item What is the output of the program given below if a voltage of 5V is supplied to the pin corresponding to the A0 pin on an Arduino UNO?
+		\begin{verbatim}
+			void setup(){
+				Serial.begin(9600);
+				pinMode(A0, INPUT);
+			}
+			void loop(){
+				int s = analogRead(A0);
+				Serial.println(s);
+			}
+		\end{verbatim}
+		\begin{enumerate}
+			\item 0
+			\item 1024
+			\item null
+			\item Error
+		\end{enumerate}
+		\textbf{Answer: b) 1024 (An Arduino's analogRead() function returns a 10-bit integer value (0-1023) representing the voltage. With a 5V supply and 5V input, it would read the maximum value, which is 1023 (or often approximated to 1024 as the number of divisions).)}
+		
+		
+		
+		
+		\item What type of signal does the analogWrite() function output?
+		\begin{enumerate}
+			\item Pulse Code Modulated Signal
+			\item Frequency Modulated Signal
+			\item \textbf{Pulse Width Modulated Signal}
+			\item Pulse Amplitude Modulated Signal
+		\end{enumerate}
+		
+		\item A \textbf{LED} Arduino UNO is connected to pin 13 on an Analog-to-Digital Convertor (ADC)
+		\begin{enumerate}
+			\item Buffer
+			\item \textbf{LED}
+			\item Digital-to-Analog Convertor (DAC)
+		\end{enumerate}
+		(Note: Pin 13 on an Arduino UNO typically has an onboard LED connected to it. The phrasing "connected to pin 13 on an Analog-to-Digital Convertor (ADC)" is slightly unusual as Pin 13 is a digital pin, not an analog input to an ADC, but an LED is the most fitting answer for what is usually on pin 13.)
+		
+		\item While you upload a sketch to the Arduino UNO, the Tx and RX LEDs should... This question is required.
+		\begin{enumerate}
+			\item Be constantly ON
+			\item \textbf{Blink Rapidly}
+			\item Be OFF
+		\end{enumerate}
+		
+		\item Traces and planes utilized in PCB designing comprises of \textbf{Copper}?
+		\begin{enumerate}
+			\item Lead
+			\item \textbf{Copper}
+			\item Silver
+			\item Titanium
+		\end{enumerate}
+		
+		\item How many conducting layers are present in Single-sided PCB?
+		\begin{enumerate}
+			\item \textbf{One}
+			\item Two
+			\item Three
+			\item Four
+		\end{enumerate}
+		
+		\item Conducting layer added on bottom and top of \textbf{Double-sided} PCBs.
+		\begin{enumerate}
+			\item Single-sided
+			\item \textbf{Double-sided}
+			\item Multilayer
+			\item Rigid
+		\end{enumerate}
+		
+		\item What is calculated based on various circuit's current necessities?
+		\begin{enumerate}
+			\item Impedances
+			\item Number of Layers
+			\item \textbf{Trace Width}
+			\item Plane Width
+		\end{enumerate}
+		
+		\item Color code for 1 ohm resistance is -
+		\begin{enumerate}
+			\item Black, Brown, Gold
+			\item \textbf{Brown, Black Gold}
+			\item Both of them
+			\item None of them
+		\end{enumerate}
+		
+		\item What describes the circuit connections in the diagram of PCB design?
+		\begin{enumerate}
+			\item Schematic Capture
+			\item PCB Layout
+			\item Equipment's
+			\item \textbf{a \& b}
+		\end{enumerate}
+		
+		\item What connects pins of components in PCB?
+		\begin{enumerate}
+			\item Traces
+			\item Planes
+			\item \textbf{Nets}
+			\item Points
+		\end{enumerate}
+			\end{enumerate}
+		\end{document}
+		
+		
+
+		
+	
+		
+	
+		
+	\end{document}

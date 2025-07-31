@@ -1,0 +1,103 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,decorations.markings}
+
+\begin{document}
+	
+	\section*{Root Locus Analysis for \( G(s)H(s) = \frac{k(s+2)}{s(2s+1)(s^2+8s+7)} \)}
+	
+	\subsection*{Step 1: Factorize the Denominator}
+	The denominator is \( s(2s+1)(s^2+8s+7) \). We factorize the quadratic term:
+	\[ s^2 + 8s + 7 = (s+1)(s+7) \]
+	Thus, the transfer function becomes:
+	\[ G(s)H(s) = \frac{k(s+2)}{s(2s+1)(s+1)(s+7)} \]
+	The constant factor 2 can be absorbed into \(k\):
+	\[ G(s)H(s) = \frac{K(s+2)}{s(s+0.5)(s+1)(s+7)}, \quad \text{where } K = \frac{k}{2} \]
+	
+	\subsection*{Step 2: Identify Poles and Zeros}
+	\begin{itemize}
+		\item \textbf{Poles} (denominator roots): \(s = 0\), \(s = -0.5\), \(s = -1\), \(s = -7\) (total = 4 poles)
+		\item \textbf{Zero} (numerator root): \(s = -2\) (total = 1 zero)
+	\end{itemize}
+	
+	\subsection*{Step 3: Real-Axis Segments}
+	The root locus exists on the real axis where the number of poles and zeros to the right is odd. The intervals are:
+	\begin{itemize}
+		\item \((-\infty, -7]\): 4 poles + 1 zero to right → odd → \textbf{included}
+		\item \([-2, -1]\): 2 poles to right → even → \textbf{excluded}
+		\item \([-0.5, 0]\): 1 pole to right → odd → \textbf{included}
+	\end{itemize}
+	
+	\subsection*{Step 4: Asymptotes}
+	Number of asymptotes = \(n - m = 4 - 1 = 3\):
+	\begin{itemize}
+		\item \textbf{Angles}:
+		\[ \theta = \frac{(2q+1)180^\circ}{3} \quad \text{for} \quad q=0,1,2 \]
+		\[ \theta = 60^\circ, 180^\circ, 300^\circ \]
+		\item \textbf{Centroid}:
+		\[ \sigma = \frac{0 - 0.5 - 1 - 7 - (-2)}{3} = \frac{-6.5}{3} \approx -2.167 \]
+	\end{itemize}
+	
+	\subsection*{Step 5: Breakaway/Break-in Points}
+	Solve \(\frac{dK}{ds} = 0\) where:
+	\[ K = -\frac{s(s+0.5)(s+1)(s+7)}{s+2} \]
+	Numerical solution yields:
+	\begin{itemize}
+		\item Breakaway point in \([-0.5, 0]\) at \(s \approx -0.223\) (\(K \approx 0.366\))
+		\item No valid break-in points on other segments
+	\end{itemize}
+	
+	\subsection*{Step 6: Imaginary Axis Crossings}
+	Characteristic equation:
+	\[ 1 + G(s)H(s) = 0 \implies s(s+0.5)(s+1)(s+7) + K(s+2) = 0 \]
+	\[ s^4 + 8.5s^3 + 15.5s^2 + 3.5s + Ks + 2K = 0 \]
+	Using Routh-Hurwitz criterion, we find:
+	\begin{itemize}
+		\item Stable for \(0 < K < 10\)
+		\item Marginally stable at \(K = 10\) with poles at \(s = \pm j\)
+		\item Unstable for \(K > 10\)
+	\end{itemize}
+	
+	\subsection*{Root Locus Sketch}
+	\begin{center}
+		\begin{tikzpicture}[scale=1.2,>=latex]
+			% Axes
+			\draw[->] (-8,0) -- (2,0) node[below]{$\sigma$};
+			\draw[->] (0,-4) -- (0,4) node[left]{$j\omega$};
+			
+			% Poles and zeros
+			\filldraw (0,0) circle (2pt) node[below right]{$0$};
+			\filldraw (-0.5,0) circle (2pt) node[below]{$-0.5$};
+			\filldraw (-1,0) circle (2pt) node[below]{$-1$};
+			\filldraw (-7,0) circle (2pt) node[below]{$-7$};
+			\draw[fill=white] (-2,0) circle (2pt) node[above]{$-2$};
+			
+			% Asymptotes
+			\draw[dashed] (-2.167,0) -- ++(60:4);
+			\draw[dashed] (-2.167,0) -- ++(180:4);
+			\draw[dashed] (-2.167,0) -- ++(300:4);
+			
+			% Root locus branches
+			\draw[thick,red,->] (-7,0) -- (-8,0);
+			\draw[thick,red,->] (-1,0) -- (-2,0);
+			\draw[thick,red] (0,0) to[out=90,in=180] (-0.223,0.5);
+			\draw[thick,red] (-0.5,0) to[out=90,in=0] (-0.223,0.5);
+			\draw[thick,red,->] (-0.223,0.5) -- ++(60:1.5);
+			\draw[thick,red,->] (-0.223,-0.5) -- ++(300:1.5);
+			
+			% Imaginary axis crossing
+			\filldraw (0,1) circle (2pt) node[above right]{$j1$};
+			\filldraw (0,-1) circle (2pt) node[below right]{$-j1$};
+		\end{tikzpicture}
+	\end{center}
+	
+	\subsection*{Stability Conclusion}
+	\begin{itemize}
+		\item \textbf{Stable} for \(0 < K < 10\) (all poles in LHP)
+		\item \textbf{Marginally stable} at \(K = 10\) (poles at \(s = \pm j\))
+		\item \textbf{Unstable} for \(K > 10\) (poles in RHP)
+	\end{itemize}
+	
+\end{document}

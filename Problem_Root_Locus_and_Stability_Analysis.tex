@@ -1,0 +1,206 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} % Required for including images if any, though not for this solution directly.
+
+\begin{document}
+	
+	\section*{Problem: Root Locus and Stability Analysis}
+	
+	Consider the following system:
+	$$ G(s)H(s) = \frac{k(s+2)}{s(2s+1)(s^2+8s+7)} $$
+	
+	\subsection*{(i) Draw the complete root locus and determine the stability.}
+	
+	First, let's express the open-loop transfer function $G(s)H(s)$ in a standard pole-zero form.
+	The denominator terms can be factored:
+	$2s+1 = 2(s+0.5)$
+	$s^2+8s+7 = (s+1)(s+7)$
+	
+	Substituting these into the expression for $G(s)H(s)$:
+	$$ G(s)H(s) = \frac{k(s+2)}{s \cdot 2(s+0.5)(s+1)(s+7)} $$
+	$$ G(s)H(s) = \frac{(k/2)(s+2)}{s(s+0.5)(s+1)(s+7)} $$
+	Let $K_0 = k/2$. The open-loop transfer function is:
+	$$ G(s)H(s) = \frac{K_0(s+2)}{s(s+0.5)(s+1)(s+7)} $$
+	
+	\subsubsection*{1. Poles and Zeros}
+	The poles of the open-loop system (roots of the denominator) are:
+	$p_1 = 0$
+	$p_2 = -0.5$
+	$p_3 = -1$
+	$p_4 = -7$
+	Number of poles, $N_p = 4$.
+	
+	The zeros of the open-loop system (roots of the numerator) are:
+	$z_1 = -2$
+	Number of zeros, $N_z = 1$.
+	
+	\subsubsection*{2. Number of Root Locus Branches}
+	The number of root locus branches is equal to the number of poles.
+	Number of branches $= N_p = 4$.
+	
+	\subsubsection*{3. Real Axis Segments}
+	A point on the real axis is part of the root locus if the total number of poles and zeros to its right is odd.
+	\begin{itemize}
+		\item To the right of $s=0$: Number of poles/zeros is 0 (even). $\implies$ NOT on RL.
+		\item Between $s=-0.5$ and $s=0$: Number of poles/zeros is 1 (pole at $s=0$) (odd). $\implies$ \textbf{ON RL}.
+		\item Between $s=-1$ and $s=-0.5$: Number of poles/zeros is 2 (poles at $s=0, -0.5$) (even). $\implies$ NOT on RL.
+		\item Between $s=-2$ and $s=-1$: Number of poles/zeros is 3 (poles at $s=0, -0.5, -1$) (odd). $\implies$ \textbf{ON RL}.
+		\item Between $s=-7$ and $s=-2$: Number of poles/zeros is 4 (zero at $s=-2$, poles at $s=-1, -0.5, 0$) (even). $\implies$ NOT on RL.
+		\item To the left of $s=-7$: Number of poles/zeros is 5 (zero at $s=-2$, poles at $s=-1, -0.5, 0, -7$) (odd). $\implies$ \textbf{ON RL}.
+	\end{itemize}
+	So, the root locus exists on the real axis in the intervals: $(-0.5, 0)$, $(-2, -1)$, and $(-\infty, -7)$.
+	
+	\subsubsection*{4. Asymptotes}
+	The number of asymptotes is $N_p - N_z = 4 - 1 = 3$.
+	\begin{itemize}
+		\item \textbf{Angles of Asymptotes ($\phi_a$):}
+		$$ \phi_a = \frac{(2q+1)180^\circ}{N_p - N_z} \quad \text{for } q = 0, 1, \dots, N_p-N_z-1 $$
+		For $q=0: \phi_a = \frac{1 \cdot 180^\circ}{3} = 60^\circ$
+		For $q=1: \phi_a = \frac{3 \cdot 180^\circ}{3} = 180^\circ$
+		For $q=2: \phi_a = \frac{5 \cdot 180^\circ}{3} = 300^\circ \equiv -60^\circ$
+		The angles are $60^\circ, 180^\circ, -60^\circ$.
+		
+		\item \textbf{Centroid of Asymptotes ($\sigma_a$):}
+		$$ \sigma_a = \frac{\sum (\text{real parts of poles}) - \sum (\text{real parts of zeros})}{N_p - N_z} $$
+		$$ \sigma_a = \frac{(0 + (-0.5) + (-1) + (-7)) - (-2)}{4 - 1} = \frac{-8.5 + 2}{3} = \frac{-6.5}{3} \approx -2.167 $$
+	\end{itemize}
+	
+	\subsubsection*{5. Breakaway/Break-in Points}
+	The characteristic equation is $1 + G(s)H(s) = 0$.
+	$$ 1 + \frac{K_0(s+2)}{s(s+0.5)(s+1)(s+7)} = 0 $$
+	$$ s(s+0.5)(s+1)(s+7) + K_0(s+2) = 0 $$
+	$$ K_0 = -\frac{s(s+0.5)(s+1)(s+7)}{s+2} $$
+	$$ K_0 = -\frac{s(s^2+1.5s+0.5)(s+7)}{s+2} $$
+	$$ K_0 = -\frac{s(s^3+7s^2+1.5s^2+10.5s+0.5s+3.5)}{s+2} $$
+	$$ K_0 = -\frac{s^4+8.5s^3+11s^2+3.5s}{s+2} $$
+	To find breakaway/break-in points, we set $\frac{dK_0}{ds} = 0$.
+	Let $N(s) = s^4+8.5s^3+11s^2+3.5s$ and $D(s) = s+2$.
+	Then $\frac{dK_0}{ds} = -\frac{N'(s)D(s) - N(s)D'(s)}{[D(s)]^2}$. Setting it to zero implies $N'(s)D(s) - N(s)D'(s) = 0$.
+	$N'(s) = 4s^3 + 25.5s^2 + 22s + 3.5$
+	$D'(s) = 1$
+	So, $(4s^3 + 25.5s^2 + 22s + 3.5)(s+2) - (s^4 + 8.5s^3 + 11s^2 + 3.5s)(1) = 0$
+	Expanding and simplifying, we get:
+	$3s^4 + 25s^3 + 62s^2 + 44s + 7 = 0$
+	Solving this quartic equation numerically, the real roots are approximately:
+	$s_1 \approx -0.21$
+	$s_2 \approx -0.91$
+	(Other roots are not on the valid real axis segments for $K_0 > 0$).
+	
+	We check if these points lie on the valid root locus segments for $K_0 > 0$:
+	\begin{itemize}
+		\item At $s \approx -0.21$: This point is between $s=0$ and $s=-0.5$, which is a valid segment.
+		Substituting $s = -0.21$ into the $K_0$ equation:
+		$K_0 \approx -\frac{(-0.21)^4 + 8.5(-0.21)^3 + 11(-0.21)^2 + 3.5(-0.21)}{-0.21+2} \approx 0.18$.
+		Since $K_0 > 0$, $s \approx -0.21$ is a valid \textbf{breakaway point}.
+		\item At $s \approx -0.91$: This point is between $s=-1$ and $s=-2$, which is a valid segment.
+		Substituting $s = -0.91$ into the $K_0$ equation:
+		$K_0 \approx -\frac{(-0.91)^4 + 8.5(-0.91)^3 + 11(-0.91)^2 + 3.5(-0.91)}{-0.91+2} \approx -0.16$.
+		Since $K_0 < 0$, $s \approx -0.91$ is NOT a valid breakaway/break-in point for positive $K_0$.
+	\end{itemize}
+	Therefore, there is one valid breakaway point at $s \approx -0.21$.
+	
+	\subsubsection*{6. Intersection with Imaginary Axis (J$\omega$-axis crossover)}
+	We use the Routh-Hurwitz criterion on the characteristic equation:
+	$s^4 + 8.5s^3 + 11s^2 + 3.5s + K_0(s+2) = 0$
+	$s^4 + 8.5s^3 + 11s^2 + (3.5+K_0)s + 2K_0 = 0$
+	
+	The Routh Array is:
+
+
+		
+		The Routh Array is:
+		\begin{equation*}
+			\begin{array}{|c|c|c|c|}
+				\hline
+				s^4 & 1 & 11 & 2K_0 \\
+				\hline
+				s^3 & 8.5 & (3.5+K_0) & 0 \\
+				\hline
+				s^2 & b_1 & b_2 & 0 \\
+				\hline
+				s^1 & c_1 & 0 & 0 \\
+				\hline
+				s^0 & d_1 & 0 & 0 \\
+				\hline
+			\end{array}
+		\end{equation*}
+		
+		Where the elements are calculated as:
+		% ... (rest of your calculations)
+		
+
+	
+	$b_1 = \frac{8.5 \cdot 11 - 1 \cdot (3.5+K_0)}{8.5} = \frac{93.5 - 3.5 - K_0}{8.5} = \frac{90 - K_0}{8.5}$
+	$b_2 = \frac{8.5 \cdot 2K_0 - 1 \cdot 0}{8.5} = 2K_0$
+	
+	For the system to be stable, all elements in the first column must be positive:
+	\begin{itemize}
+		\item $8.5 > 0$ (satisfied)
+		\item $\frac{90 - K_0}{8.5} > 0 \implies 90 - K_0 > 0 \implies K_0 < 90$
+		\item $2K_0 > 0 \implies K_0 > 0$
+		\item For $c_1$: $c_1 = \frac{b_1 (3.5+K_0) - 8.5 b_2}{b_1}$. For $c_1 > 0$, the numerator must be positive:
+		$\frac{90 - K_0}{8.5} (3.5+K_0) - 8.5 (2K_0) > 0$
+		$(90 - K_0)(3.5+K_0) - 17K_0 \cdot 8.5 > 0$
+		$315 + 90K_0 - 3.5K_0 - K_0^2 - 144.5K_0 > 0$
+		$-K_0^2 - 58K_0 + 315 > 0$
+		$K_0^2 + 58K_0 - 315 < 0$
+	\end{itemize}
+	To find the roots of $K_0^2 + 58K_0 - 315 = 0$:
+	$$ K_0 = \frac{-58 \pm \sqrt{58^2 - 4(1)(-315)}}{2} = \frac{-58 \pm \sqrt{3364 + 1260}}{2} = \frac{-58 \pm \sqrt{4624}}{2} = \frac{-58 \pm 68}{2} $$
+	$K_{0,1} = \frac{-58 + 68}{2} = 5$
+	$K_{0,2} = \frac{-58 - 68}{2} = -63$
+	So, $K_0^2 + 58K_0 - 315 < 0$ implies $-63 < K_0 < 5$.
+	
+	Combining all conditions for stability ($K_0 > 0$, $K_0 < 90$, and $-63 < K_0 < 5$), the system is stable for $0 < K_0 < 5$.
+	
+	The system just oscillates when $c_1 = 0$, which occurs when $K_0 = 5$.
+	At $K_0 = 5$, the auxiliary equation is formed from the $s^2$ row:
+	$\frac{90 - 5}{8.5} s^2 + 2(5) = 0$
+	$\frac{85}{8.5} s^2 + 10 = 0$
+	$10s^2 + 10 = 0$
+	$s^2 = -1 \implies s = \pm j1$
+	These are the points where the root locus crosses the imaginary axis.
+	
+	\subsubsection*{7. Angle of Departure/Arrival}
+	Not applicable as there are no complex poles or zeros.
+	
+	\subsubsection*{8. Root Locus Sketch}
+	\begin{itemize}
+		\item Poles at $0, -0.5, -1, -7$. Zero at $-2$.
+		\item Real Axis Segments: $(-0.5, 0)$, $(-2, -1)$, and $(-\infty, -7)$.
+		\item Centroid $\approx -2.167$. Asymptote angles: $60^\circ, 180^\circ, -60^\circ$.
+		\item Breakaway point at $s \approx -0.21$.
+		\item J$\omega$-axis crossover at $s = \pm j1$ when $K_0 = 5$ (which means $k=10$).
+	\end{itemize}
+	
+	\textbf{Description of Root Locus Branches:}
+	\begin{enumerate}
+		\item Two branches start from the poles at $s=0$ and $s=-0.5$. They move towards each other along the real axis, meet at the breakaway point $s \approx -0.21$, and then break away into the complex plane.
+		\item These two complex conjugate branches move towards the imaginary axis. They cross the imaginary axis at $s = \pm j1$ when $K_0=5$ (or $k=10$). For $K_0 > 5$, these branches enter the right-half plane. As $K_0 \to \infty$, they approach the asymptotes at $\pm 60^\circ$.
+		\item One branch starts from the pole at $s=-1$ and moves along the real axis to the left, terminating at the finite zero at $s=-2$. This forms a closed segment between $s=-1$ and $s=-2$.
+		\item The fourth branch starts from the pole at $s=-7$ and moves along the real axis to the left, approaching negative infinity. This branch approaches the $180^\circ$ asymptote.
+	\end{enumerate}
+	
+	\begin{figure}[h!]
+		\centering
+	%	\includegraphics[width=0.8\textwidth]{root_locus_sketch.png} % Placeholder for the sketch. In a real document, you'd insert the plot generated by MATLAB.
+		\caption{Sketch of the Root Locus for $G(s)H(s) = \frac{K_0(s+2)}{s(s+0.5)(s+1)(s+7)}$}
+		\label{fig:root_locus}
+	\end{figure}
+	\textit{Note: The image above is a placeholder. In a practical solution, the actual plot generated by software like MATLAB would be inserted here.}
+	
+	\subsubsection*{Stability Determination}
+	Based on the Routh-Hurwitz criterion and the root locus plot:
+	\begin{itemize}
+		\item The system is \textbf{stable} for $0 < K_0 < 5$.
+		Since $K_0 = k/2$, this corresponds to $0 < k/2 < 5$, or $0 < k < 10$.
+		For these values of $k$, all closed-loop poles lie in the left-half of the s-plane.
+		\item The system is \textbf{marginally stable} (just oscillates) for $K_0 = 5$ (i.e., $k=10$).
+		At this value, two closed-loop poles are located on the imaginary axis at $s = \pm j1$.
+		\item The system is \textbf{unstable} for $K_0 > 5$ (i.e., $k > 10$).
+		For these values of $k$, two closed-loop poles move into the right-half of the s-plane, causing the system output to grow unbounded.
+	\end{itemize}
+	
+\end{document}

@@ -1,0 +1,325 @@
+\documentclass[12pt, a4paper]{article}
+
+%---PACKAGES---
+\usepackage[left=2cm, right=2cm, top=2.5cm, bottom=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+}
+
+%---DOCUMENT---
+\title{EEE Power Systems I \& II - Collected Questions}
+\author{Sorted by Topic and Year}
+\date{\today}
+
+\begin{document}
+	\maketitle
+	\tableofcontents
+	\newpage
+	
+	%========================================
+	% Power System I Topics
+	%========================================
+	
+	\part{Power System I (EEE 3211)}
+	
+	\section{Per-Unit System \& Impedance Diagrams}
+	
+	\subsection{Year 2021}
+	\begin{enumerate}[label=\textbf{Q\arabic*.}, wide, labelindent=0pt]
+		\item
+		\begin{enumerate}[label=\textbf{(\alph*)}]
+			\item What is the per-unit system and single line diagram of a power system? Prove that per-unit impedance of a transformer is the same whether computed from primary or secondary side.
+			\item Explain mathematically how an existing power system network's Y-bus matrix gets affected when transmission is added to the network.
+			\item Draw an impedance diagram for the following network showing in per-unit on a 100MVA base. Choose 20kV as the voltage base for generator. Three phase power and line-line ratings are given.
+			\begin{figure}[h!]
+				\centering
+				% NOTE: Replace with image from 2021 (EEE 3211), Page 1.
+		%			\includegraphics[width=\textwidth]{path/to/2021_eee3211_q1c.png}
+				\caption{Network for 2021, Q.1(c).}
+			\end{figure}
+		\end{enumerate}
+	\end{enumerate}
+	
+	\subsection{Year 2020}
+	\begin{enumerate}[label=\textbf{Q.5.(c)}, wide, labelindent=0pt]
+		\item Find the fault current in p.u. and amperes for the following network when a 3LG fault of zero impedance occurs at (i) point A and (ii) point B. Choose a base power of 100 MVA.
+		\begin{figure}[h!]
+			\centering
+			% NOTE: Replace with image from 2020 (EEE 3211), Page 2 (labeled page 2/3).
+		%		\includegraphics[width=\textwidth]{path/to/2020_eee3211_q5c.png}
+			\caption{Network for 2020, Q.5(c).}
+		\end{figure}
+	\end{enumerate}
+	
+	\subsection{Year 2019}
+	\begin{enumerate}[label=\textbf{Q\arabic*.}, wide, labelindent=0pt]
+		\item 
+		\begin{enumerate}[label=\textbf{(\alph*)}]
+			\setcounter{enumii}{3} % Start letter at (d)
+			\item Draw the impedance diagram for the power system which is shown in the following figure. The ratings of the generators, motors, and transformers are given.
+			\begin{figure}[h!]
+				\centering
+				% NOTE: Replace with image from 2019 (EEE 3211), Page 1.
+			%		\includegraphics[width=0.9\textwidth]{path/to/2019_eee3211_q1d.png}
+				\caption{Network for 2019, Q.1(d).}
+			\end{figure}
+		\end{enumerate}
+		\item 
+		\begin{enumerate}[label=\textbf{(\alph*)}]
+			\setcounter{enumii}{2} % Start letter at (c)
+			\item Draw the impedance diagram and find the power consumption by the load for the electric power system as shown.
+			\begin{figure}[h!]
+				\centering
+				% NOTE: Replace with image from 2019 (EEE 3211), Page 1.
+			%		\includegraphics[width=0.9\textwidth]{path/to/2019_eee3211_q3c.png}
+				\caption{Network for 2019, Q.3(c).}
+			\end{figure}
+		\end{enumerate}
+	\end{enumerate}
+	
+	\section{Transmission Line Parameters \& Performance}
+	
+	\subsection{Year 2021}
+	\begin{enumerate}[label=\textbf{Q\arabic*.}, wide, labelindent=0pt, start=2]
+		\item
+		\begin{enumerate}[label=\textbf{(\alph*)}]
+			\setcounter{enumii}{2} % Start letter at (c)
+			\item Prove that, the inductance per loop meter of a single-phase two wire line is $L = 4 \times 10^{-7} \ln \frac{D}{r'} \; H/m$.
+		\end{enumerate}
+	\end{enumerate}
+	\begin{enumerate}[label=\textbf{Q\arabic*.}, wide, labelindent=0pt, start=3]
+		\item
+		\begin{enumerate}[label=\textbf{(\alph*)}]
+			\item Calculate the capacitance of a three phase line with unsymmetrical spacing which is shown in fig. 3a.
+			\begin{figure}[h!]
+				\centering
+				% NOTE: Replace with image from 2021 (EEE 3211), Page 2.
+		%			\includegraphics[width=0.5\textwidth]{path/to/2021_eee3211_q3a.png}
+				\caption{Line configuration for 2021, Q.3(a).}
+			\end{figure}
+			\item For medium transmission lines, prove that A = D and AD - BC = 1. Where symbols have their usual meanings. Consider nominal T-method.
+			\item A 100km long, three phase, 50Hz transmission line has given constants. If the line supplies a load of 20MW, calculate by nominal $\pi$-method: (i) Sending end power factor, (ii) Regulation and, (iii) Transmission efficiency.
+		\end{enumerate}
+	\end{enumerate}
+	
+	
+	\subsection{Year 2020}
+	\begin{enumerate}[label=\textbf{Q\arabic*.}, wide, labelindent=0pt, start=2]
+		\item 
+		\begin{enumerate}[label=\textbf{(\alph*)}]
+			\setcounter{enumii}{2} % Start letter at (c)
+			\item One circuit of a 1-$\phi$ transmission line is composed of three solid 0.30 cm radius wires. The return circuit is composed of two 0.60 cm radius wires. The arrangement is shown. Find the inductance.
+			\begin{figure}[h!]
+				\centering
+				% NOTE: Replace with image from 2020 (EEE 3211), Page 1.
+		%			\includegraphics[width=0.8\textwidth]{path/to/2020_eee3211_q2c.png}
+				\caption{Line configuration for 2020, Q.2(c).}
+			\end{figure}
+		\end{enumerate}
+	\end{enumerate}
+	
+	\section{Load Flow Analysis}
+	
+	\subsection{Year 2021}
+	\begin{enumerate}[label=\textbf{Q\arabic*.}, wide, labelindent=0pt, start=2]
+		\item
+		\begin{enumerate}[label=\textbf{(\alph*)}]
+			\item How do we control active power flow and reactive power flow by tap changer of a transformer in a power system network?
+			\item A sample power system network is shown in fig 2b. Construct the bus admittance matrix. The per-unit reactances are presented on the same base.
+			\begin{figure}[h!]
+				\centering
+				% NOTE: Replace with image from 2021 (EEE 3211), Page 1.
+		%			\includegraphics[width=0.8\textwidth]{path/to/2021_eee3211_q2b.png}
+				\caption{Network for 2021, Q.2(b).}
+			\end{figure}
+		\end{enumerate}
+	\end{enumerate}
+	
+	\begin{enumerate}[label=\textbf{Q\arabic*.}, wide, labelindent=0pt, start=4]
+		\item 
+		\begin{enumerate}[label=\textbf{(\alph*)}]
+			\setcounter{enumii}{2} % Start letter at (c)
+			\item For the following power system network... (i) Using Gauss-Seidal method, determine $V_2$ after two iterations. (ii) If after several iterations voltage at bus 2 converges to $V_2 = 0.90 - j0.10$, determine $S_1$ and real and reactive power losses in line.
+			\begin{figure}[h!]
+				\centering
+				% NOTE: Replace with image from 2021 (EEE 3211), Page 2.
+		%			\includegraphics[width=0.7\textwidth]{path/to/2021_eee3211_q4c.png}
+				\caption{Network for 2021, Q.4(c).}
+			\end{figure}
+		\end{enumerate}
+	\end{enumerate}
+	
+	\subsection{Year 2020}
+	\begin{enumerate}[label=\textbf{Q.3(c)}, wide, labelindent=0pt]
+		\item The one-line diagram of a simple three-bus power system is shown... (i) compute the bus voltages using Newton-Raphson method with initial estimates... and (ii) compute the slack bus real and reactive power.
+		\begin{figure}[h!]
+			\centering
+			% NOTE: Replace with image from 2020 (EEE 3211), Page 1.
+		%		\includegraphics[width=0.8\textwidth]{path/to/2020_eee3211_q3c.png}
+			\caption{Network for 2020, Q.3(c).}
+		\end{figure}
+	\end{enumerate}
+	
+	\begin{enumerate}[label=\textbf{Q.4(c)}, wide, labelindent=0pt]
+		\item Following figure shows the single line diagram of a simple power system... (i) Using Gauss-Seidel method, determine $v_2$ and $v_3$. Perform one iteration only. (ii) If bus voltages converge, determine line flows and losses.
+		\begin{figure}[h!]
+			\centering
+			% NOTE: Replace with image from 2020 (EEE 3211), Page 2.
+		%		\includegraphics[width=0.8\textwidth]{path/to/2020_eee3211_q4c.png}
+			\caption{Network for 2020, Q.4(c).}
+		\end{figure}
+	\end{enumerate}
+	
+	\section{Symmetrical \& Asymmetrical Faults}
+	
+	\subsection{Year 2021}
+	\begin{enumerate}[label=\textbf{Q\arabic*.}, wide, labelindent=0pt, start=5]
+		\item 
+		\begin{enumerate}[label=\textbf{(\alph*)}]
+			\setcounter{enumii}{2} % Start letter at (c)
+			\item For the network shown... using "step-by-step $Z_{bus}$ building algorithm", determine the bus impedance matrix. Assume a 3-phase fault occurs at bus 2, find (i) Fault current and (ii) The bus voltages during the fault.
+			\begin{figure}[h!]
+				\centering
+				% NOTE: Replace with image from 2021 (EEE 3211), Page 3.
+		%			\includegraphics[width=0.6\textwidth]{path/to/2021_eee3211_q5c.png}
+				\caption{Network for 2021, Q.5(c).}
+			\end{figure}
+		\end{enumerate}
+		\item 
+		\begin{enumerate}[label=\textbf{(\alph*)}]
+			\item When fault occur at the terminal of a generator, prove that, 1LG fault is more severe than 3LG fault if $X_n < \frac{1}{2}(X_1-X_0)$.
+			\item A 20MVA, 13.8kV generator has $X''_d = 0.25$ pu, $X_2=0.35$ pu and $X_0=0.10$ pu. ... Determine the subtransient currents and the line to line voltages at fault ... when a 2L fault occurs at the generator terminal.
+		\end{enumerate}
+	\end{enumerate}
+	
+	\subsection{Year 2020}
+	\begin{enumerate}[label=\textbf{Q.5(b)}, wide, labelindent=0pt]
+		\item Draw the positive-, negative-, and zero-sequence network of the following power system.
+		\begin{figure}[h!]
+			\centering
+			% NOTE: Replace with image from 2020 (EEE 3211), Page 2.
+		%		\includegraphics[width=0.8\textwidth]{path/to/2020_eee3211_q5b.png}
+			\caption{Network for 2020, Q.5(b).}
+		\end{figure}
+	\end{enumerate}
+	
+	\subsection{Year 2018}
+	\begin{enumerate}[label=\textbf{Q.7(c)}, wide, labelindent=0pt]
+		\item Draw the zero sequence equivalent circuits for the following three phase transformer banks.
+		\begin{figure}[h!]
+			\centering
+			% NOTE: Replace with image from 2018 (EEE 3211), Page 2.
+		%		\includegraphics[width=\textwidth]{path/to/2018_eee3211_q7c.png}
+			\caption{Transformer configurations for 2018, Q.7(c).}
+		\end{figure}
+	\end{enumerate}
+	
+	
+	\subsection{Year 2016}
+	\begin{enumerate}[label=\textbf{Q.5(c)}, wide, labelindent=0pt]
+		\item The one line diagram of a simple four-bus power system is shown... A bolted three-phase fault occurs at bus 4. Using Thevenin's theorem obtain the impedances to the point of fault and the fault current in per-unit.
+		\begin{figure}[h!]
+			\centering
+			% NOTE: Replace with image from 2016 (EEE 3211), Page 2.
+	%			\includegraphics[width=0.7\textwidth]{path/to/2016_eee3211_q5c.png}
+			\caption{Network for 2016, Q.5(c).}
+		\end{figure}
+	\end{enumerate}
+	
+	\begin{enumerate}[label=\textbf{Q.4(c)}, wide, labelindent=0pt]
+		\item Draw the negative and zero sequence network for the following system.
+		\begin{figure}[h!]
+			\centering
+			% NOTE: Replace with image from 2016 (EEE 3211), Page 1.
+		%		\includegraphics[width=0.8\textwidth]{path/to/2016_eee3211_q4c.png}
+			\caption{Network for 2016, Q.4(c).}
+		\end{figure}
+	\end{enumerate}
+	\newpage
+	%========================================
+	% Power System II Topics
+	%========================================
+	
+	\part{Power System II (EEE 4141)}
+	
+	\section{Power System Stability}
+	\subsection{Year 2021}
+	\begin{enumerate}[label=\textbf{Q\arabic*.}, wide, labelindent=0pt, start=2]
+		\item 
+		\begin{enumerate}[label=\textbf{(\alph*)}]
+			\setcounter{enumii}{2} % Start sub-enumeration at (c)
+			\item A power system is shown below... Determine (i) the power angle equation and (ii) the swing equation during fault.
+			\begin{figure}[h!]
+				\centering
+		%			\includegraphics[width=0.7\textwidth]{path/to/2021_eee4141_q2c.png}
+				\caption{Diagram for 2021, Q.2(c).}
+			\end{figure}
+		\end{enumerate}
+	\end{enumerate}
+	
+	\subsection{Year 2020}
+	\begin{enumerate}[label=\textbf{Q\arabic*.}, wide, labelindent=0pt, start=1]
+		\item 
+		\begin{enumerate}[label=\textbf{(\alph*)}]
+			\setcounter{enumii}{1} % Start letter at (b)
+			\item The single-line diagram of a power system is shown below...Compute the power angle equation and the swing equation.
+			\begin{figure}[h!]
+				\centering
+		%			\includegraphics[width=0.8\textwidth]{path/to/2020_eee4141_q1b.png}
+				\caption{Diagram for 2020, Q.1(b).}
+			\end{figure}
+		\end{enumerate}
+		\item
+		\begin{enumerate}[label=\textbf{(\alph*)}]
+			\item Derive an expression of the critical clearing angle for the power system as shown...
+			\begin{figure}[h!]
+				\centering
+		%			\includegraphics[width=0.8\textwidth]{path/to/2020_eee4141_q2a.png}
+				\caption{Diagram for 2020, Q.2(a).}
+			\end{figure}
+		\end{enumerate}
+	\end{enumerate}
+	
+	\subsection{Year 2018}
+	\begin{enumerate}[label=\textbf{Q.7(c)}, wide, labelindent=0pt]
+		\item A 50 Hz synchronous generator...is connected to an infinite bus through a purely reactive circuit as shown... Determine the critical clearing angle and the critical fault clearing time.
+		\begin{figure}[h!]
+			\centering
+		%		\includegraphics[width=0.7\textwidth]{path/to/2018_eee4141_q7c.png}
+			\caption{Diagram for 2018, Q.7(c).}
+		\end{figure}
+	\end{enumerate}
+	
+	\section{Transmission Lines (Overhead)}
+	
+	\subsection{Year 2017}
+	\begin{enumerate}[label=\textbf{Q.3(c)}, wide, labelindent=0pt]
+		\item Find the inductance per phase per km of double circuit 3-phase line shown in the figure.
+		\begin{figure}[h!]
+			\centering
+		%	\includegraphics[width=0.6\textwidth]{path/to/2017_eee4141_q3c.png}
+			\caption{Diagram for 2017, Q.3(c).}
+		\end{figure}
+	\end{enumerate}
+	
+	\section{Distribution Systems (AC \& DC)}
+	\subsection{Year 2021}
+	\begin{enumerate}[label=\textbf{Q.7(b)}, wide, labelindent=0pt]
+		\item A d.c. 2-wire distributor AB is 500 m long and is fed at both ends at 240 V. The distributor is loaded as shown in given figure... Calculate the point of minimum voltage.
+		\begin{figure}[h!]
+			\centering
+		%		\includegraphics[width=0.8\textwidth]{path/to/2021_eee4141_q7b.png}
+			\caption{Diagram for 2021, Q.7(b).}
+		\end{figure}
+	\end{enumerate}
+	
+\end{document}

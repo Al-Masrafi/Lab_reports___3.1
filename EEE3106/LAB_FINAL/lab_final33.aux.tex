@@ -1,0 +1,437 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{geometry} % For page layout
+
+\geometry{a4paper, margin=1in}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.98,0.98,0.98}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,
+	breaklines=true,
+	captionpos=b,
+	keepspaces=true,
+	numbers=left,
+	numbersep=5pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\begin{document}
+	
+	\section*{Experiment No. 01: Time Domain Analysis (Using Formulas)}
+	
+	\subsection*{What is Time Domain Analysis?}
+	
+	Time domain analysis in control systems involves examining the system's output response as a function of time when subjected to various standard test input signals, such as step, ramp, parabolic, or impulse inputs. This type of analysis directly reveals how the system behaves over time, including its transient response (how it moves from an initial state to a final state) and its steady-state response (its behavior as time approaches infinity). It provides crucial insights into the system's performance characteristics without requiring frequency transformations.
+	
+	\subsection*{Significance of Time Domain Analysis}
+	
+	The significance of time domain analysis lies in its direct relevance to how a system will perform in a real-world scenario. Key performance characteristics observed in the time domain include:
+	
+	\begin{itemize}
+		\item \textbf{Transient Response:} This part of the response is concerned with the initial behavior of the system as it transitions from its initial state to its final steady-state. It often involves oscillations or decaying exponentials.
+		\item \textbf{Steady-State Response:} This is the behavior of the system output as time approaches infinity. For stable systems, the output typically settles to a constant value or follows the input with a constant error.
+	\end{itemize}
+	
+	From the unit step response (response to a sudden, constant input), several important performance metrics are typically determined:
+	
+	\begin{itemize}
+		\item \textbf{Rise Time ($t_r$):} The time required for the response to rise from 10\% to 90\% of its final value for overdamped systems, or from 0\% to 100\% for underdamped systems. It indicates how quickly the system responds.
+		\item \textbf{Peak Time ($t_p$):} The time required for the response to reach the first peak of the overshoot. It is primarily relevant for underdamped systems.
+		\item \textbf{Maximum Overshoot ($M_p$):} The maximum peak value of the response curve measured from the final steady-state value, usually expressed as a percentage of the final value. It indicates the relative stability of the system. A large overshoot means less stable or more oscillatory.
+		\item \textbf{Settling Time ($t_s$):} The time required for the response to reach and stay within a specified percentage (typically $\pm 2\%$ or $\pm 5\%$) of its final value. It indicates how long it takes for the oscillations to die out and for the system to settle.
+	\end{itemize}
+	
+	These metrics are vital for evaluating whether a system meets desired performance criteria, such as speed of response, accuracy, and stability.
+	
+	\subsection*{Necessary Formulas for Second-Order System Step Response}
+	
+	For a standard second-order underdamped system of the form $G(s) = \frac{\omega_n^2}{s^2 + 2\zeta\omega_n s + \omega_n^2}$, the unit step response $C(s) = \frac{1}{s} \cdot \frac{\omega_n^2}{s^2 + 2\zeta\omega_n s + \omega_n^2}$. The inverse Laplace transform gives the time-domain response $c(t)$:
+	$c(t) = 1 - \frac{e^{-\zeta\omega_n t}}{\sqrt{1-\zeta^2}} \sin(\omega_d t + \phi)$
+	where $\omega_d = \omega_n \sqrt{1-\zeta^2}$ (damped natural frequency) and $\phi = \arctan\left(\frac{\sqrt{1-\zeta^2}}{\zeta}\right) = \arccos(\zeta)$.
+	
+	The key performance metrics are defined by the following formulas for an underdamped second-order system ($0 < \zeta < 1$):
+	
+	\begin{itemize}
+		\item \textbf{Rise Time ($t_r$):}
+		$t_r = \frac{\pi - \phi}{\omega_d} = \frac{\pi - \arccos(\zeta)}{\omega_n \sqrt{1-\zeta^2}}$
+		
+		\item \textbf{Peak Time ($t_p$):}
+		$t_p = \frac{\pi}{\omega_d} = \frac{\pi}{\omega_n \sqrt{1-\zeta^2}}$
+		
+		\item \textbf{Maximum Overshoot ($M_p$):} (as a percentage)
+		$M_p = e^{-\frac{\zeta\pi}{\sqrt{1-\zeta^2}}} \times 100\%$
+		
+		\item \textbf{Settling Time ($t_s$):}
+		\begin{itemize}
+			\item For 2\% criterion: $t_s \approx \frac{4}{\zeta\omega_n}$
+			\item For 5\% criterion: $t_s \approx \frac{3}{\zeta\omega_n}$
+		\end{itemize}
+	\end{itemize}
+	For critically damped ($\zeta=1$) and overdamped ($\zeta>1$) systems, there is no overshoot and the rise/settling times are calculated differently or approximated. For these cases, we will primarily rely on plotting the analytical response and observing the times.
+	
+	\subsection*{MATLAB Code for Problems (Using Formulas, without built-in `step`/`impulse`/`lsim` functions)}
+	
+	\subsubsection*{1. Determine the Rise Time ($t_r$), Peak Time ($t_p$), Maximum Overshoot ($M_p$), and Settling Time ($t_s$) in the Unit Step Response.}
+	
+	\paragraph{(a) $C(s)/R(s) = \frac{9}{s^2+5s+9}$}
+	\textbf{Explanation:}
+	This is a second-order system. We first extract the natural frequency ($\omega_n$) and damping ratio ($\zeta$) by comparing the denominator to the standard form $s^2 + 2\zeta\omega_n s + \omega_n^2$.
+	From $s^2+5s+9$:
+	The coefficient of $s^0$ is $9$, so $\omega_n^2 = 9 \implies \omega_n = 3$ rad/s.
+	The coefficient of $s^1$ is $5$, so $2\zeta\omega_n = 5 \implies 2\zeta(3) = 5 \implies 6\zeta = 5 \implies \zeta = 5/6 \approx 0.8333$.
+	Since $0 < \zeta < 1$, the system is underdamped, and we can use the provided formulas for $t_r, t_p, M_p, t_s$.
+	The analytical step response $c(t)$ will be plotted.
+	
+	\textbf{MATLAB Code:}
+\begin{lstlisting}[language=Matlab, caption=Simplified MATLAB Code for Problem 1(a)]
+	% G(s) = 9 / (s^2 + 5s + 9)
+	
+	d = [1 5 9];       % denominator coefficients
+	n = 9;             % numerator (wn^2)
+	wn = sqrt(d(3));   % natural frequency
+	z = d(2)/(2*wn);   % damping ratio
+	
+	fprintf('-- System Specs --\n');
+	fprintf('wn = %.4f rad/s\n', wn);
+	fprintf('zeta = %.4f\n', z);
+	
+	if z >= 0 && z < 1
+	wd = wn * sqrt(1 - z^2);      % damped frequency
+	phi = acos(z);                % phase angle
+	
+	tr = (pi - phi) / wd;         % rise time
+	tp = pi / wd;                 % peak time
+	Mp = exp(-z * pi / sqrt(1 - z^2)) * 100;  % overshoot
+	ts2 = 4 / (z * wn);           % 2% settling time
+	ts5 = 3 / (z * wn);           % 5% settling time
+	
+	fprintf('tr = %.4f s\n', tr);
+	fprintf('tp = %.4f s\n', tp);
+	fprintf('Mp = %.2f %%\n', Mp);
+	fprintf('ts (2%%) = %.4f s\n', ts2);
+	fprintf('ts (5%%) = %.4f s\n', ts5);
+	else
+	fprintf('System is not underdamped (z = %.4f)\n', z);
+	ts2 = 4 / (z * wn);
+	fprintf('Approx ts (2%%) = %.4f s\n', ts2);
+	end
+	
+	% Plot step response using analytical formula
+	t = 0:0.01:5;
+	
+	if z >= 0 && z < 1
+	wd = wn * sqrt(1 - z^2);
+	phi = acos(z);
+	y = 1 - (exp(-z * wn * t) ./ sqrt(1 - z^2)) .* sin(wd * t + phi);
+	else
+	p = roots([1 2*z*wn wn^2]);
+	p1 = p(1); p2 = p(2);
+	A = n / d(3);
+	B = n / (p1 * (p1 - p2));
+	C = n / (p2 * (p2 - p1));
+	y = A + B * exp(p1 * t) + C * exp(p2 * t);
+	end
+	
+	plot(t, y, 'b', 'LineWidth', 1.5);
+	grid on;
+	xlabel('Time (s)');
+	ylabel('Output');
+	title('Unit Step Response: G(s) = 9 / (s^2 + 5s + 9)');
+\end{lstlisting}
+
+	
+	\paragraph{(b) $S = -3 - j5$}
+	\textbf{Explanation:}
+	A single pole at $S = -3 - j5$ implies a complex conjugate pair of poles for a real system, so the other pole is $S^* = -3 + j5$.
+	These poles correspond to a second-order system characteristic equation $s^2 + 2\zeta\omega_n s + \omega_n^2 = 0$.
+	Comparing with $s = -\zeta\omega_n \pm j\omega_n\sqrt{1-\zeta^2}$:
+	The real part of the pole is $-\zeta\omega_n = -3$, so $\zeta\omega_n = 3$.
+	The imaginary part of the pole is $\omega_d = \omega_n\sqrt{1-\zeta^2} = 5$.
+	From these, we calculate the natural frequency: $\omega_n = \sqrt{(-3)^2 + (5)^2} = \sqrt{9 + 25} = \sqrt{34} \approx 5.831$ rad/s.
+	And the damping ratio: $\zeta = 3/\omega_n = 3/\sqrt{34} \approx 0.5145$.
+	Since $0 < \zeta < 1$, the system is underdamped, and we use the standard formulas.
+	For plotting the step response, we will assume a standard second-order system with unity DC gain, i.e., $G(s) = \frac{\omega_n^2}{s^2 + 2\zeta\omega_n s + \omega_n^2}$. The numerator will be $\omega_n^2 = 34$.
+	
+	\textbf{MATLAB Code:}
+	\begin{lstlisting}[language=Matlab, caption=MATLAB Code for Problem 1(b) (Using Formulas)]
+		% Given pole: S = -3 - j5. This implies a conjugate pair: -3 +/- j5.
+		% From the pole form s = -sigma +/- j*omega_d, we have:
+		sigma_value = 3; % -zeta*wn (real part of pole)
+		omega_d_value = 5; % wn*sqrt(1-zeta^2) (imaginary part of pole, damped frequency)
+		
+		% Calculate Natural Frequency (omega_n)
+		natural_freq_calculated = sqrt(sigma_value^2 + omega_d_value^2); % wn^2 = sigma^2 + omega_d^2
+		
+		% Calculate Damping Ratio (zeta)
+		damping_ratio_calculated = sigma_value / natural_freq_calculated;
+		
+		fprintf('--- System 1(b) Specifications (from poles) ---\n');
+		fprintf('Natural Frequency (omega_n): %.4f rad/s\n', natural_freq_calculated);
+		fprintf('Damping Ratio (zeta): %.4f\n', damping_ratio_calculated);
+		
+		% Calculate time domain specifications using formulas for underdamped system
+		if damping_ratio_calculated >= 0 && damping_ratio_calculated < 1
+		phase_angle_rad_1b = acos(damping_ratio_calculated); % Phase angle in radians
+		
+		rise_time_1b = (pi - phase_angle_rad_1b) / omega_d_value;
+		peak_time_1b = pi / omega_d_value;
+		max_overshoot_perc_1b = exp(-damping_ratio_calculated * pi / sqrt(1 - damping_ratio_calculated^2)) * 100;
+		settling_time_2perc_1b = 4 / (sigma_value); % 2% settling time (4 / (zeta*wn))
+		settling_time_5perc_1b = 3 / (sigma_value); % 5% settling time
+		
+		fprintf('Rise Time (tr): %.4f s\n', rise_time_1b);
+		fprintf('Peak Time (tp): %.4f s\n', peak_time_1b);
+		fprintf('Maximum Overshoot (Mp): %.2f %%\n', max_overshoot_perc_1b);
+		fprintf('Settling Time (ts, 2%%): %.4f s\n', settling_time_2perc_1b);
+		fprintf('Settling Time (ts, 5%%): %.4f s\n', settling_time_5perc_1b);
+		else
+		fprintf('System is not underdamped (zeta = %.4f). Standard formulas for tp, Mp not applicable.\n', damping_ratio_calculated);
+		settling_time_2perc_1b = 4 / (sigma_value);
+		fprintf('Approximate Settling Time (ts, 2%%): %.4f s\n', settling_time_2perc_1b);
+		end
+		
+		% Plotting the analytical unit step response
+		% Assume G(s) = wn^2 / (s^2 + 2*zeta*wn*s + wn^2) for step response
+		time_vector_1b = 0:0.01:5; % Time vector
+		
+		if damping_ratio_calculated >= 0 && damping_ratio_calculated < 1
+		unit_step_response_y_1b = 1 - (exp(-sigma_value * time_vector_1b) ./ sqrt(1 - damping_ratio_calculated^2)) .* sin(omega_d_value * time_vector_1b + phase_angle_rad_1b);
+		else 
+		% If it were overdamped, derive based on real poles.
+		% For this underdamped case, the 'if' block handles it.
+		unit_step_response_y_1b = 1 - (exp(-sigma_value * time_vector_1b) ./ sqrt(1 - damping_ratio_calculated^2)) .* sin(omega_d_value * time_vector_1b + phase_angle_rad_1b);
+		end
+		
+		figure;
+		plot(time_vector_1b, unit_step_response_y_1b, 'b', 'LineWidth', 1.5);
+		hold on;
+		plot([0 max(time_vector_1b)], [unit_step_response_y_1b(end) unit_step_response_y_1b(end)], 'r--', 'DisplayName', 'Steady State');
+		grid on;
+		title('Unit Step Response for Poles at -3 +/- j5 (Analytical Plot)');
+		xlabel('Time (seconds)');
+		ylabel('Output');
+		legend('Response', 'Steady State', 'Location', 'southeast');
+	\end{lstlisting}
+	
+	\subsubsection*{2. Step Response Comparison for Various Damping Ratios ($\zeta$) when $\omega_n = 1.5$}
+	$C(s)/R(s) = \frac{\omega_n^2}{s^2 + 2\zeta\omega_n s + \omega_n^2}$ (with $\omega_n = 1.5$)
+	
+	\textbf{Explanation:}
+	For each $\zeta$ value, we will directly apply the analytical formula for the unit step response of a second-order system.
+	We select representative $\zeta$ values to illustrate different damping behaviors: unstable ($\zeta < 0$), undamped ($\zeta = 0$), underdamped ($0 < \zeta < 1$), critically damped ($\zeta = 1$), and overdamped ($\zeta > 1$). The analytical form of $c(t)$ changes for these different cases, so we implement conditional logic.
+	
+	\textbf{Analytical Forms for $c(t)$ (Unit Step Response, assuming unity DC gain):}
+	\begin{itemize}
+		\item \textbf{Underdamped ($0 < \zeta < 1$):}
+		$c(t) = 1 - \frac{e^{-\zeta\omega_n t}}{\sqrt{1-\zeta^2}} \sin(\omega_d t + \phi)$ where $\omega_d = \omega_n \sqrt{1-\zeta^2}$ and $\phi = \arccos(\zeta)$.
+		
+		\item \textbf{Critically Damped ($\zeta = 1$):}
+		$c(t) = 1 - e^{-\omega_n t} (1 + \omega_n t)$
+		
+		\item \textbf{Overdamped ($\zeta > 1$):}
+		$c(t) = 1 - \frac{p_2}{p_2-p_1} e^{p_1 t} + \frac{p_1}{p_2-p_1} e^{p_2 t}$, where $p_1 = -\zeta\omega_n + \omega_n\sqrt{\zeta^2-1}$ and $p_2 = -\zeta\omega_n - \omega_n\sqrt{\zeta^2-1}$.
+		
+		\item \textbf{Undamped ($\zeta = 0$):}
+		$c(t) = 1 - \cos(\omega_n t)$
+		
+		\item \textbf{Unstable ($\zeta < 0$):} The exponential terms grow instead of decaying.
+	\end{itemize}
+	
+	\textbf{MATLAB Code:}
+		\begin{lstlisting}[language=Matlab, caption=Step response vs damping ratio (manual)]
+		% Natural frequency (assumed constant)
+		wn = 5;
+		
+		% Time vector
+		t = 0:0.005:5;
+		
+		% Prepare figure
+		figure;
+		sgtitle('Step Responses for Different \zeta Values');
+		
+		% Loop for 6 different zeta inputs
+		for i = 1:6
+		% Take zeta input from user
+		zeta = input(['Enter value of zeta for case ' num2str(i) ': ']);
+		
+		% Define transfer function: H(s) = wn^2 / (s^2 + 2*zeta*wn*s + wn^2)
+		num = [0 0 wn^2];
+		den = [1 2*zeta*wn wn^2];
+		
+		% Calculate step response
+		[y, ~] = step(tf(num, den), t);
+		
+		% Plot subplot
+		subplot(3, 2, i);
+		plot(t, y, 'b', 'LineWidth', 1.5);
+		grid on;
+		title(['\zeta = ' num2str(zeta)]);
+		xlabel('Time (s)');
+		ylabel('Response');
+		end
+		
+	\end{lstlisting}
+	\subsubsection{Direct Approch}
+	\begin{lstlisting}[language=Matlab, caption=Step response vs damping ratio (manual)]
+		t = 0:0.01:10;
+		wn = 1.5;
+		zeta = [-1, -0.5, 0, 0.2, 0.5, 1, 2];
+		for i = 1:length(zeta)
+		z = zeta(i);
+		wd = wn * sqrt(abs(1 - z^2));
+		if z < 1
+		y = 1 - (1/sqrt(1-z^2))*exp(-z*wn*t).*sin(wd*t + acos(z));
+		else
+		y = 1 - exp(-wn*t); % approximation for overdamped
+		end
+		plot(t, y); hold on;
+		end
+		legend('z=-1','-0.5','0','0.2','0.5','1','2');
+		title('Step response vs \zeta');
+		xlabel('Time'); ylabel('Amplitude');
+		grid on;
+	\end{lstlisting}
+	
+	
+	\subsubsection*{3. Show the Unit-Step Response, Unit-Ramp Response, Unit-Parabolic Response and Unit-Impulse Response.}
+	
+	\paragraph{(a) $C(s)/R(s) = \frac{3}{s^2+3s+3}$}
+	\textbf{Explanation:}
+	We first determine the natural frequency ($\omega_n$) and damping ratio ($\zeta$) from the transfer function:
+	From $s^2+3s+3 \implies \omega_n^2 = 3 \implies \omega_n = \sqrt{3} \approx 1.732$ rad/s.
+	$2\zeta\omega_n = 3 \implies 2\zeta\sqrt{3} = 3 \implies \zeta = \frac{3}{2\sqrt{3}} = \frac{\sqrt{3}}{2} \approx 0.866$.
+	Since $0 < \zeta < 1$, the system is underdamped.
+	
+	We will now analytically derive and plot the time responses for different inputs using formulas:
+	
+	\begin{itemize}
+		\item \textbf{Unit Step Response ($R(s) = 1/s$):}
+		$c(t) = 1 - \frac{e^{-\zeta\omega_n t}}{\sqrt{1-\zeta^2}} \sin(\omega_d t + \phi)$ (as used before)
+		
+		\item \textbf{Unit Impulse Response ($R(s) = 1$):}
+		The impulse response $h(t)$ is the inverse Laplace transform of $G(s)$.
+		For $G(s) = \frac{\omega_n^2}{s^2+2\zeta\omega_n s+\omega_n^2}$,
+		$h(t) = \frac{\omega_n}{\sqrt{1-\zeta^2}} e^{-\zeta\omega_n t} \sin(\omega_d t)$.
+		Since our numerator is 3, and $\omega_n^2=3$, the system is directly in the standard form with unity gain.
+		So $h(t) = \frac{\omega_n}{\sqrt{1-\zeta^2}} e^{-\zeta\omega_n t} \sin(\omega_d t)$.
+		
+		\item \textbf{Unit Ramp Response ($R(s) = 1/s^2$):}
+		The formula for the unit ramp response of a standard second-order system is:
+		$c(t) = t - \frac{2\zeta}{\omega_n} + \frac{e^{-\zeta\omega_n t}}{\omega_n\sqrt{1-\zeta^2}} \sin(\omega_d t + 2\phi)$.
+		(Assuming DC gain of 1 for correct steady state error, otherwise it needs adjustment based on $K_v$)
+		For this system (type 0), the steady-state error to a ramp is infinite, meaning the output diverges from the ramp input. The analytical formula still represents the transient behavior.
+		
+		\item \textbf{Unit Parabolic Response ($R(s) = 1/s^3$):}
+		Analytically deriving this response without a symbolic toolbox is very involved. The steady-state error will also be infinite as $K_a = \lim_{s \to 0} s^2 G(s) = 0$.
+	\end{itemize}
+	For Unit Parabolic Response, due to its complexity without built-in functions, I will state the challenge and typical approach (numerical integration) rather than providing a manually derived analytical formula.
+	
+	\textbf{MATLAB Code:}
+	\begin{lstlisting}[language=Matlab, caption=MATLAB Code for Problem 3(a) (Using Formulas)]
+	
+% Problem 3(a): Multiple Input Responses for G(s) = 3 / (s^2 + 3s + 3)
+d = [1 3 3];
+wn = sqrt(d(3));
+z = d(2)/(2*wn);
+wd = wn * sqrt(1 - z^2);
+phi = acos(z);
+t = 0:0.01:10;
+
+% Step
+ys = 1 - (exp(-z * wn * t) ./ sqrt(1 - z^2)) .* sin(wd * t + phi);
+figure;
+plot(t, ys, 'b');
+grid on;
+title('Unit Step');
+
+% Impulse
+yi = (wn / sqrt(1 - z^2)) * exp(-z * wn * t) .* sin(wd * t);
+figure; 
+plot(t, yi, 'r'); 
+grid on; 
+title('Unit Impulse');
+
+% Ramp
+yr = t - (2*z/wn) + (exp(-z * wn * t) ./ (wn * sqrt(1 - z^2))) .* sin(wd * t + 2*phi);
+figure;
+plot(t, yr, 'g');
+hold on; 
+plot(t, t, 'k--'); 
+grid on;
+title('Unit Ramp'); 
+legend('Response','Input');
+
+	
+	\end{lstlisting}
+	
+	\paragraph{(b) State-Space Representation:}
+	$\begin{array}{l} \begin{bmatrix} \dot{x_1} \\ \dot{x_2} \end{bmatrix} = \begin{bmatrix} -1 & -0.5 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} + \begin{bmatrix} 0.5 \\ 0 \end{bmatrix} [U] \\ y = \begin{bmatrix} 1 & -1 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} + [0] [U] \end{array}$
+	\textbf{Explanation:}
+	For a state-space system, generating time responses without built-in functions (`lsim`, `step`, `impulse`) typically involves directly integrating the differential equations numerically. This means implementing a numerical integration method (like Euler's method) manually. This method uses the state-space equations:
+	$\dot{x}(t) = Ax(t) + Bu(t)$
+	$y(t) = Cx(t) + Du(t)$
+	Where $x(t)$ is the state vector, $u(t)$ is the input, and $y(t)$ is the output.
+	The Euler method approximates the next state $x(t+\Delta t)$ as $x(t) + \dot{x}(t) \cdot \Delta t$.
+	
+	\textbf{MATLAB Code:}
+	\begin{lstlisting}[language=Matlab, caption=MATLAB Code for Problem 3(b) (Numerical Integration for State-Space)]
+	% Problem 3(b): State Space Euler Integration
+	A = [-1 -0.5; 1 0];
+	B = [0.5; 0];
+	C = [1 -1];
+	D = 0;
+	ds = 0.01;
+	t = 0:ds:10;
+	x = [0; 0];
+	y = zeros(size(t));
+	
+	% Step
+	u = ones(size(t));
+	for k = 1:length(t)
+	y(k) = C * x + D * u(k);
+	dx = A * x + B * u(k);
+	x = x + dx * ds;
+	end
+	figure; plot(t, y, 'b'); grid on; title('SS Step');
+	
+	% Impulse
+	u = zeros(size(t)); u(1) = 1/ds;
+	x = [0; 0]; y = zeros(size(t));
+	for k = 1:length(t)
+	y(k) = C * x + D * u(k);
+	dx = A * x + B * u(k);
+	x = x + dx * ds;
+	end
+	figure; plot(t, y, 'r'); grid on; title('SS Impulse');
+	
+	% Ramp
+	u = t;
+	x = [0; 0]; y = zeros(size(t));
+	for k = 1:length(t)
+	y(k) = C * x + D * u(k);
+	dx = A * x + B * u(k);
+	x = x + dx * ds;
+	end
+	figure; plot(t, y, 'g'); grid on; title('SS Ramp');
+	\end{lstlisting}
+\end{document}

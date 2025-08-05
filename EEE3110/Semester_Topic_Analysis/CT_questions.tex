@@ -1,0 +1,121 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath} % For mathematical equations
+\usepackage{geometry} % For setting page margins
+\usepackage{array}    % For table formatting
+\usepackage{longtable} % For tables that may span multiple pages
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+
+% Set page geometry
+\geometry{a4paper, left=1in, right=1in, top=1in, bottom=1in}
+
+% --- Header and Footer Customization ---
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyhead[L]{EEE 2021 Series, 3rd Year 1st Semester}
+\fancyhead[R]{EEE 3109: Computational Methods in Engineering}
+\fancyfoot[C]{\thepage}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\begin{document}
+	
+	% ===================================================================
+	%                       CLASS TEST 1
+	% ===================================================================
+	
+	\thispagestyle{empty}
+	\noindent
+	\begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} r}
+		\textbf{Date:} 22/04/2025 & \\
+		\textbf{Class test \#1, EEE' 21 (A)} & \\
+	\end{tabular*}
+	\begin{flushright}
+		\begin{tabular}{|l|}
+			\hline
+			\textbf{Total marks:} 20 \\
+			\textbf{Time:} 25 Minutes \\
+			\hline
+		\end{tabular}
+	\end{flushright}
+	\vspace{-20pt}
+	\rule{\textwidth}{0.4pt}
+	
+	\subsection*{Section A}
+	
+	\begin{enumerate}
+		\item Outline the steps to solve a system of nonlinear equations using the Newton-Raphson method. \hfill [10]
+		
+		\item A series DC circuit consists of a DC source having source voltage $V_S$, a diode, and a resistor $R$. As the diode current (found from Shockley's equation) is equal to the current through the resistor, the following equation is satisfied:
+		\[ f(V_D) = I_s \left( e^{\frac{V_D}{n V_T}} - 1 \right) - \frac{V_S - V_D}{R} = 0 \]
+		Now, solve for the diode voltage $V_D$ using two iterations of the Newton-Raphson method. \hfill [10] \\
+		Given: $I_s = 10^{-12}$ A, $V_T = 25$ mV, $n = 1$, $V_S = 5$ V, $R = 5000\ \Omega$.
+		
+	\end{enumerate}
+	
+	\newpage
+	
+	% ===================================================================
+	%                       CLASS TEST 2
+	% ===================================================================
+	
+	\thispagestyle{empty}
+	\noindent\textbf{Class Test 02} \hfill \textbf{Date:} 28/04/2025 \\
+	\textbf{Full Marks:} 20 \hfill \textbf{Time:} 25 minutes
+	\vspace{4pt}
+	\rule{\textwidth}{0.4pt}
+	\subsection*{Section A}
+	
+	\begin{enumerate}
+		\item Use Gauss-Jordan elimination to solve the following system of linear equations. Do not employ pivoting. Check your answers by substituting them into the original equations. \hfill [7]
+		\[
+		\begin{array}{rcrcrcl}
+			2x_1 & + & x_2 & - & x_3 & = & 1 \\
+			5x_1 & + & 2x_2 & + & 2x_3 & = & -4 \\
+			3x_1 & + & x_2 & + & x_3 & = & 5
+		\end{array}
+		\]
+		
+		\item Explain the process to determine the inverse of a matrix using LU decomposition. \hfill [7]
+		
+		\item Show that the convergence of the Gauss-Seidel method is guaranteed for a diagonally dominant system. \hfill [6]
+		
+	\end{enumerate}
+	
+	\newpage
+	
+	% ===================================================================
+	%                       CLASS TEST 3
+	% ===================================================================
+	\thispagestyle{empty}
+	\noindent\textbf{Class Test 02} \hfill \textbf{Date:} 30/06/2025 \\
+	\textbf{Full Marks:} 20 \hfill \textbf{Time:} 25 minutes
+	\vspace{4pt}
+	\rule{\textwidth}{0.4pt}
+	\subsection*{Section A}
+	
+	\begin{enumerate}
+		\item The function $f(x) = 2e^{-1.5x}$ can be used to generate the following table of data:
+		
+		\begin{center}
+			\begin{tabular}{|c|ccccccc|}
+				\hline
+				$x$ & 0 & 0.05 & 0.15 & 0.25 & 0.35 & 0.475 & 0.6 \\
+				\hline
+				$f(x)$ & 2 & 1.8555 & 1.5970 & 1.3746 & 1.1831 & 0.9808 & 0.8131 \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Evaluate the integral from $a=0$ to $b=0.6$ using:
+		\begin{enumerate}
+			\item[(a)] the trapezoidal rule, and
+			\item[(b)] a combination of the trapezoidal and Simpson's rules; employ Simpson's rules wherever possible to obtain the highest accuracy.
+		\end{enumerate}
+		Compute the percent relative error ($\epsilon_t$) for each case. \hfill [10]
+		
+		\item Mathematically demonstrate that halving the interval ($h_2 = 0.5h_1$) will result in an improved estimation of integration using Richardson's extrapolation as follows, where symbols have their usual meanings: \hfill [10]
+		\[ I \approx \frac{4}{3}I(h_2) - \frac{1}{3}I(h_1) \]
+	\end{enumerate}
+	
+\end{document}

@@ -1,0 +1,256 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{hyperref}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=magenta,
+	filecolor=magenta,      
+	urlcolor=cyan,
+}
+
+\linespread{1.3}
+
+
+
+\begin{document}
+	
+	\begin{center}
+	\large\textbf{Rajshahi University of Engineering \& Technology} \\
+	\textbf{Department of Electrical \& Electronic Engineering} \\
+	\textbf{Course: Control Systems (EEE 3105)} \\
+	\hrule
+	\vspace{0.5cm}
+	\huge\textbf{Topic-wise Sorted Questions (2010-2023)}
+	\vspace{0.5cm}
+	\hrule
+\end{center}
+	\tableofcontents
+	\newpage
+	\section{Introduction to Control Systems}
+	
+	\subsection{Basics, Open-Loop, and Closed-Loop Systems}
+	\begin{enumerate}
+		\item \textbf{(Q. 1(a), 2023)} What is meant by control? What are the basic elements of a control system?
+		\item \textbf{(Q. 1(b), 2023)} "Closed-loop control system is better than open-loop control system for noise reduction"-Justify.
+		\item \textbf{(Q. 2(a), 2023)} If a load is suddenly applied to an open-loop and closed-loop control system, what happens in stability?
+		\item \textbf{(Q. 1(a), 2022)} Define open loop and close loop with their suitable example. If a load is suddenly applied to an open loop and closed loop control system, what happens in stability?
+		\item \textbf{(Q. 1(b), 2022)} Prove that the output of the closed loop system clearly depends on both the closed-loop transfer function and the nature of the input.
+		\item \textbf{(Q. 1(a), 2021)} "Feedback improves disturbance rejection"- Prove it mathematically.
+		\item \textbf{(Q. 1(d), 2021)} What happens when a load is applied to an open-loop and closed-loop system?
+		\item \textbf{(Q. 1(a), 2020)} "Stability is a major concern in closed-loop control system". -Explain it.
+		\item \textbf{(Q. 1(b), 2020)} What is meant by automatic control? Prove that the output of the closed-loop system clearly depends on both the closed-loop transfer function and the nature of the input.
+		\item \textbf{(Q. 1(d), 2020)} Why most of the systems are non-linear in nature? Explain with example.
+		\item \textbf{(Q. 2(a), 2020)} Functionally, what are the differences between open-loop and closed-loop control system?
+		\item \textbf{(Q. 1(a), 2018)} "Stability is a major problem in closed-loop control system design" - Explain this statement.
+		\item \textbf{(Q. 1(a), 2017)} Differentiate between modern control theory and conventional control theory.
+		\item \textbf{(Q. 1(b), 2017)} What is sensor? Explain the function of each part of a feedback control system with a suitable block diagram and example.
+		\item \textbf{(Q. 1(d), 2017)} Differentiate between open loop and closed loop control.
+		\item \textbf{(Q. 1(a), 2016)} What is meant by modern control theory?
+		\item \textbf{(Q. 4(a), 2016)} Write three reasons for using feedback control systems and at least one reason for not using them.
+		\item \textbf{(Q. 1(a), 2015)} Define control. What are the basic elements of a control loop?
+		\item \textbf{(Q. 1(b), 2015)} "Closed loop control system is better than open loop control system for noise reduction"- Justify.
+		\item \textbf{(Q. 2(a), 2015)} What are the advantages of open-loop control over closed-loop control?
+		\item \textbf{(Q. 1(a,b), 2014)} Define open loop and close loop control system with suitable example. List the major advantages and disadvantages of closed loop control system over open loop control system.
+		\item \textbf{(Q. 1(b), 2013)} "Feedback can improve stability or be harmful to stability if it is not applied properly"- Justify the statement.
+		\item \textbf{(Q. 1(a), 2012)} What happens when the load is applied to an open loop and closed control system?
+		\item \textbf{(Q. 1(a,b), 2011)} What do you mean by open-loop and closed loop systems? For the given voltage divider network, explain whether the system is open loop or closed loop? [Diagram is provided in the 2011 paper]
+		\item \textbf{(Q. 1(a), 2010)} Explain (i) time invariant and time-varying control system, (ii) a.c. control system and D.C. control system.
+	\end{enumerate}
+	
+	\section{System Modeling}
+	\subsection{Transfer Functions (Mechanical \& Electrical Systems)}
+	\begin{enumerate}
+		\item \textbf{(Q. 1(c), 2023)} Draw the block diagram and determine the transfer function of the circuit in the 2023 Q1(c) paper.
+		\item \textbf{(Q. 1(c), 2022)} Show the open loop transfer function for the DC servomotor is 
+		\[ \frac{\omega_o(s)}{V_i(s)} = \frac{k_t k_f}{R_f R_a (1+s\tau_a)(1+s\tau_f)s + \frac{k_b k_t R_f}{R_a(1+s\tau_a)}} \]
+		[Refer to the circuit diagram Fig. 1(c) in the 2022 exam paper.]
+		\item \textbf{(Q. 3(c), 2022)} Determine the transfer function of the system shown in Fig. 3(c) of the 2022 exam paper.
+		\item \textbf{(Q. 2(b), 2020)} Define transfer function. Find the transfer function, $I_1(s)/V(s)$ of the circuit shown in the 2020 Q2(b) paper.
+		\item \textbf{(Q. 1(b), 2018)} Derive the transfer function of a DC motor when $V_i(s)$ is the input, $\theta(s)$ is the output of the system. Also, express the transfer function in terms of the state-space elements.
+		\item \textbf{(Q. 1(c), 2018)} A series circuit in the figure consisting of resistance R and an inductance L is connected to a supply $v(t)$. Find the expression of the current in S domain. Also, calculate the value of current at $t = 0.5$ ms with $R = 1 \times 10^3 \Omega$, $L = 25$ mH and supply is a step voltage of 50V. Neglect initial condition. [Refer to the circuit diagram in the 2018 Q1(c) paper.]
+		\item \textbf{(Q. 2(b), 2018)} Find the transfer function $V_o(s)/V_i(s)$ for the op-amp circuit shown in the 2018 Q2(b) paper.
+		\item \textbf{(Q. 1(e), 2017)} Represent the dynamics of a DC motor in a block diagram form which is compatible in SIMULINK platform.
+		\item \textbf{(Q. 1(b), 2016)} Derive the transfer function of a DC motor when $V_i(s)$ is the input and $\omega(s)$ is the output of the system. Also, express the transfer function in terms of the state-space elements.
+		\item \textbf{(Q. 2(c), 2016)} Find the transfer function, $I_2(s)/V(s)$ of the circuit shown in the 2016 Q2(c) paper.
+		\item \textbf{(Q. 1(c), 2014)} Define the block diagram and transfer function. For the following system, show that the open loop transfer function for the DC Servomotor is [Expression and Diagram provided in 2014 Q1(c) paper, similar to 2022 Q1(c)].
+		\item \textbf{(Q. 2(b), 2013)} Find out the transfer function of a armature control DC motor shown in the 2013 Q2(b) paper.
+		\item \textbf{(Q. 1(c), 2011)} Define transfer function. Determine the closed loop transfer function of the position control system shown in the 2011 Q1(c) paper.
+		\item \textbf{(Q. 1(b), 2010)} Prove that when a DC motor is connected with a load, the system will be closed loop and also determine the transfer function for the system.
+		\item \textbf{(Q. 2(b), 2010)} Obtain the transfer function $X_2(s)/F(s)$ and $X_1(s)/F(s)$ for the mechanical system shown in Figure 2(b) of the 2010 exam paper.
+	\end{enumerate}
+	
+	\subsection{Block Diagram Representation}
+	\begin{enumerate}
+		\item \textbf{(Q. 2(b), 2022)} Determine the ratio $C(s)/R(s)$ for the system shown in Fig. 2(b) using block diagram reduction method.
+		\item \textbf{(Q. 2(b), 2021)} Determine the ratio $C(s)/R(s)$ for the system shown in the 2021 Q2(b) paper using block diagram reduction method.
+		\item \textbf{(Q. 2(a), 2017)} For the system shown, find (i) The equivalent single block that represents the transfer function, $T(s) = C(s)/R(s)$. (ii) The damping ratio, natural frequency, percent overshoot, settling time, peak time, rise time, and damped frequency of oscillation. [Refer to the block diagram in the 2017 Q2(a) paper.]
+		\item \textbf{(Q. 3(a), 2015)} Draw the block diagram and find out the transfer function $C(s)/R(s)$ of the system from its signal flow graph representation. [Refer to the graph in the 2015 Q3(a) paper.]
+		\item \textbf{(Q. 2(b), 2014)} Find out the transfer function by using block diagram representation method for the system in the 2014 Q2(b) paper.
+		\item \textbf{(Q. 1(c), 2013)} For the block diagram in the 2013 Q2(c) paper, express $C(S)$ in terms of $G_1(S), G_2(S), H(S), D(S), R(S)$ and discuss the effect of disturbance $D(S)$ if $|G_2(S)H(S)| \gg 1$ and $|G_1(S)G_2(S)| \gg 1$.
+		\item \textbf{(Q. 3(b), 2013)} Find out the transfer function $Y(s)/R(s)$ by using block diagram simplification method. [Refer to the block diagram in the 2013 Q3(b) paper.]
+		\item \textbf{(Q. 2(a), 2012)} Find the input-output transfer function of the system shown in figure 2(a) using block diagram reduction techniques. [Refer to the block diagram in the 2012 exam paper.]
+		\item \textbf{(Q. 2(b), 2011)} Draw the block diagram of the circuit from the 2011 Q2(b) paper and find out the transfer function by using block diagram representation method.
+	\end{enumerate}
+	
+	\subsection{Signal Flow Graphs (SFG) and Mason's Rule}
+	\begin{enumerate}
+		\item \textbf{(Q. 3(a), 2023)} What is the importance of signal flow graph?
+		\item \textbf{(Q. 3(b), 2023)} For the given signal flow graph in the 2023 Q3(b) paper, find the ratio C(s)/R(s).
+		\item \textbf{(Q. 2(c), 2022)} For the given signal flow graph in Fig. 2(c), find $C(s)/R(s)$.
+		\item \textbf{(Q. 2(a), 2021)} What is signal flow graph? Describe the importance of signal flow graph in control system.
+		\item \textbf{(Q. 2(c), 2021)} For the given signal flow graph in the 2021 Q2(c) paper, find $C(s)/R(s)$.
+		\item \textbf{(Q. 3(b), 2020)} Determine $C(s)/R(s)$ of the system in the 2020 Q3(b) paper by using Mason's rule.
+		\item \textbf{(Q. 3(b), 2018)} Obtain the transfer function $C/R$ from the signal flow graph shown in the 2018 Q3(b) paper.
+		\item \textbf{(Q. 3(b), 2017)} State Mason's rule. Determine $C(s)/R(s)$ for the system using Mason's rule. [Refer to the SFG in the 2017 Q3(b) paper.]
+		\item \textbf{(Q. 3(a), 2016)} State Mason's rule. Determine $C(s)/R(s)$ of the system by using Mason's rule. [Refer to the SFG in the 2016 Q3(a) paper.]
+		\item \textbf{(Q. 2(b), 2015)} Write down Mason's gain formula. Find the transfer function, $C(s)/R(s)$, for signal flow graph in Fig. 2(b) using Mason's gain formula.
+		\item \textbf{(Q. 2(c), 2014)} Define forward path \& nontouching loop. State the Mason's rule. Consider the system in the 2014 Q3(a) paper. Determine $Y_5/Y_1$ \& $Y_6/Y_1$ by using Mason's rule.
+		\item \textbf{(Q. 4(c), 2013)} For a system whose connection is represented by a signal flow graph (SFG), define Non-touching loops, self loop, mixed node. Draw the signal flow graph and determine transfer function by using Mason's gain formula for the block diagram in the 2013 Q4(c) paper.
+	\end{enumerate}
+	
+	
+	\section{State Space Representation \& Analysis}
+	\begin{enumerate}
+		\item \textbf{(Q. 2(b), 2023)} Find the state-space equation of the circuit in the 2023 Q2(b) paper when the outputs are the current through the resistor and voltage across the capacitor.
+		\item \textbf{(Q. 2(c), 2023)} Consider the system defined by:
+		\[ \begin{bmatrix} \dot{x_1}(t) \\ \dot{x_2}(t) \\ \dot{x_3}(t) \end{bmatrix} = \begin{bmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ -6 & -11 & -6 \end{bmatrix} \begin{bmatrix} x_1(t) \\ x_2(t) \\ x_3(t) \end{bmatrix} + \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix} u(t); \quad y(t)=[4 \ 5 \ 1] \begin{bmatrix} x_1(t) \\ x_2(t) \\ x_3(t) \end{bmatrix} + [0]u(t). \]
+		Is the system completely observable?
+		\item \textbf{(Q. 2(a), 2022)} What is state-space? Represent the dynamics of mass-spring-damper system in state-space form.
+		\item \textbf{(Q. 4(b), 2022)} Define state transition matrix. Prove that, $\phi(t) = \mathcal{L}^{-1}[(SI - A)^{-1}]$, where symbols have their usual meanings.
+		\item \textbf{(Q. 5(a), 2022)} For the electrical network in Fig. 5(a), find a state-space representation if the output is the voltage across the capacitor and the resistor.
+		\item \textbf{(Q. 5(b), 2022)} Define state vector. Find out the eigenvalues and eigenvector of the following system. Is this system controllable or not?
+		\[ A = \begin{bmatrix} 0 & 1 \\ -5 & -2 \end{bmatrix}, B = \begin{bmatrix} 1 \\ 1 \end{bmatrix}, C = [1 \ 0], D = [0] \]
+		\item \textbf{(Q. 1(c), 2021)} Express the dynamics of a mass-spring-damper system in state-space form. Also represent it in block diagram form.
+		\item \textbf{(Q. 3(a), 2021)} A single input single output system is given as:
+		\[ \dot{x}(t) = \begin{bmatrix} -1 & 0 & 0 \\ 0 & -2 & 0 \\ 0 & 0 & -3 \end{bmatrix} x(t) + \begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix} u(t); \quad y(t) = [1 \ 0 \ 2]x(t) \]
+		Test for controllability and observability.
+		\item \textbf{(Q. 3(b), 2021)} Find the state-space of the circuit shown in the 2021 Q3(b) paper when the outputs are the voltage across the capacitor and current through the inductor.
+		\item \textbf{(Q. 1(c), 2020)} Express the dynamics of a DC motor in state-space form. Also express it in transfer function form in terms of the state-space elements.
+		\item \textbf{(Q. 2(c), 2020)} Obtain the transfer function of the system defined by the following state-space equations:
+		\[ \begin{bmatrix} \dot{x_1} \\ \dot{x_2} \\ \dot{x_3} \end{bmatrix} = \begin{bmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ -5 & -25 & -5 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} + \begin{bmatrix} 0 \\ 25 \\ -120 \end{bmatrix} u; \quad y = [1 \ 0 \ 0] \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} + [0]u \]
+		\item \textbf{(Q. 3(a), 2020)} What is an actuator? Find the value of K for which the following system will be uncontrollable.
+		\[ \begin{bmatrix} \dot{x_1}(t) \\ \dot{x_2}(t) \end{bmatrix} = \begin{bmatrix} -1 & 0.4 \\ K & -1.2 \end{bmatrix} \begin{bmatrix} x_1(t) \\ x_2(t) \end{bmatrix} + \begin{bmatrix} -1 \\ 2 \end{bmatrix} u; \quad y(t) = [1 \ 3] \begin{bmatrix} x_1(t) \\ x_2(t) \end{bmatrix} + [0]u \]
+		\item \textbf{(Q. 4(c), 2020)} Find the state-space equation of the circuit in the 2020 Q4(c) paper when the output current is taken through the resistor.
+		\item \textbf{(Q. 2(c), 2018)} Find the state-space model of the circuit in the 2018 Q2(c) paper when the output is the current through the capacitor.
+		\item \textbf{(Q. 2(b), 2017)} Draw an SFG for the following state equation:
+		\[ \dot{x} = \begin{bmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ -2 & -4 & -6 \end{bmatrix} x + \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix} u; \quad y = [1 \ 1 \ 0]x \]
+		\item \textbf{(Q. 2(b), 2016)} Differentiate between transfer function and state-space. Find the state-space of the circuit in the 2016 Q2(b) paper when the output is the current through the resistor.
+		\item \textbf{(Q. 5(a), 2013)} Draw the free body diagram of the mechanical system in the 2013 Q5(a) paper and obtain a state-space representation of the system.
+		\item \textbf{(Q. 5(b), 2013)} Consider a linear control system given by the following state space model. Determine the characteristic values (eigen values) of the system and determine the controllability of the system.
+		\[ \dot{x} = \begin{bmatrix} -1 & 0 & 0 \\ 0 & -2 & 0 \\ 0 & 0 & -3 \end{bmatrix} x + \begin{bmatrix} 1 \\ 2 \\ 0 \end{bmatrix} u, \quad y = [1 \ -1 \ 1]x \]
+		\item \textbf{(Q. 4(a), 2010)} What is state transition matrix? Explain its significance.
+		\item \textbf{(Q. 4(b), 2010)} Obtain the state transition matrix for the system: $\dot{x} = \begin{bmatrix} 0 & 1 \\ -2 & -3 \end{bmatrix} x$.
+		\item \textbf{(Q. 4(c), 2010)} Obtain state equation in matrix form for the transfer function: $Y(s)/U(s) = (s+1) / (s^2+7s+12)$.
+		\item \textbf{(Q. 6(a), 2010)} Is the following system controllable or not? $\dot{x} = \begin{bmatrix} -1 & -1 \\ 0 & -2 \end{bmatrix} x + \begin{bmatrix} 1 \\ 1 \end{bmatrix} u$.
+	\end{enumerate}
+	
+	\section{Time Domain Analysis}
+	\begin{enumerate}
+		\item \textbf{(Q. 3(c), 2023)} Mathematically prove that for a zero damping ratio the system response will be oscillatory when subjected to a unit step input.
+		\item \textbf{(Q. 4(a), 2023)} Consider the closed-loop system given by $\frac{C(s)}{R(s)} = \frac{\omega_n^2}{s^2 + 2\xi\omega_n s + \omega_n^2}$. Determine the values of $\xi$ and $\omega_n$ so that the system responds to a step input with approximately 5\% overshoot and with a settling time of 2 sec (use the 2\% criterion).
+		\item \textbf{(Q. 4(c), 2023)} Define steady-state error. Find the steady-state error of the system for different types of inputs, given the unity feedback system in the 2023 Q4(c) paper with a forward transfer function of $\frac{1}{Ts(s+1)}$.
+		\item \textbf{(Q. 5(b), 2023)} Prove that settling time of a second order dynamic system is $t_s = 4/(\xi\omega_n)$ for 2\% tolerance band.
+		\item \textbf{(Q. 3(a), 2022)} Prove that the maximum overshoot occurs at $t_m = \frac{\cos^{-1}\xi}{\omega_n\sqrt{1-\xi^2}}$ for the case of transient response analysis of a second order system with impulse excitation. Here, $\xi$ is damping ratio and $\omega_n$ is undamped natural frequency.
+		\item \textbf{(Q. 3(b), 2022)} Find the steady-state error of the system shown in Fig. 3(b) of the 2022 paper for unit step input.
+		\item \textbf{(Q. 4(a), 2022)} Consider the system whose $G(s) = \frac{10}{0.1s^2+10s}$, $H(s) = 1$ and $r(t) = A_0 + A_1t + \frac{A_2}{2}t^2$. Evaluate the dynamic error co-efficient when the system is subjected to $r(t)$.
+		\item \textbf{(Q. 3(c), 2021)} Define steady-state error. Find the steady-state error of the following system for different types of inputs. The system has a forward path TF of $1/(Ts+1)$ in a unity feedback loop.
+		\item \textbf{(Q. 4(a), 2021)} The unit step response of a linear control system is shown in the 2021 Q4(a) paper ($c_{max}=1.2, c_{ss}=1.0, t_p=0.1s$). (i) Find the transfer function of a 2nd order system. (ii) Find the rise time and settling time.
+		\item \textbf{(Q. 4(a), 2020)} Consider the closed-loop system given by $\frac{C(s)}{R(s)} = \frac{\omega_n^2}{s^2 + 2\xi\omega_n s + \omega_n^2}$. Determine the values of $\xi$ and $\omega_n$ so that the system responds to a step input with approximately 5\% overshoot and with a settling time of 2 sec (Use the 2\% criterion).
+		\item \textbf{(Q. 4(b), 2018)} For a system having transfer function, $\frac{C(s)}{R(s)} = \frac{64}{s^2+5s+64}$; determine: (i) $\omega_n$, (ii) $\xi$, and (iii) $\omega_d$.
+		\item \textbf{(Q. 2(c), 2017)} What is the difference between the natural frequency and the damped frequency of oscillation?
+		\item \textbf{(Q. 3(c), 2016)} Consider a unity feedback control system with the closed-loop transfer function $\frac{C(s)}{R(s)} = \frac{Ks+b}{s^2+as+b}$. Determine the open-loop transfer function. Also, determine the steady state error for the unit ramp response.
+		\item \textbf{(Q. 3(b), 2014)} Define rise time and peak time. Show that the maximum \% overshoot of a second order system for unit step response is \%Mp = $e^{-\pi\xi/\sqrt{1-\xi^2}} \times 100$.
+		\item \textbf{(Q. 4(a), 2013)} Consider the system shown in the 2013 Q4(a) paper. Determine the value of K and $k_h$ such that the system has a damping ratio $\xi$ of 0.7 and an undamped natural frequency of 4 rad/sec. Then obtain the rise time $t_r$, peak time $t_p$, maximum overshoot $M_p$ and settling time $t_s$ in the unit-step response.
+		\item \textbf{(Q. 2(b), 2012)} For a control system shown in figure 2(b) of the 2012 paper, find the values of K and $K_t$ so that the damping ratio $\zeta$ of the system is 0.6 and setting time ($t_s$) is 0.1 sec. Use $t_s=4/\zeta\omega_n$. Assume unit step input.
+		\item \textbf{(Q. 3(b), 2010)} Define maximum overshoot. From the expression of maximum overshoot Mp and rise time tr for a unity response second order prototype system. The figure 3(b) shows a speed control system. The $\Omega_r(s)$ and $\Omega(s)$ are the reference speed and output speed respectively. Investigate the response of this system to the unit-step disturbance torque $T_D(s)$. Assume $\Omega_r(s)=0$.
+	\end{enumerate}
+	
+	
+	\section{Stability of Control Systems (Routh-Hurwitz)}
+	\begin{enumerate}
+		\item \textbf{(Q. 5(a), 2023)} Consider the closed-loop system shown in the 2023 Q5(a) paper. Determine the range of K for stability. Assume that K > 0.
+		\item \textbf{(Q. 5(c), 2023)} Define stability. What does the Routh Hurwitz criteria tell us?
+		\item \textbf{(Q. 4(c), 2022)} For an open-loop transfer function of a certain unity feedback system, $G(s) = \frac{K(s+1)}{s(s-1)(s+6)}$. Determine: (i) The range of values of K for which the system is stable. (ii) The value of K that will result in the system being marginally stable. (iii) The location of the roots of the characteristics equation for the value of K found in (ii).
+		\item \textbf{(Q. 6(a), 2022)} Write down the limitations and conditions of Routh's stability criterion. What is meant by breakaway and break-in point?
+		\item \textbf{(Q. 6(b), 2020)} Determine the stability of a system with the following characteristic equation: $s^5 + 4s^4 + 2s^3 + 8s^2 + s + 4 = 0$.
+		\item \textbf{(Q. 5(b), 2018)} Using Routh Hurwitz criterion find the range of K for stability of the system with $G(s) = \frac{K(s+2)}{s(s+1)(s+3)(s+5)}; H(s)=1$.
+		\item \textbf{(Q. 5(a), 2016)} Use the Routh-Hurwitz criterion to find how many poles of the following closed-loop system, T(s) are in the rhp, in the lhp, and on the j$\omega$-axis. $T(s) = \frac{s^3+7s^2+2s+10}{s^6+s^5-2s^4-3s^3-7s^2-4s-4}$. The denominator given in the paper seems to be mistyped, but should be transcribed as is. Corrected OCR from image: denominator is $s^6+s^5-s^4-s^2-s+6$.
+		\item \textbf{(Q. 6(a), 2016)} Find the range of gain K for the system in the 2016 Q6(a) paper that will cause the system to be stable, unstable, and marginally stable. Assume K>0.
+		\item \textbf{(Q. 6(b), 2013)} Using Routh's stability criterion determine the absolute stability of the of the closed loop transfer function $T(s) = \frac{10}{s^5+2s^4+3s^3+6s^2+5s+3}$.
+		\item \textbf{(Q. 3(a), 2011)} Is a closed loop system with the following open loop transfer function and with $k=2$ stable? Find the critical value of the gain k for stability. $G(s)H(s) = \frac{k}{s(s+1)(2s+1)}$.
+	\end{enumerate}
+	
+	
+	\section{Root Locus Technique}
+	\begin{enumerate}
+		\item \textbf{(Q. 6(b), 2023)} For the system $G(s)H(s) = \frac{K}{s(s^2+4s+8)}$: (i) Plot the complete root-locus. (ii) Find the value of K for which the system just oscillates. (iii) For K = 32, find $\xi$.
+		\item \textbf{(Q. 6(a), 2022)} 'Root loci are continuous curves'-justify the statement. For the unity feedback system the open-loop transfer function is given by $G(s) = \frac{K(s+9)}{s(s^2+4s+11)}$. Sketch the root-locus.
+		\item \textbf{(Q. 6(c), 2020)} Consider the following system $G(s) = \frac{K}{s(s+2)(s+3)}; H(s)=1$. (i) Draw the complete root locus. (ii) Find the value of K for which the system just oscillates. (iii) Find the value of $\xi$ for K = 6.
+		\item \textbf{(Q. 7(b), 2018)} Consider a unity feedback control system with the following feedforward transfer function $G(s) = \frac{K}{s(s^2+4s+8)}$. Plot the root locii for the system.
+		\item \textbf{(Q. 8(c), 2016)} A unity feedback system has a loop transfer function $G_c(s)G(s) = \frac{K(s+1)}{s(s-1)(s+4)}$. (i) Sketch the root locus. (ii) Determine range of K for stability, and (iii) Determine the ... [text cut off].
+	\end{enumerate}
+	
+	\section{Frequency Domain Analysis}
+	\subsection{Bode Plots}
+	\begin{enumerate}
+		\item \textbf{(Q. 7(c), 2023)} Draw the Bode diagram of the following system. Is this system stable or not? $G(s) = \frac{10(s+3)}{s(s+2)(s^2+s+2)}$.
+		\item \textbf{(Q. 7(b), 2022)} For control system design purpose, check the stability of the following system using Bode Plot: $G(s) = \frac{1000}{(1+0.1s)(1+0.001s)}$.
+		\item \textbf{(Q. 7(c), 2022)} Evaluate the transfer function from the asymptotic log-magnitude plot given in Fig. 7(c) of the 2022 paper.
+		\item \textbf{(Q. 7(b), 2020)} Draw the bode diagram for the following system and also determine (i) gain and phase cross over frequency, (ii) gain and phase margins, and (iii) stability of the system. $G(j\omega) = \frac{100(s+10)}{s(s+0.5)(4s+1)^2}, H(s)=1$.
+		\item \textbf{(Q. 8(a), 2018)} Draw the Bode diagram of the following system. Is this system stable or not? $G(s) = \frac{10(s+3)}{s(s+2)(s^2+s+2)}$.
+		\item \textbf{(Q. 5(b), 2016)} Draw the Bode plots for the system with $G(s) = \frac{K(s+3)}{s(s+1)(s+2)}$.
+		\item \textbf{(Q. 6(b), 2016)} Find the transfer function G(s) from the magnitude plot in the 2016 Q6(b) paper.
+		\item \textbf{(Q. 7(c), 2016)} Draw the bode diagram of the following system. Is this system stable or not? $G(s) = \frac{4(1+\frac{s}{2})}{s(1+2s)[1+0.4(\frac{s}{8}) + (\frac{s}{8})^2]}$.
+	\end{enumerate}
+	
+	\subsection{Polar and Nyquist Plots}
+	\begin{enumerate}
+		\item \textbf{(Q. 8(a), 2023)} Consider the following unity feedback system: $G(s) = \frac{K(1-s)}{s+1}$. Determine the stability of the system using Nyquist plot for two cases: (i) the gain K is small and (ii) K is large.
+		\item \textbf{(Q. 8(c), 2023)} Sketch polar plot for (i) $G(s) = \frac{K}{(1+sT_1)(1+sT_2)}$ and (ii) $G(s)H(s) = \frac{K}{s(s+1)(s+5)}$.
+		\item \textbf{(Q. 7(a), 2022)} Sketch the Polar Plot for $G(s) = \frac{K}{s^2(1+sT)}$.
+		\item \textbf{(Q. 8(a), 2022)} Consider the unity feedback system: $G(s) = \frac{K}{s(1+sT_1)(1+sT_2)}$. Determine the stability of the system using Nyquist plot for two cases: (i) the gain K is small and (ii) K is large.
+		\item \textbf{(Q. 8(c), 2020)} For the following unity feedback system determine the stability using Nyquist stability criterion. $G(s) = \frac{4s+1}{s^2(s+1)(2s+1)}$.
+		\item \textbf{(Q. 5(c), 2018)} Check the stability of the following unity feedback system by using Nichol's plot. $G(s) = \frac{5}{s(s+2)(s+3)}$.
+		\item \textbf{(Q. 6(b), 2018)} For the following unity feedback system determine the stability using Nyquist stability criterion, where K is large: $G(s)H(s) = \frac{K}{s(T_1s+1)(T_2s+1)}$.
+	\end{enumerate}
+	
+	\section{Controllers and Compensators}
+	\begin{enumerate}
+		\item \textbf{(Q. 6(c), 2023)} How pole placement technique is used to design a state feedback controller?
+		\item \textbf{(Q. 7(a), 2023)} Draw the PI, PD and PID controller with op-amp and write down the controller expression.
+		\item \textbf{(Q. 8(b), 2022)} Draw an op-amp circuit which will ensure the PID controller. Also derive its transfer function.
+		\item \textbf{(Q. 8(c), 2022)} Explain the effectiveness of integral controller over proportional control for compensating steady-state error.
+		\item \textbf{(Q. 7(a), 2018)} Draw a PID controller and write down the controller expression. How will you select between PI, PD, and PID controller when used as compensators?
+		\item \textbf{(Q. 4(c), 2016)} Design the value of gain $K_p$ for the feedback control system shown in the 2016 Q4(c) paper, so that the system will respond with a 10\% overshoot.
+		\item \textbf{(Q. 6(a), 2014)} Draw an Op-amp circuit which will ensure the PID control action. Write down the advantages of using PID controller.
+		\item \textbf{(Q. 6(c), 2013)} Consider the system shown in the 2013 Q6(c) paper. (i) Determine conditions on K and z so that the system is stable. (ii) Determine all possible conditions on K and z so that the system will have sustained oscillation and the oscillation frequency.
+	\end{enumerate}
+	
+	\section{General Concepts \& Short Notes}
+	\begin{enumerate}
+		\item \textbf{(Q. 4(b), 2023)} Define: (i) Undamped, (ii) underdamped, (iii) over-damped, and (iv) critically damped. Also show the roots positions.
+		\item \textbf{(Q. 6(a), 2023)} What are the effects of adding a pole and a zero in a system?
+		\item \textbf{(Q. 7(b), 2023)} Define: (i) Gain margin, (ii) Phase margin.
+		\item \textbf{(Q. 8(b), 2023)} What is meant by detour? Why the Nyquist criterion is called a frequency response method?
+		\item \textbf{(Q. 6(b), 2022)} Write short notes on: (i) Gain margin, (ii) Phase margin, (iii) critically damped system, (iv) non-minimum phase system.
+		\item \textbf{(Q. 4(c), 2021)} Write short notes about the followings: (i) Absolute stability, (ii) damping ratio, (iii) frequency response, (iv) under-damped system.
+		\item \textbf{(Q. 4(b), 2020)} Write short notes about the followings: (a) critically damped system, (b) over damped system, (c) transition matrix, and (d) relative stability.
+		\item \textbf{(Q. 3(a), 2018)} Write short notes about the followings: (i) Undamped system, (ii) Overdamped system, (iii) Transition matrix, and (iv) Detour.
+		\item \textbf{(Q. 8(b,c), 2018)} Define frequency response. What are advantages of frequency response? What is nonminimum phase system?
+		\item \textbf{(Q. 3(c), 2016)} What is damping?
+		\item \textbf{(Q. 1(c), 2016)} Write short notes on nonlinear control. What is continuous time and discrete time system?
+		\item \textbf{(Q. 8(a), 2016)} Write short notes on PID controller.
+		\item \textbf{(Q. 8(b), 2016)} What is the effect of adding a pole and zero in a system? What is detouring?
+		\item \textbf{(Q. 4(b), 2014)} Define state vector and state transition matrix.
+		\item \textbf{(Q. 4(c), 2010)} Differentiate between linear and nonlinear control systems.
+	\end{enumerate}
+	
+	
+\end{document}

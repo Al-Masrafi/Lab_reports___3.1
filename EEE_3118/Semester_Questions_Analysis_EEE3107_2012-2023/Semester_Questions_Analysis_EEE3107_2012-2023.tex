@@ -1,0 +1,708 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%       Communication Engineering I & II
+%       Past Questions Compilation (2012-2023)
+%       Rajshahi University of Engineering & Technology
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[a4paper, top=1in, bottom=0.8in, left=1in, right=0.8in]{geometry}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{times}
+\usepackage{enumitem}
+\usepackage[table]{xcolor} % For highlighting
+\definecolor{lgreen}{RGB}{204, 255, 204}
+
+% Define a command for highlighting
+\newcommand{\hl}[1]{\colorbox{lgreen}{#1}}
+
+
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=magenta,
+	filecolor=magenta,      
+	urlcolor=cyan,
+}
+
+\linespread{1.3}
+
+
+\title{
+	\Huge Communication Engineering I \& II \\
+	\large (EEE-3117 / EEE-3217 / EEE-381) \\
+	\vspace{0.5cm}
+	\LARGE Past Questions Compilation (2012-2023) \\
+	\vspace{0.2cm}
+	\large Rajshahi University of Engineering \& Technology
+}
+\author{Compiled from Exam Papers}
+\date{}
+
+\begin{document}
+	
+	\maketitle
+	\thispagestyle{empty}
+	\newpage
+	\tableofcontents
+	\newpage
+	
+	
+
+	
+	\section{Syllabus: Communication Engineering I}
+		\large \textit{(Highlighted Topics are Covered in Past Questions 2012-2023)}
+	\begin{enumerate}
+		
+		\item \textbf{Overview of Communication Systems}
+		\begin{enumerate}[label*=\arabic*.]
+			\item \hl{Basic principles, Fundamental elements, Message sources,}    \\ \hl{Input-output transducers.}
+			\item Transmission policies.
+			\item \hl{Analog and digital communication systems, their advantages}\\
+				\hl{ and disadvantages.}
+			\item \hl{Introduction to communication networks.}
+			\item \hl{Communication traffics.}
+			\item \hl{Telephone communication.}
+			\item \hl{Satellite communication.}
+			\item \hl{RADAR communication.}
+			\item Fiber optic communication.
+			\item \hl{Cellular communication.}
+			\item \hl{Radio and TV broadcasting.}
+			\item \hl{Radio switching systems.}
+			\item Cognitive radio networks etc.
+		\end{enumerate}
+		
+		\item \textbf{Transmitter}
+		\begin{enumerate}[label*=\arabic*.]
+			\item \hl{Elements of transmitter and their functions.}
+			\item Concept of wireless transmission with antennas.
+			\item Transmit diversity schemes.
+			\item Channel state information at the transmitter.
+			\item Transmission delay.
+			\item \textbf{Digitization:}
+			\begin{enumerate}[label*=\arabic*.]
+			\item \hl{Sampling and its classification, Sampling theorem, Nyquist criterion,} \hl{Aliasing effect and its elimination.}
+				\item \hl{Quantizing, Quantization noise, Non-uniform quantization.}
+				\item \hl{Signal to quantization error Ratio.}
+				\item \hl{Encoding, Line coding formats.}
+				\item \hl{Sample and hold circuit.}
+				\item \hl{Quantizer and encoder circuits.}
+			\end{enumerate}
+			\item \textbf{Modulation:}
+			\begin{enumerate}[label*=\arabic*.]
+				\item \hl{Modulation and its principle, Importance of modulation.}
+				\item \hl{Definition, Graphical representation, Generation.}
+				\item \hl{Modulated signal’s expression.}
+				\item \hl{Frequency spectrum and bandwidth requirements of AM, FM and PM.}
+				\item \hl{Design and fabrication of AM, FM and PM transmitter circuits.}
+			\end{enumerate}
+		\end{enumerate}
+		
+		\item \textbf{Transmission Media}
+		\begin{enumerate}[label*=\arabic*.]
+			\item Types of media and their properties.
+			\item \hl{Principle of information transmission through wire, Coaxial cable,} Waveguide, Optical fiber, \hl{Radio link etc.}
+			\item \hl{Channel and its classification.}
+			\item \hl{PDF, CDF and MGF of channel gain.}
+			\item \hl{Modeling of fading channels.}
+			\item \hl{Expressions of received signals.}
+			\item Propagation delay.
+			\item \hl{Bandwidth.}
+			\item \hl{Channel capacity and its classification.}
+			\item \hl{Outage probability.}
+			\item \hl{Bit error rate, Symbol error rate and their calculations.}
+		\end{enumerate}
+		
+		\item \textbf{Noise}
+		\begin{enumerate}[label*=\arabic*.]
+			\item \hl{Effects of noise on the transmission.}
+			\item \hl{Sources of noise.}
+			\item \hl{Characteristics of various types of noise.}
+			\item \hl{Signal-to-noise ratio.}
+			\item \hl{Noise figure.}
+		\end{enumerate}
+		
+		\item \textbf{Fading}
+		\begin{enumerate}[label*=\arabic*.]
+			\item \hl{Types of fading.}
+			\item \hl{Measures of fading channels.}
+		\end{enumerate}
+		
+		\item \textbf{Interference}
+		\begin{enumerate}[label*=\arabic*.]
+			\item \hl{Types of interference and their mitigation techniques.}
+		\end{enumerate}
+		
+		\item \textbf{Correlation}
+		\begin{enumerate}[label*=\arabic*.]
+			\item \hl{Types of correlation and their mitigation technologies.}
+		\end{enumerate}
+		
+		\item \textbf{Digital Link}
+		\begin{enumerate}[label*=\arabic*.]
+			\item Design of digital link.
+		\end{enumerate}
+		
+		\item \textbf{Receiver}
+		\begin{enumerate}[label*=\arabic*.]
+			\item \hl{Receivers, Elements of receiver and their functions.}
+			\item \hl{Superheterodyne receiver.}
+			\item Design and fabrication of matched filter circuit.
+			\item \hl{Analog, Digital and correlator receiver circuits.}
+			\item Receiving antennas.
+			\item Channel state information at the receiver.
+		\end{enumerate}
+		
+		\item \textbf{Demodulation and Decoding}
+		\begin{enumerate}[label*=\arabic*.]
+			\item \hl{Principle of demodulation and decoding.}
+			\item \hl{Importance of demodulation.}
+			\item \hl{Demodulation and decoding of AM, FM and PM modulated signals.}
+			\item \hl{Design and fabrication of AM, FM and PM receiver circuits.}
+		\end{enumerate}
+		
+	\end{enumerate}
+	
+	\newpage
+	\section{Fundamentals of Communication Systems \& Amplitude Modulation (AM)}
+	\begin{enumerate}
+		\item \textbf{(2023, EEE-3117, Q.1a)} Succinctly describe elements of a communication system with a block diagram.
+		\item \textbf{(2020, Q.1a)} Draw the block diagram of a communication system and explain the function of each block.
+		\item \textbf{(2017, EEE-3217, Q.1a)} Mention the elements of a communication system and explain their functionality.
+		\item \textbf{(2015, Q.1a)} Draw the basic block diagram of communication system and describe the function of each block.
+		\item \textbf{(2013, Q.1a)} Draw the block diagram of a general communication system and explain briefly the function of each stage.
+		\item \textbf{(2012, Q.1a)} What is meant by communications, information and channel? Draw the block diagram of a simple communication system?
+		
+		\item \textbf{(2023, EEE-3117, Q.2a)} Explain the difficulties that you will have to face if you transmit a baseband signal without modulation.
+		\item \textbf{(2018, EEE-3217, Q.1b)} State the need of modulation. As related to AM, what is over modulation and 100\% modulation?
+		\item \textbf{(2016, EEE-3217, Q.1a)} What does modulation actually perform to a carrier signal?
+		\item \textbf{(2014, Q.1a)} What does modulation actually do to a message and carrier?
+		\item \textbf{(2014, Q.1c)} Why modulation is needed in communication system?
+		\item \textbf{(2013, Q.1b)} How does modulation reduce the effect of noise fading and interference?
+		
+		\item \textbf{(2023, EEE-3117, Q.2c)} The modulator part of an AM transmitter system is the most crucial one. Design an AM modulator with proper circuit diagrams and mathematically demonstrate how the illustrated system is generating AM wave.
+		
+		\item \textbf{(2020, Q.1c)} What is meant by 100\% modulation of an AM transmitter?
+		
+		\item \textbf{(2020, Q.1d)} A 10KW carrier is amplitude modulated by two sine waves to a depth of 0.5 \& 0.6 respectively. Calculate total power content of modulated carrier.
+		
+		\item \textbf{(2020, Q.2a)} "The maximum power transmitted in A3E modulated wave is 1.5 Pc at 100\% modulation index" - Justify this statement with numerical example.
+		\item \textbf{(2017, EEE-3217, Q.1c)} "The maximum power transmitted in A3E modulated wave is 3/2 times of carrier power at 100\% modulation index" - Justify this statement with numerical example.
+		\item \textbf{(2015, Q.3c)} Show that the maximum transmitted power for A3E modulation technique is 1.5 times of carrier power with 100\% modulation depth.
+		\item \textbf{(2014, Q.2a)} Show that the maximum power in the AM wave is $P_t = 1.5 P_c$ under 100\% modulation depth.
+		
+		\item \textbf{(2020, Q.2b)} Define and describe vestigial sideband transmission with its application.
+		\item \textbf{(2018, EEE-3217, Q.3b)} Describe the VSB modulation technique with its application.
+		\item \textbf{(2017, EEE-3217, Q.4b)} What is meant by vestigial sideband transmission? Show the frequency spectrum of an NTSC video transmission to mention the application of VSB.
+		\item \textbf{(2016, EEE-3217, Q.4a)} Write the name of modulation technique, Which is used for TV video transmission. sketch the spectrum of video transmitted signal.
+		\item \textbf{(2012, Q.3c)} How VSB signal is generated? - Describe with necessary frequency diagram.
+		
+		\item \textbf{(2018, EEE-3217, Q.1a)} Compare half duplex and full duplex communication system on the following point: (i) definition, (ii) sketch, and (iii) example.
+		\item \textbf{(2017, EEE-3117, Q.3b)} Define half-duplex and full-duplex communication. Why is battery used in telecommunication system?
+		
+		\item \textbf{(2018, EEE-3217, Q.1c)} Show that the bandwidth required for A3E modulation is twice the frequency of the modulating signal.
+		\item \textbf{(2017, EEE-3217, Q.1b)} Show that the bandwidth required for A3E modulation is twice the frequency of the modulating signal.
+		\item \textbf{(2015, Q.3a)} "Bandwidth required for amplitude modulation is twice the frequency of the modulating signals" justify the statement with mathematical equations.
+		
+		\item \textbf{(2018, EEE-3217, Q.1d)} A J3E transmitter radiates 0.5 kW when the modulation percentage is 50\%. How much of carrier power is required if we want to transmit the same message by an A3E transmitter?
+		
+		\item \textbf{(2018, EEE-3217, Q.3a)} Briefly explain a suitable method to generate SSB signal.
+		\item \textbf{(2016, EEE-3217, Q.2a)} Briefly explain phase-shift method to generate SSB signal.
+		
+		\item \textbf{(2018, EEE-3217, Q.3c)} An AM transmitter radiates 9 kW with the carrier unmodulated and 10.15 kW when the carrier is sinusoidally modulated. Calculate the modulation index, if another sine wave corresponding to 50\% modulation is transmitted simultaneously, and determine the total radiated power.
+		
+		\item \textbf{(2016, EEE-3217, Q.2c)} An AM broadcast station has a modulation index which is 0.75 on the average. What would be its average power saving if it could go over to J3E transmission, which having to maintain the same signal strength in its reception area?
+		
+		\item \textbf{(2015, Q.3d)} When a broadcast AM transmitter is 50\% modulated, its antenna current is 12 A. What will be the current when the modulation depth is increased to 0.9?
+		
+		\item \textbf{(2014, Q.2b)} What is meant by J3E modulation? What are its advantages with respect to A3E?
+		\item \textbf{(2014, Q.2c)} Find the percentage power savings when the carrier and one of the sidebands are suppressed in AM wave modulated to a depth of 48\%.
+		
+		\item \textbf{(2013, Q.1c)} For an envelope detector determine the upper limit of RC to ensure that the capacitor voltage follows the envelope (consider tone modulation).
+		
+		\item \textbf{(2013, Q.2c)} Explain the operation of ring modulator.
+		\item \textbf{(2018, EEE-3217, Q.8d)} With the help of circuit diagram, explain how balanced modulator generates modulated signal.
+		
+		\item \textbf{(2012, Q.2a)} Prove that the maximum efficiency of ordinary AM in 33.3\%.
+		
+	\end{enumerate}
+	
+	\section{Angle Modulation (FM, PM) \& Pulse Analog Modulation}
+	\begin{enumerate}
+		\item \textbf{(2023, EEE-3117, Q.3a)} Draw a suitable circuit diagram that contains a varactor diode to generate an FM signal and mathematically show how FM is obtained.
+		\item \textbf{(2023, EEE-3117, Q.4a)} What is the basic difference between FM and PM? Make a relationship between the modulator index and the modulating frequency for FM.
+		\item \textbf{(2023, EEE-3117, Q.4c)} Calculate the bandwidth required for an FM signal in which the modulating frequency is 2 KHz and the maximum deviation is 8 KHz. The highest J coefficient for the modulation index is J8.
+		\item \textbf{(2020, Q.2c)} Find the carrier and modulating frequencies, the modulation index and the maximum deviation of the FM wave represented by the voltage equation, $v = 10\sin(5 \times 10^8 t + 6\sin(1350t))$.
+		\item \textbf{(2017, EEE-3217, Q.3c)} The equation of an angle modulated voltage is $v = 10\sin(10^8t + 3\sin(10^4t))$. Calculate the modulating frequency and the power dissipated in a 100 $\Omega$ resistor.
+		\item \textbf{(2012, Q.2b)} Given the angle modulated signal, $X_c(t) = 10\cos(2\pi 10^6 t + 200\cos(2\pi 10^3 t))$ what is its bandwidth?
+		
+		\item \textbf{(2020, Q.3a)} Draw and explain PWM generation system.
+		\item \textbf{(2018, EEE-3217, Q.4a)} With the circuit diagram, explain PAM generation system.
+		\item \textbf{(2016, EEE-3217, Q.4c)} Draw the waveform of PAM, PWM and PPM. Mention the fundamental differences between pulse and analog modulation.
+		
+		\item \textbf{(2020, Q.3b)} Describe pre-emphasis and de-emphasis network in case of FM.
+		\item \textbf{(2013, Q.3b)} Explain why pre-emphasis and de-emphasis are required in FM transmission?
+		
+		\item \textbf{(2018, EEE-3217, Q.4b)} Compare among PAM, PWM and PPM modulation techniques.
+		
+		\item \textbf{(2017, EEE-3217, Q.3a)} What are the advantages and disadvantages of AM over FM?
+		\item \textbf{(2013, Q.2b)} What are the advantages and disadvantages of frequency modulation over amplitude modulation?
+		\item \textbf{(2012, Q.3a)} Compare amplitude modulation and frequency modulation.
+		
+		\item \textbf{(2017, EEE-3217, Q.3b)} Derive the formula for the instantaneous value of an FM voltage and define the modulation depth.
+		\item \textbf{(2016, EEE-3217, Q.4b)} Derive the formula for the instantaneous value of an FM voltage and define the modulation index.
+		
+		\item \textbf{(2017, EEE-3217, Q.4a)} Briefly explain pulse duration modulation technique with its input-output waveform and mention some applications of PDM.
+		\item \textbf{(2015, Q.4a)} What is pulse width modulation? How is it demodulated?
+		
+		\item \textbf{(2017, EEE-3217, Q.4c)} What is the bandwidth required for an FM signal in which the modulating frequency is 3 KHz and the maximum deviation is 11 KHz? Consider the highest J coefficient for this problem is $J_8$.
+		
+		\item \textbf{(2014, Q.4a)} What can be done to improve the overall limiting performance of an FM receiver? Explain.
+		
+		\item \textbf{(2012, Q.3a)} "Angle Modulation is non-linear modulation"-Prove it mathematically.
+		\item \textbf{(2012, Q.3b)} What is modulation index? What is the significance of modulation index?
+		
+	\end{enumerate}
+	
+	\section{Telephony and Switching Systems}
+	\begin{enumerate}
+		\item \textbf{(2022, Q.1a)} Briefly, explain the advantages of employing switching systems over fully connected network.
+		\item \textbf{(2022, Q.1b)} Illustrate a system in which the information can transfer between two subscribers will not be simultaneously but they can communicate with each other without facing any difficulties using this system.
+		\item \textbf{(2022, Q.1c)} Suppose you are working as an operator at a manual switching exchange. The subscriber 'X' telephone set is connected to this system are energized at the subscriber end. Subscriber 'X' wants to establish a call with subscriber 'Y' (both are under your exchange) and lifted his hand set to fulfill this purpose. Explain with proper diagram, how you will establish this call between them and release the call when their conversation is finished.
+		\item \textbf{(2022, Q.2a)} Briefly explain the necessity of using signaling tones. Clarify the differences between fully connected network and network with full connectivity.
+		\item \textbf{(2022, Q.2b)} Draw the impulsing circuit of a rotary dial telephone and briefly discuss its operation.
+		\item \textbf{(2022, Q.2c)} Draw the arrangement of diagonal crosspoint matrix for five subscriber and explain its operation. Is it advantageous over crossbar matrix arrangement? Justify.
+		\item \textbf{(2022, Q.3a)} "Numbering plan in a telephony system must be independent of call routes" - Justify this statement.
+		\item \textbf{(2022, Q.3b)} Explain the load sharing mode of a dual processor centralized SPC system.
+		\item \textbf{(2022, Q.3c)} Demonstrate the arrangement of a crossbar switch configuration for eight subscribers in which three local calls and two external calls can be created simultaneously. Briefly, discuss horizontal decomposition and vertical decomposition of exchange control functions in case of distributed SPC system.
+		\item \textbf{(2022, Q.3d)} Calculate the unavailability for single and dual processor systems for 10 years, if MTBF = 2000 hours and MTTR = 4 hours.
+		\item \textbf{(2022, Q.4a)} Draw the arrangement of a two-stage electric space division type system in which the total number of inlets and outlets are 25 and 12, respectively. To simplify the system, divide the inlets and outlets into 5 and 3 blocks, respectively. Also find out the total number of switching elements and switching capacity of this system.
+		\item \textbf{(2022, Q.5b)} Differentiate between time division space switching and time division time switching.
+		\item \textbf{(2022, Q.7a)} Discuss about the routing methods in subscribe loop.
+		\item \textbf{(2022, Q.7b)} Differentiate between exchange signaling and common channel signaling. An exchange uses -40V battery to drive subscriber lines. A resistance of 250 ohm is placed in series to protect from short circuit. The subscribers are required to use a standard telephone set which offers a dc resistance of 50 ohm. The microphone requires 36mA for proper functioning. Determine the farthest distance from the exchange at which a subscriber is located if 24 AWG conductor is used.
+		\item \textbf{(2022, Q.7c)} Classify ISDN and briefly describe the services of ISDN.
+		\item \textbf{(2022, Q.7d)} Explain packet switching system with proper diagram. Discuss the processes which are used to solve resistance and attenuation constraints for subscribers located too far away beyond the maximum prescribed distance in a telephony system.
+		
+		\item \textbf{(2021, Q.1a)} "The carbon granule microphone acts as an AM modulator" - Justify the statement.
+		\item \textbf{(2021, Q.1b)} Prove that for a fully connected system, $L = \frac{N(N-1)}{2}$ where the symbols have bear conventional meanings. How many links are needed for such a system if no. of subscribers is 45?
+		\item \textbf{(2021, Q.1c)} What are the advantages of automatic switching system over the manual one?
+		\item \textbf{(2021, Q.2a)} Define folded network. Briefly explain the functions of the elements of a switching system with a neat diagram.
+		\item \textbf{(2021, Q.2b)} Describe the working principle of 3x3 crossbar switching system.
+		\item \textbf{(2021, Q.2c)} Explain that for a square two stage network, the number of switching element is doubled than a single stage network.
+		\item \textbf{(2021, Q.3a)} Explain the working principle of a DTMF keypad with necessary diagram.
+		\item \textbf{(2021, Q.3b)} What are the demerits of direct control subsystem in a multi-exchange network?
+		\item \textbf{(2021, Q.3c)} Describe the functions of various blocks in a common-control subsystem.
+		\item \textbf{(2021, Q.4a)} Define SPC. Draw and explain a centralized SPC working in synchronous mode.
+		\item \textbf{(2021, Q.4b)} Explain the operating principle of input-driven time division space switch.
+		\item \textbf{(2021, Q.4c)} Distinguish between single-stage and multi-stage network.
+		\item \textbf{(2021, Q.6a)} With a neat diagram, explain the concept of packet switching. Give a suitable example of packet formatting.
+		\item \textbf{(2021, Q.6c)} Write down the features of store and forward switching.
+		\item \textbf{(2021, Q.7a)} Briefly explain echo and singing in transmission line.
+		\item \textbf{(2021, Q.7b)} An exchange uses- 48V battery to drive subscriber lines. A resistance of 250 ohm is placed in series to protect from short circuit. The subscribers are required to use a standard telephone set which offers a dc resistance of 50 ohm. The microphone requires 23 mA for proper functioning. Determine the furthest distance from the exchange at which a subscriber can be located if 26 AWG conductor is used.
+		\item \textbf{(2021, Q.7c)} How the telecom operators charge the subscribers for their services? Explain the numbering structure of a telephone number +8802588866798
+		\item \textbf{(2021, Q.8a)} What is ISDN? What are the conceptual principles on which ISDN should be based?
+		\item \textbf{(2021, Q.8b)} Describe the typical configuration of an ISDN.
+		\item \textbf{(2021, Q.8c)} Draw a comparison between in-channel signaling and common channel signaling.
+		
+		\item \textbf{(2018, EEE-3117, Q.1a)} What is meant by sidetone? What is the significance of sidetone in a telephone conversation?
+		\item \textbf{(2018, EEE-3117, Q.2a)} Explain the drive mechanism of a rotary switch.
+		\item \textbf{(2018, EEE-3117, Q.2b)} Give a brief description of time slot interchange switch (TSI).
+		\item \textbf{(2018, EEE-3117, Q.2c)} Why touch tone dial telephone is used instead of rotary dial telephone? Why common control system is preferred over direct control multi-exchange network? - Explain.
+		\item \textbf{(2018, EEE-3117, Q.3a)} Write the operation of synchronous duplex mode for dual processor.
+		\item \textbf{(2018, EEE-3117, Q.3b)} What is baseline networks? Explain that for two stage network the switching capacity is equal to the number of links between the first and second stage. Provide necessary diagram and equations.
+		\item \textbf{(2018, EEE-3117, Q.3c)} Explain the term 'priority interrupt facility' for processing in centralized control of space division switching.
+		\item \textbf{(2018, EEE-3117, Q.4a)} "The reduction in the number of switching elements is possible by using higher number of stages" - Justify this statement with numerical example.
+		\item \textbf{(2018, EEE-3117, Q.4b)} Describe level 2 processing of distributed SPC system in terms of traffic handling capacity.
+		\item \textbf{(2018, EEE-3117, Q.4c)} The access time is 0.04$\mu$s of the memory modules in parallel-in/ serial-out time switch using 32 input and 32 output streams. Calculate the number of channels for each stream.
+		\item \textbf{(2018, EEE-3117, Q.5a)} Briefly explain three stage combination switching for time division switching.
+		\item \textbf{(2018, EEE-3117, Q.7a)} Draw the block diagram of RUET PABX system and explain the function of each block.
+		\item \textbf{(2018, EEE-3117, Q.7b)} What is the objective of numbering plan in a telecommunication system? Briefly explain international telephone numbering structure.
+		\item \textbf{(2018, EEE-3117, Q.8a)} Write the factors of loss budget in transmission. Explain the terms 'echo' and 'singing'.
+		\item \textbf{(2018, EEE-3117, Q.8c)} Draw a block diagram of a telephone set and give a brief description of it.
+		
+		\item \textbf{(2017, EEE-3117, Q.1a)} "The carbon granule microphone of a telephone set acts as an AM modulator"- Justify this statement.
+		\item \textbf{(2017, EEE-3117, Q.1c)} What is the significance of sidetone in a telephone conversation?
+		\item \textbf{(2017, EEE-3117, Q.1d)} Given that MTBF = 2000 hours and MTTR = 4 hours, calculate the unavailability for single and dual processor systems.
+		\item \textbf{(2017, EEE-3117, Q.2a)} Why is signaling tone used in telecommunication network? Explain the various types tone that used in telecommunication.
+		\item \textbf{(2017, EEE-3117, Q.2b)} Explain the operating principle of touch-tone dialing system.
+		\item \textbf{(2017, EEE-3117, Q.2c)} Calculate the number of trunks that can be supported on a time multiplexed space switch, given that 32 channels are multiplexed in each stream, control memory access time is 100 ns. Bus switching and transfer time is 100 ns per transfer.
+		\item \textbf{(2017, EEE-3117, Q.3a)} What are the design parameters to design a switching system?
+		\item \textbf{(2017, EEE-3117, Q.4a)} Write the advantages of electronic space division switching system over analog switching. Classify the electronic space division switching system.
+		\item \textbf{(2017, EEE-3117, Q.4b)} Why is multi-stage networking used in a telecommunication system? Draw a two-stage network showing multiple switching matrices in each stage.
+		\item \textbf{(2017, EEE-3117, Q.4c)} Calculate the cost of the three-port and the control memories in a TST switch with a single input and single output trunk multiplexing 2500 channels. Also, estimate the cost of the switch and compare it with that of a single stage space division switch.
+		\item \textbf{(2017, EEE-3117, Q.7a)} What is the objective of numbering plan? Explain the number structure of a telephone number '+880721750711'.
+		\item \textbf{(2017, EEE-3117, Q.7b)} Explain the operating principle of Data communication using PSTN.
+		\item \textbf{(2017, EEE-3117, Q.7c)} An exchange uses a 48V battery to drive subscriber lines. A resistance of 25$\Omega$ is placed in series with the battery to protect it from short circuits. The subscribers are required to use a standard telephone set which offers a dc resistance of 50$\Omega$. The microphone requires 23mA for proper functioning. Determine the farthest distance from the exchange at which a subscriber can be located if 26 AWG conductor is used whose dc resistance is 133 $\Omega$/km.
+		\item \textbf{(2017, EEE-3117, Q.8a)} What are the conceptual principles on which ISDN should be based?
+		\item \textbf{(2017, EEE-3117, Q.8b)} Briefly explain Broadband ISDN system.
+		\item \textbf{(2017, EEE-3117, Q.8c)} Describe the functions of a facsimile system with necessary block diagram.
+		\item \textbf{(2017, EEE-3117, Q.8d)} What are the new services of ISDN?
+		
+		\item \textbf{(2016, EEE-3117, Q.1a)} Define switching system. Why is it necessary in telecommunication system?
+		\item \textbf{(2016, EEE-3117, Q.1b)} Compare single stage and multi-stage space division networks.
+		\item \textbf{(2016, EEE-3117, Q.1c)} Define folded and non-folded network. In a 100 line folded network, how many switching elements are required for non-blocking operation?
+		\item \textbf{(2016, EEE-3117, Q.2a)} What is sidetone? Describe the operation of a sidetone coupling circuit.
+		\item \textbf{(2016, EEE-3117, Q.2b)} Define (i) T-staged exchange, (ii) Direct control switching systems, (iii) common control switching systems, (iv) central battery exchange, and (v) multidimensional switchboards.
+		\item \textbf{(2016, EEE-3117, Q.2c)} Shortly describe about different types of signaling tones.
+		\item \textbf{(2016, EEE-3117, Q.3a)} Draw a simplex telephone circuit and show that carbon granule microphone acts as a modulator.
+		\item \textbf{(2016, EEE-3117, Q.3b)} Draw and explain touch dial arrangement for a touch tone dial telephone. Given that mean time between Failure is 2000 hours and mean time to repair is 4 hours. Calculate the unavailability for single and dual processor systems.
+		\item \textbf{(2016, EEE-3117, Q.4a)} Draw and explain the cable hierarchy for subscriber loops of a telephone networks.
+		\item \textbf{(2016, EEE-3117, Q.4b)} Briefly explain telephone numbering structure for international and national number.
+		\item \textbf{(2016, EEE-3117, Q.4c)} Describe circuit switching and packet switching system for an ISDN.
+		\item \textbf{(2016, EEE-3117, Q.5a)} Shortly describe the operations of standby mode, synchronous duplex mode and load sharing mode of dual processor architecture of centralized SPC system.
+		\item \textbf{(2016, EEE-3117, Q.5b)} Discuss about level 1 processing of distributed SPC system.
+		\item \textbf{(2016, EEE-3117, Q.8a)} What is meant by ISDN? What are the factors responsible for the developments towards ISDN?
+		\item \textbf{(2016, EEE-3117, Q.8b)} Briefly explain the functions of a facsimile system with necessary block diagram.
+		\item \textbf{(2016, EEE-3117, Q.8c)} What are the new services of ISDN?
+		\item \textbf{(2016, EEE-3117, Q.8d)} A telephone number +880 721 750711 Ext 455 is given to you. Write down the location information from the above number.
+	\end{enumerate}
+	
+	\section{Teletraffic Engineering}
+	\begin{enumerate}
+		\item \textbf{(2022, Q.5a)} In case of a delay system, investigate the following queue specification: M/G/S.
+		\item \textbf{(2022, Q.5c)} In a telephone system, there are 20 servers and 100 subscribers. On an average, there are 10 busy servers at any time. The probability of all servers being busy is 0.2. Calculate the GOS assuming (i) Erlang traffic and (ii) Engest traffic.
+		\item \textbf{(2022, Q.6a)} Define the following terms: (i) CCR, (ii) BHCA and (iii) traffic intensity. A rural telephone exchange normally experiences four call originating per minute. Calculate the probability that exactly eight calls occur in an arbitrarily interval of 30 seconds.
+		\item \textbf{(2022, Q.6b)} Suppose you are working as a design and service engineer in a telecom company and you are assigned to design the switching system of that company using Birth-date process. The birth rate of the system which you are going to design is independent of the state of the system. Find out the dynamic equation of the above mentioned process which you will have to utilize to fulfill your assigned task.
+		
+		\item \textbf{(2021, Q.5a)} Define (i) CCS (ii) IE (iii) CCR (iv) BHCA.
+		\item \textbf{(2021, Q.5b)} A group of 50 servers carry a traffic of 25 erlangs. If the average duration of a call is five minutes, calculate the number of calls put through by a single server and the group as a whole in a one-hour period. Calculate traffic per server in CS, CCS and CM as well.
+		\item \textbf{(2021, Q.5c)} Distinguish between GOS and blocking probability?
+		\item \textbf{(2021, Q.6b)} A circuit switched connections involves 10 switching nodes. Each node takes 5 seconds and 0.5 seconds for establishing and releasing connections respectively. If the data transfer rate is 2400 bps, compute the data transfer time for a message that is 500 bytes long.
+		\item \textbf{(2021, Q.6d)} Differentiate between voice and data traffic.
+		
+		\item \textbf{(2018, EEE-3117, Q.1c)} Define the terms: Traffic handling capacity (TC), Equipment utilization factor (EUF), Cost capacity index (CCI).
+		\item \textbf{(2018, EEE-3117, Q.1d)} "The higher the value of CCI, the better is the design" - Justify this statement.
+		\item \textbf{(2018, EEE-3117, Q.5b)} "The CCR parameter is used in dimensioning the network capacity" - Justify this statement with numerical example.
+		\item \textbf{(2018, EEE-3117, Q.5c)} In a group of 10 servers, traffic carried per server is 0.20 E and observation interval is 1.5 hours. Calculate the occupied time by each server.
+		\item \textbf{(2018, EEE-3117, Q.6a)} What are the functions of traffic engineering? Differentiate between loss system and delay system.
+		\item \textbf{(2018, EEE-3117, Q.6b)} Briefly describe Birth-Death process to model a switching system.
+		\item \textbf{(2018, EEE-3117, Q.6c)} In a telephone system, there are 20 servers and 100 subscribers. On an average, there are 10 busy servers at any time. The probability of all the servers being busy is 0.2. Calculate the grade of service for Erlang traffic.
+		\item \textbf{(2018, EEE-3117, Q.7c)} A rural telephone exchange normally experiences three call originations per minute. What is probability that exactly six calls occur in an arbitrarily chosen interval of 30 seconds?
+		\item \textbf{(2018, EEE-3117, Q.8b)} Over a 20 minute observation interval, 40 subscribers initiate calls. Total duration of the calls is 4800 seconds. Calculate the load offered to the network by the subscribers and the average traffic.
+		
+		\item \textbf{(2017, EEE-3117, Q.3c)} In a TST switch, M = 128, N = 16 and the number of subscribers connected to the system is 0.1MN. Determine the probability that all the subscribers are active at the same time.
+		\item \textbf{(2017, EEE-3117, Q.5a)} What is meant by CCR and Erlang of traffic?
+		\item \textbf{(2017, EEE-3117, Q.5b)} Briefly describe Birth Death process to model a switching system.
+		\item \textbf{(2017, EEE-3117, Q.5c)} A subscriber makes three phone calls of three, four minutes and two minutes duration in a half hour period. Calculate the subscriber's traffic in erlangs, CCS and CM.
+		\item \textbf{(2017, EEE-3117, Q.6a)} Write the functions of traffic engineering. Differentiate between loss systems and delay systems.
+		\item \textbf{(2017, EEE-3117, Q.6b)} What is blocking probability? What are the differences between grade of service, and blocking probability?
+		\item \textbf{(2017, EEE-3117, Q.6c)} A dual telephone exchange normally experiences four call originations per minute. What is the probability that exactly eight calls occur in an arbitrarily chosen interval of 30 seconds?
+		
+		\item \textbf{(2016, EEE-3117, Q.5c)} A three stage network is designed with the following parameters. $M=N=512$, $p=q=16$ and $\alpha=0.7$. Calculate the blocking probability of the network if (i) $x=16$, (ii) $x=24$ and (iii) $x=31$ using the Lee equation.
+		\item \textbf{(2016, EEE-3117, Q.6a)} What is meant by CCR and Erlang of traffic?
+		\item \textbf{(2016, EEE-3117, Q.6b)} Briefly describe Birth-Death process to model a switching system.
+		\item \textbf{(2016, EEE-3117, Q.6c)} Over a 25-minute observation interval, 50 subscribers initiate calls. Total duration of the calls is 1800 seconds. Calculate the load offered to the network by the subscribers and the average subscriber traffic.
+		\item \textbf{(2016, EEE-3117, Q.7a)} Define (i) GOS, (ii) Traffic intensity, (iii) Stochastic process, (iv) Ergodic process and (v) Renewal process.
+		\item \textbf{(2016, EEE-3117, Q.7b)} During the derivation of Poisson arrived process.
+		\item \textbf{(2016, EEE-3117, Q.7c)} 10000 subscribers are connected to an exchange. If the exchange is designed to achieve a call completion rate of 0.7 when the busy hour calling rate is 4.8, what is the BHCA that can be supported by the exchange? What should be the call processing time for this exchange?
+	\end{enumerate}
+	
+	\section{Noise in Communication Systems}
+	\begin{enumerate}
+		\item \textbf{(2023, EEE-3117, Q.5a)} Derive the expression for the rms noise voltage due to several sources in parallel.
+		\item \textbf{(2023, EEE-3117, Q.5b)} Make a relationship between SNR and noise figure of a receiver.
+		\item \textbf{(2023, EEE-3117, Q.5c)} Calculate the noise temperature of a receiver connected to an antenna whose resistance is 60 $\Omega$, and equivalent noise resistance is 30 $\Omega$.
+		\item \textbf{(2020, Q.1b)} Explain the different types of noise involved in communication system.
+		\item \textbf{(2018, EEE-3117, Q.1b)} If the noise power in a channel is 5 mW and the signal power is 20dB, what is the SNR?
+		\item \textbf{(2018, EEE-3217, Q.2a)} Name the different sources of random noise and impulse noise external to a receiver. How can these noises be avoided or at least minimized?
+		\item \textbf{(2015, Q.2a)} Describe the types, causes and effects of the various forms of noise.
+		\item \textbf{(2012, Q.1b)} What is noise? Discuss about different types of noise that affect communication system.
+		
+		\item \textbf{(2020, Q.3c)} Calculate the noise voltage at the input of a television RF amplifier, using a device that has a 200 $\Omega$ equivalent noise resistance and 350$\Omega$ parallel resistor with equivalent noise resistance. The bandwidth of the amplifier is 6.2 MHz and temperature is 18$^{\circ}$ C.
+		\item \textbf{(2016, EEE-3217, Q.1c)} Calculate the noise voltage at the input of a television RF amplifier, using a device that has a 200 $\Omega$ equivalent noise resistance and a 200 $\Omega$ resistor parallel to the equivalent resistance. The bandwidth of the amplifier is 6MHz and the temperature is 18$^{\circ}$C.
+		
+		\item \textbf{(2018, EEE-3217, Q.2b)} Explain the reasons for the following noises in a transistor: (i) flicker noise, (ii) transistor thermal noise, and (iii) partition noise.
+		
+		\item \textbf{(2018, EEE-3217, Q.2c)} Define the signal to noise ratio (SNR) and noise figure (NF) of a receiver.
+		\item \textbf{(2015, Q.1c)} Define SNR and noise figure of a receiver.
+		\item \textbf{(2014, Q.1b)} Define signal-to-noise ratio and noise figure of a receiver. What is the strongest source of extra terrestrial noise?
+		
+		\item \textbf{(2018, EEE-3217, Q.2d)} A receiver having equivalent input noise resistance of 1000 $\Omega$ (neglecting input resistance $R_i$) is connected to an antenna of resistance 50 $\Omega$. The ambient temperature $T_a = 300^{\circ}$K. Compute the noise figure, F (in dB) and the equivalent noise temperature of the receiver.
+		\item \textbf{(2017, EEE-3217, Q.2c)} A receiver connected to an antenna whose resistance is 40 $\Omega$ and its noise figure is 2.04 dB. Calculate the receiver's equivalent noise resistance and its equivalent noise temperature.
+		\item \textbf{(2014, Q.1d)} A receiver connected to an antenna whose resistance is 35 $\Omega$ has an equivalent noise resistance of 25 $\Omega$. Calculate the receiver's noise figure in decibels.
+		\item \textbf{(2013, Q.2a)} What is noise figure? A receiver having equivalent input noise resistance of 1000$\Omega$ is connected to an antenna of resistance 50$\Omega$. The ambient temperature is 300$^{\circ}$K. Calculate the noise figure and the equivalent noise temperature of the receiver.
+		\item \textbf{(2012, Q.1c)} The first stage of a two stage amplifier has a voltage gain of 15, a 600$\Omega$ input resistor, a 1600$\Omega$ equivalent noise resistor and a 27K$\Omega$ output resistor. For the second stage, these values are 25, 80K, 10K, and 1M$\Omega$, respectively. Calculate the equivalent input-noise resistance of this two stage amplifier and the noise figure if it is driven by a generator whose output impedance in 50$\Omega$.
+		
+		\item \textbf{(2017, EEE-3217, Q.2a)} What are the factors that affect information in a channel? How the effects of them can be eliminated.
+		\item \textbf{(2015, Q.1b)} What are the factors that affect information in a channel? Also explain their effects.
+		
+		\item \textbf{(2017, EEE-3217, Q.2b)} Show that the square of the rms noise voltage associated with a resistor is proportional to the temperature, resistance and the bandwidth.
+		\item \textbf{(2016, EEE-3217, Q.1b)} "RMS noise voltage of an amplifier increases with the frequency bandwidth of a the system"- Justify this statement with numerical example.
+		
+		\item \textbf{(2015, Q.2b)} What is noise figure? Calculate the noise figure of two cascaded amplifier.
+		
+		\item \textbf{(2015, Q.2c)} Define the equivalent noise temperature of amplifier. Under what conditions could this be a more useful quantity than the noise figure?
+		
+	\end{enumerate}
+	
+	\section{Pulse Code Modulation (PCM) and its Variants (DPCM, DM)}
+	\begin{enumerate}
+		\item \textbf{(2023, EEE-3117, Q.8a)} In case of PCM, SNR varies from talker to talker and remains low most of the time when uniform quantization is employed. Analyze a procedure to overcome this problem associated with PCM.
+		\item \textbf{(2023, EEE-3117, Q.8b)} Demonstrate mathematically and graphically the significance of the Nyquist rate in the case of the pulse communication system.
+		\item \textbf{(2020, Q.4a)} Determine the signal to quantization noise ratio of PCM system.
+		\item \textbf{(2018, EEE-3217, Q.4c)} Describe in detail the PCM technique with focus on its sampling rate, and signal to quantization noise ratio.
+		\item \textbf{(2016, EEE-3217, Q.5a)} in what way is pulse code modulation different from other modulation system? What makes it a digital system.
+		
+		\item \textbf{(2020, Q.4b)} With necessary diagrams, explain a technique for achieving non-uniform quantization using a uniform quantizer.
+		
+		\item \textbf{(2020, Q.4c)} A TV signal (video and audio) has a bandwidth of 4.5 MHz. The signal is sampled, quantized and binary coded to obtain a PCM signal. (i) determine the sampling rate if the signal is to be sampled at a rate 20\% above the Nyquist rate, (ii) if the samples are quantized into 1024 levels, determine the number of binary pulses required to encode each sample.
+		\item \textbf{(2015, Q.4c)} A television signal has a bandwidth of 4.5 MHz. this signal is sampled, quantized and binary coded to obtain a PCM signal. Determine the sampling rate if the signal is to be sampled at a rate 20\% above the Nyquist rate.
+		
+		\item \textbf{(2020, Q.5a)} Discuss the operating principle of Delta modulation.
+		\item \textbf{(2017, EEE-3217, Q.5a)} Draw the block diagram of DM and ADM systems. Also explain the advantages of DM over PCM.
+		
+		\item \textbf{(2020, Q.5b)} Show the DPCM system achieves higher SNR compared to PCM system.
+		\item \textbf{(2018, EEE-3217, Q.5c)} Show the DPCM system achieve higher SNR compare to PCM system.
+		\item \textbf{(2016, EEE-3217, Q.3b)} Briefly explain how SNR is improved in DPCM over PCM technique.
+		
+		\item \textbf{(2018, EEE-3217, Q.4d)} For the signal: $m(t) = 3\cos(500\pi t) + 4\sin(1000\pi t)$. Determine sampling frequency and the Nyquist sampling rate.
+		
+		\item \textbf{(2018, EEE-3217, Q.5a)} Show that the SNR of a PCM system in $(a + 6n)$ dB, where the symbols have their usual meaning.
+		\item \textbf{(2017, EEE-3217, Q.5b)} Show that the signal to noise ratio in a PCM is $(\alpha + 6n)$ dB, where the symbols have their usual meaning.
+		\item \textbf{(2016, EEE-3217, Q.2b)} Show that the signal to quantization noise ratio of a pulse modulation technique is $1.8 + 6n$; where the symbols have their usual meaning.
+		
+		\item \textbf{(2018, EEE-3217, Q.5b)} A signal $m(t)$ band limited to 3 kHz is sampled at a rate 30\% higher than the Nyquist rate. The maximum acceptable error in the sample amplitude is 0.8\% of the peak amplitude $m_p$. The quantized samples are binary coded. Find the minimum bandwidth of a channel.
+		
+		\item \textbf{(2017, EEE-3217, Q.5c)} A sinusoidal signal is transmitted using PCM. The output signal-to-quantizing noise ratio is required to be 55.8 dB. Find the maximum number of representation level L required to achieve this performance.
+		\item \textbf{(2015, Q.6b)} A sinusoidal signal is transmitted using PCM. The output signal to noise ratio is required to be 55.8 dB. Find the minimum number of representation levels L required to achieve this performance.
+		
+		\item \textbf{(2017, EEE-3217, Q.6a)} State and explain sampling theorem.
+		\item \textbf{(2016, EEE-3217, page 5, Q. (a))} State the sampling theorem. Explain why it is required to follow for PCM communication system.
+		\item \textbf{(2015, Q.5b)} What is sampling? State and explain the sampling theorem.
+		
+		\item \textbf{(2017, EEE-3217, Q.6b)} Draw the schematic diagram of sample and hold circuit and describe its working principle.
+		
+		\item \textbf{(2017, EEE-3217, Q.6c)} What is quantizing error? Show the output wave of a quantizer and indicate the corresponding quantizing error on it.
+		\item \textbf{(2015, Q.4b)} Describe the principle of quantization. How can you reduce the quantization error?
+		
+		\item \textbf{(2016, EEE-3217, Q.5b)} A sinusoidal signal, with an amplitude of 3.25 V is applied to a uniform quantizer of the mid-tread type with output values of 0, $\pm 1$, $\pm 2$, $\pm 3$ as shown in following figure. Sketch the wave form of the resulting quantizer output for one complete cycle of the input. [Diagram mentioned in 2016, Q.5b]
+		
+		\item \textbf{(2016, EEE-3217, Q.5c)} A PCM system uses a uniform quantizer followed by a 7 bit binary encoder. The bit rate of the system is equal to 50 megabits per second. What is the maximum message bandwidth for which the system operates satisfactorily. Determine the output SONR when a full load sinusoidal modulating wave of frequency 1 MHz is applied to the input.
+		
+		\item \textbf{(2015, Q.6a)} Draw the block diagram of PCM transmitter, receiver and transmission path. Also explain the function of each block.
+		
+	\end{enumerate}
+	
+	\section{Digital Baseband Transmission \& Line Coding}
+	\begin{enumerate}
+		\item \textbf{(2023, EEE-3117, Q.8c)} What is meant by line coding of communication systems? Draw the unipolar RZ line-coded signal of digital data 1010011.
+		\item \textbf{(2020, Q.5c)} Consider the following binary sequences: (i) an alternating sequence of 1's and 0's, (ii) a long sequence of 1's followed by a long sequence of 0's, (iii) a long sequence of 1's followed by single 0 and a long sequence of 1's. Sketch the waveform for each of these sequences using the following methods of representing symbols 1 and 0. (i) On-off signaling, (ii) Polar signaling, (iii) Return to zero signaling, and (iv) Bipolar signaling.
+		
+		\item \textbf{(2020, Q.6c)} Explain the desirable properties of a line coder.
+		\item \textbf{(2018, EEE-3217, Q.8c)} Mention the properties of a line coder.
+		\item \textbf{(2016, EEE-3217, Q.3a)} What is mean by line coding? What are the desirable characteristics of a line coding?
+		\item \textbf{(2015, Q.5a)} What is meant by line coding? What are the desirable characteristics of a line coder?
+		
+		\item \textbf{(2018, EEE-3217, Q.6a)} Construct NRZ, RZ and split-phase format for the binary data '011010'.
+		
+		\item \textbf{(2016, EEE-3217, page 5, Q.(b))} Sketch the wave form for the binary sequence 0110100011 using the following signaling methods. (i) Polar signaling, (ii) RZ signaling, (iii) Manchester code and (iv) Four level Gray coding.
+		
+		\item \textbf{(2015, Q.5b)} Draw the unipolar NRZ and bipolar RZ line coding format for the binary data "111001011000".
+		
+	\end{enumerate}
+	
+	\section{Digital Passband Transmission (Keying Techniques)}
+	\begin{enumerate}
+		\item \textbf{(2023, EEE-3117, Q.7c)} How can we calculate the BER and SER of a certain communications?
+		\item \textbf{(2023, EEE-3117, Q.7d)} What is meant by the negative correlation of signals?
+		\item \textbf{(2020, Q.6a)} Both binary FSK and binary PSK signals have a constant envelope. Yet FSK signals can be noncoherently detected, whereas binary PSK signal cannot be, explain the reason for this difference.
+		
+		\item \textbf{(2020, Q.6b)} Sketch the waveform of the ASK and FSK signals for the sequence 1011010011. Assume that the carrier frequency equals the bit rate.
+		
+		\item \textbf{(2018, EEE-3217, Q.6b)} Explain the terms 'envelope detection', 'coherent detection' and 'noncoherent detection'.
+		
+		\item \textbf{(2018, EEE-3217, Q.6c)} Determine the (i) the peak frequency deviation, (ii) minimum bandwidth, and (iii) baud for FSK signal with a mark frequency of 49 kHz, space frequency of 51 kHz and input bit rate of 2 kbps.
+		
+		\item \textbf{(2018, EEE-3217, Q.7a)} What are the type of digital data format? Sketch the waveform of ASK, FSK, and PSK for binary sequence 1100101.
+		\item \textbf{(2017, EEE-3217, Q.8c)} Draw the waveshapes of ASK, FSK and PSK signals.
+		
+		\item \textbf{(2017, EEE-3217, Q.7a)} Describe OOK binary bandpass signaling technique with input-output waveshapes.
+		\item \textbf{(2015, Q.5b)} Briefly explain OOK binary band pass signaling technique with necessary wave shape.
+		
+		\item \textbf{(2017, EEE-3217, Q.7b)} What is meant by constellation diagram? Show the constellation diagram for an ASK, BPSK and QPSK signals.
+		\item \textbf{(2015, Q.5b)} Briefly explain the function of constellation diagram and eye diagram.
+		
+		\item \textbf{(2017, EEE-3217, Q.8d)} What are the differences between BPSK and DPSK? Explain with necessary diagram.
+		
+		\item \textbf{(2016, EEE-3217, Q.3c)} Briefly explain FSK binary signaling technique with necessary equations and wave shapes.
+		
+		\item \textbf{(2016, EEE-3217, page 5, Q.7a)} Draw the block diagram of generation schemes and coherent detection of binary modulated waves ASK, PSK and FSK.
+		
+		\item \textbf{(2016, EEE-3217, page 5, Q.7b)} What is MSK? Sketch the binary PSK and ASK wave forms for the sequence 1011010011.
+		
+		\item \textbf{(2016, EEE-3217, page 5, Q.7c)} Why are phase and timing synchronization required for the detector of binary modulated wave.
+		
+	\end{enumerate}
+	
+	\section{Multiplexing Techniques (TDM, FDM, WDM)}
+	\begin{enumerate}
+		\item \textbf{(2020, Q.7a)} Explain in what situation, multiplexing is used. Why sync pulse is required in TDM?
+		\item \textbf{(2018, EEE-3217, Q.7b)} What is multiplexing? Explain two common multiplexing techniques which used for wireless communication.
+		\item \textbf{(2017, EEE-3217, Q.8a)} What is multiplexing?
+		\item \textbf{(2016, EEE-3217, page 5, Q.8a)} What is multiplexing? Describe the principle of TDM and FDM.
+		\item \textbf{(2015, Q.7a)} What is multiplexing? Describe the principle of TDM and FDM.
+		
+		\item \textbf{(2020, Q.7b)} Explain WDM technique with mentioning its applications.
+		\item \textbf{(2017, EEE-3217, Q.7c)} Briefly explain wavelength division multiplexing technique.
+		\item \textbf{(2016, EEE-3217, page 5, Q.8b)} Draw the block diagram of WDM multiplexing and de-multiplexing system. Explain the importance of WDM.
+		\item \textbf{(2015, Q.7c)} What is wave length multiplexing? Describe its importance.
+		
+		\item \textbf{(2020, Q.7c)} Design a TDM system having bandwidth of 256 kbps to send data from 4 analog sources of 2 KHz bandwidth and 8 digital signals of 7200 bps.
+		
+		\item \textbf{(2015, Q.5c)} Make a comparison between FDM and TDM technique with bandwidth vs time diagram of communication channel.
+		
+	\end{enumerate}
+	
+	\section{Multiple Access Techniques (FDMA, TDMA, CDMA, SDMA)}
+	\begin{enumerate}
+		\item \textbf{(2023, EEE-3117, Q.6c)} Suppose two mobile users are under the same base station, and both are transmitting signals simultaneously to each other. Now, find out the expression of the received signals for each other.
+		\item \textbf{(2020, Q.8a)} "Multiple access refers to the remote sharing of a communication channel" - Justify this statement.
+		\item \textbf{(2016, EEE-3217, page 5, Q.8c)} Why is multiple access network required in wireless communication system?
+		
+		\item \textbf{(2020, Q.8b)} Draw the frame structure of TDMA. Discuss the operation of CDMA.
+		
+		\item \textbf{(2020, Q.8c)} In a CDMA system, three users (A, B, C) communicating with base receiver to encode a message "1101". Draw the suitable code format to distinguish among three users.
+		\item \textbf{(2015, Q.8b)} Describe the CDMA technique with a numerical example of data "1101" which is encoded three users.
+		
+		\item \textbf{(2020, Q.8d)} Write a short note about space division multiple access technique.
+		
+		\item \textbf{(2018, EEE-3217, Q.7c)} Compare and contrast among TDMA, WDMA and CDMA techniques.
+		
+		\item \textbf{(2017, EEE-3217, Q.8b)} Mention the desirable feature of FDMA and TDMA systems.
+		
+		\item \textbf{(2016, EEE-3217, page 5, Q.8d)} Write the similarities and dissimilarities among FDMA, TDMA and CDMA.
+		
+	\end{enumerate}
+	
+	\section{Information Theory \& Channel Capacity}
+	\begin{enumerate}
+		\item \textbf{(2023, EEE-3117, Q.7a)} What are meant by channel capacity and outage probability of a wireless communication?
+		\item \textbf{(2016, EEE-3217, page 5, Q.(c))} Quote the Shannon theorem, what is the fundamental importance of this theorem.
+		\item \textbf{(2018, EEE-3217, Q.8a)} What are the channel selection criteria of a communication system?
+		\item \textbf{(2018, EEE-3217, Q.8b)} Briefly explain the designing parameters of a communication system.
+		\item \textbf{(2015, Q.3b)} What is meant by bandwidth requirements of a communication system?
+	\end{enumerate}
+	
+	\section{Receiver Architectures (Superheterodyne)}
+	\begin{enumerate}
+		\item \textbf{(2023, EEE-3117, Q.3b)} Suppose you have two available radio receivers- one is TRF, and another is superheterodyne. You are tuning to 1620kHz using both receivers, where the quality factor of the tuner circuits is 100 in each case. Investigate the associated problem with TRF receiver while tuning to this type of high frequency AM stations, and clarify how this issue is eliminated with the use of a superheterodyne receiver.
+		\item \textbf{(2023, EEE-3117, Q.3c)} For a broadcast superheterodyne AM receiver having no RF amplifier, the loaded quality factor Q of the antenna coupling circuit is 100. Now if the intermediate frequency is 455 kHz, then determine the following image frequency and its rejection ratio at an incoming frequency of 1000 kHz.
+		\item \textbf{(2023, EEE-3117, Q.4b)} What is meant by the selectivity of a Radio receiver? If the image frequency rejection of a receiver is insufficient, what steps could be taken to improve it?
+		\item \textbf{(2014, Q.3a)} Describe the general process of frequency changing in a superheterodyne receiver.
+		\item \textbf{(2013, Q.3a)} Draw the block diagram of superheterodyne receiver and explain the basic principle mentioning the function of each block.
+		\item \textbf{(2012, Q.4b)} Draw the block diagram of super heterodyne receiver. Explain why the usual AM radio receiver uses a super-heterodyne system?
+		
+		\item \textbf{(2014, Q.3b)} Explain what double spotting is and how it arises. What is its nuisance value?
+		
+		\item \textbf{(2014, Q.3c)} Calculate the image rejection of a receiver having an RF amplifier and an IF of 450 kHz, if the $Q_s$ of the relevant coils are 65 at an incoming frequency of (i) 1200 kHz, (ii) 20 MHz.
+		\item \textbf{(2013, Q.3c)} When a superheterodyne receiver is tuned to 555kHz its local oscillator provides the mixture with an input at 1010kHz. What is the image frequency? The antenna of this receiver is connected to the mixer via a tuned circuit whose loaded Q is 40. What will be the rejection ratio for the calculated image frequency?
+		\item \textbf{(2012, Q.4c)} What is image frequency? Calculate the image frequency rejection of a double conversion receiver which has a first IF of 2MHz and second IF of 200KHz, an RF amplifier whose tuned circuit has a Q of 75 and which is tuned to 30MHz signal. The answer is to be given in decibels.
+		
+		\item \textbf{(2014, Q.4b)} What is blocking in a receiver? How is good blocking achieved? What will be the effect on a communication's receiver if its blocking performance is poor?
+		
+		\item \textbf{(2014, Q.4c)} Draw the block diagram of FM radio receiver and explain the basic principle mentioning the function of each block.
+		
+		\item \textbf{(2012, Q.4a)} Define (i) selectivity, and (ii) sensitivity of a radio receiver.
+		
+	\end{enumerate}
+	
+	\section{Satellite \& Wireless Communication}
+	\begin{enumerate}
+		\item \textbf{(2023, EEE-3117, Q.1b)} Mention the advantages of the GEO satellite compared to other satellites.
+		\item \textbf{(2023, EEE-3117, Q.2b)} Suppose you are going to connect 50 telephone subscribers in your locality between two methods (interconnected and switching system) of connecting subscribers with each other; justify which one you prefer to utilize.
+		\item \textbf{(2023, EEE-3117, Q.6a)} Define interference and correlation in the case of wireless communication systems.
+		\item \textbf{(2023, EEE-3117, Q.6b)} Briefly describe the slow fading, fast fading, and frequency flat fading with proper diagrams.
+		\item \textbf{(2023, EEE-3117, Q.7b)} Briefly describe the CDF, PDF, and MGF of a communication channel.
+	\end{enumerate}
+	
+	\section{Radar Systems}
+	\begin{enumerate}
+		\item \textbf{(2023, EEE-3117, Q.1c)} Specify the frequency range of Radar communication for numerous applications.
+		\item \textbf{(2014, Q.5a)} What is meant by Radar Beacons? How phased array Radar is used to detect object?
+		
+		\item \textbf{(2014, Q.5b)} Derive the equation of maximum Radar range without noise effect.
+		
+		\item \textbf{(2014, Q.5c)} Calculate the lowest three blind speeds of an MTE Radar when it operates at 6GHz with a pulse repetition frequency of 600 PPS.
+		
+		\item \textbf{(2013, Q.5a)} Draw the block diagram of an elementary pulsed radar and explain the functions of duplexer.
+		
+		\item \textbf{(2013, Q.5b)} Why are very much greater ranges possible with active radar tracking than with passive tracing? Derive the equation for the maximum range for the reply line when a radar beacon is present on a target.
+		
+		\item \textbf{(2013, Q.5c)} An MTI radar operates at 10GHz with a PRF of 3500 PPS. Calculate its lowest blind speed.
+		
+		\item \textbf{(2012, Q.5a)} With block diagram discuss about the operation of MTI radar system.
+		
+		\item \textbf{(2012, Q.5b)} Write the advantages, applications and limitations of CW Doppler radar. Draw the block diagram of simple FM CW radar altimeter. How it is better than normal CW radar?
+		
+		\item \textbf{(2012, Q.5c)} A radar transmitter has a peak pulse power of 400KW, a PRF of 1500pps and a pulse width of 0.8$\mu$s. Calculate (i) the maximum unambiguous range, (ii) the duty cycle, (iii) the average transmitted power, (iv) a suitable bandwidth.
+		
+	\end{enumerate}
+	
+	\section{Television Engineering}
+	\begin{enumerate}
+		\item \textbf{(2023, EEE-3117, Q.1d)} Draw the basic block diagram of a TV receiver.
+		\item \textbf{(2014, Q.6a)} Sketch a sample scanning pattern for 21 interlaced lines per frame and 10.5 lines per field and hence explain the scanning process.
+		
+		\item \textbf{(2014, Q.6b)} What is raster? What types of raster distortions may be occurred in TV? With figure show the effects of these distortions.
+		\item \textbf{(2013, Q.7c)} What is raster? What types of raster distortions may be occurred in TV? With figure show the effects of these distortions.
+		
+		\item \textbf{(2014, Q.6c)} Explain why a television picture 4ft$\times$3ft has the same amount of detail as the picture on a 19 inch screen.
+		
+		\item \textbf{(2014, Q.7a)} How is the 3.58 MHz modulated chrominance signal transmitted to the receiver? Why is the 3.58 MHz signal called a subcarrier?
+		
+		\item \textbf{(2014, Q.7b)} In a comparison of monochrome and color television receivers, what sections are essentially the same and which sections are different?
+		
+		\item \textbf{(2014, Q.7c)} Calculate the width sections of each horizontal detail on a screen 20 inch wide for a video signal frequency of 0.5 MHz.
+		
+		\item \textbf{(2014, Q.8a)} Write short notes on CATV and CCTV.
+		\item \textbf{(2012, Q.8b)} Shortly describe CATV distribution system.
+		
+		\item \textbf{(2014, Q.8b)} What is meant by degaussing? Why it is necessary in color TV receiver?
+		\item \textbf{(2013, Q.8a)} What is degaussing? Why it is necessary in color TV receiver?
+		
+		\item \textbf{(2014, Q.8c)} Briefly explain the construction of composite video signal for a TV system.
+		
+		\item \textbf{(2013, Q.6a)} Draw the block diagram of television transmitter and receiver.
+		
+		\item \textbf{(2013, Q.6b)} What is scanning? Describe briefly the sequence of events in horizontal and vertical scanning.
+		
+		\item \textbf{(2013, Q.6c)} What is synchronizing? Why is it important in television transmission and reception?
+		
+		\item \textbf{(2013, Q.7a)} Compare the performance of camera tubes used in television system.
+		
+		\item \textbf{(2013, Q.7b)} What would happen if vertical scanning wave forms were not applied? What is the function of horizontal blanking pulse and vertical blanking pulse?
+		
+		\item \textbf{(2013, Q.8b)} What are meant by Y, I and Q signals in color TV? Why and how they are generated?
+		
+		\item \textbf{(2013, Q.8c)} Define: (i) Hue (ii) Saturation (iii) Image lag and (iv) Image burn.
+		
+		\item \textbf{(2012, Q.6a)} What makes a television picture scroll up or down the screen?
+		
+		\item \textbf{(2012, Q.6b)} What is interlaced scanning? How is flicker eliminated by using interlaced scanning?
+		
+		\item \textbf{(2012, Q.6c)} What is the difference between color level and hue?
+		
+		\item \textbf{(2012, Q.7a)} Why luminance signal Y is set to 0.3R + 0.59G + 0.11B?
+		
+		\item \textbf{(2012, Q.7b)} Explain why (R-Y) and (B-Y) are normally transmitted and (G-Y) is generated in the receiver?
+		
+		\item \textbf{(2012, Q.7c)} Define negative transmission. What are the advantage of negative transmission?
+		
+		\item \textbf{(2012, Q.8a)} Define (i) Brightness, (ii) Contrast, (iii) Aspect ratio.
+		
+		\item \textbf{(2012, Q.8c)} Why color subcarrier frequency is made exactly 3.579545MHz? Why gamma correction is necessary for camera signal?
+		
+		\item \textbf{(2013, Q.4a)} Explain why absorption of electromagnetic waves occur in atmosphere? Also mention the frequency effect in absorption.
+		\item \textbf{(2013, Q.4b)} Define: (i) Virtual height (ii) Skip distance (iii) MUF and (iv) Critical frequency.
+		\item \textbf{(2013, Q.4c)} Explain; why is sky wave propagation better at night than during day.
+		
+	\end{enumerate}
+	
+\end{document}
